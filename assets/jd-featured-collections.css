@@ -1,0 +1,426 @@
+/* ========================================
+   JOHNNY DANG FEATURED COLLECTIONS
+   ======================================== */
+
+.jd-featured-collections {
+  position: relative;
+  min-height: 100vh;
+  background: 
+    linear-gradient(51.2deg, rgba(0, 0, 0, 0.025) -14.62%, rgba(99, 55, 28, 0.005) 88.42%),
+    linear-gradient(rgba(186, 95, 36, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(186, 95, 36, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 80px 80px, 80px 80px;
+  background-position: 0 0, 0 0, 0 0;
+  overflow: hidden;
+}
+
+.jd-featured-collections__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Background Grid - Full Section Coverage */
+.jd-featured-collections__grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(186, 95, 36, 0.3) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(186, 95, 36, 0.3) 2px, transparent 2px);
+  background-size: 80px 80px;
+  background-position: 0 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+  /* Temporary debug border - remove after testing */
+  /* border: 1px solid red; */
+}
+
+/* Content */
+.jd-featured-collections__content {
+  position: relative;
+  z-index: 3;
+  padding: 4rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.jd-featured-collections__title {
+  font-family: 'Playfair Display';
+  font-size: 3rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.jd-featured-collections__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #FF8C00;
+  text-decoration: none;
+  font-size: 11.81px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4rem;
+  transition: all 0.3s ease;
+}
+
+.jd-featured-collections__view-all:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.jd-featured-collections__arrow {
+  transition: transform 0.3s ease;
+}
+
+.jd-featured-collections__view-all:hover .jd-featured-collections__arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Cards Grid - 3 columns, 2 rows for 6 cards */
+.jd-featured-collections__grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+ 
+}
+
+/* Individual Card */
+.jd-featured-collections__card {
+  position: relative;
+  background: rgba(110, 54, 20, 0.1);
+  border: 1px solid rgba(186, 95, 36, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  aspect-ratio: 1;
+  width: 385.82967857970465px;
+  height: 453.52787977221004px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Remove backdrop filter to make grid lines sharp */
+
+  background-size: 60px 60px;
+  background-position: 0 0;
+  /* Ensure proper layering for cursor light effect */
+  z-index: 1;
+}
+
+.jd-featured-collections__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, #6E361412 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.jd-featured-collections__card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(186, 95, 36, 0.2), rgba(255, 140, 0, 0.15), transparent);
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Lightning Hover Effect */
+.jd-featured-collections__card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(110, 54, 20, 0.15);
+  border-color: rgba(186, 95, 36, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(186, 95, 36, 0.2),
+    inset 0 1px 0 rgba(255, 140, 0, 0.1);
+  /* Maintain sharp grid lines on hover */
+  /* background-image: 
+    linear-gradient(rgba(186, 95, 36, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(186, 95, 36, 0.25) 1px, transparent 1px); */
+  background-size: 60px 60px;
+  background-position: 0 0;
+}
+
+.jd-featured-collections__card:hover::before {
+  opacity: 1;
+}
+
+.jd-featured-collections__card:hover::after {
+  opacity: 1;
+  animation: lightning 0.6s ease-in-out;
+}
+
+@keyframes lightning {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Bestseller Tag */
+.jd-featured-collections__tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #E05A0A21;
+  color: #FF8C00;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 4;
+  padding: 10px;
+  font-size: 13px;
+  
+
+}
+
+/* Image Container */
+.jd-featured-collections__image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.jd-featured-collections__image {
+  max-width: 100%;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.jd-featured-collections__card:hover .jd-featured-collections__image {
+  transform: scale(1.05);
+}
+
+/* Image Placeholder */
+.jd-featured-collections__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(186, 95, 36, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.jd-featured-collections__card:hover .jd-featured-collections__image-placeholder {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(186, 95, 36, 0.5);
+  transform: scale(1.02);
+}
+
+.jd-featured-collections__image-placeholder svg {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.jd-featured-collections__card:hover .jd-featured-collections__image-placeholder svg {
+  opacity: 0.8;
+}
+
+/* Label */
+.jd-featured-collections__label {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Link */
+.jd-featured-collections__card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .jd-featured-collections {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  
+  .jd-featured-collections__container {
+    padding: 0 1rem;
+  }
+  
+  .jd-featured-collections__content {
+    padding: 1rem 0;
+    max-width: 100%;
+  }
+  
+  .jd-featured-collections__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .jd-featured-collections__view-all {
+    font-size: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .jd-featured-collections__grid-cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 1rem;
+  }
+  
+  .jd-featured-collections__card {
+    padding: 1rem;
+    min-height: 200px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  
+  .jd-featured-collections__image {
+    max-height: 120px;
+  }
+  
+  .jd-featured-collections__label {
+    font-size: 11px;
+    margin-top: 0.5rem;
+  }
+  
+  .jd-featured-collections__tag {
+    font-size: 10px;
+    padding: 0.3rem 0.6rem;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .jd-featured-collections {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+  
+  .jd-featured-collections__container {
+    padding: 0 1.5rem;
+  }
+  
+  .jd-featured-collections__content {
+    padding: 2rem 0;
+    max-width: 100%;
+  }
+  
+  .jd-featured-collections__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .jd-featured-collections__view-all {
+    font-size: 11px;
+    margin-bottom: 3rem;
+  }
+  
+  .jd-featured-collections__grid-cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .jd-featured-collections__card {
+    padding: 2rem;
+    min-height: 250px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  
+  .jd-featured-collections__image {
+    max-height: 150px;
+  }
+  
+  .jd-featured-collections__label {
+    font-size: 12px;
+    margin-top: 0.8rem;
+  }
+  
+  .jd-featured-collections__tag {
+    font-size: 11px;
+    padding: 0.4rem 0.8rem;
+    top: 0.8rem;
+    left: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .jd-featured-collections__grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .jd-featured-collections__grid-cards {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+

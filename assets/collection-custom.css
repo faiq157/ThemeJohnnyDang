@@ -1,0 +1,59 @@
+/* Layout */
+.collection-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Sidebar */
+.collection-filters {
+  flex: 1;
+  max-width: 220px;
+  background: #111;
+  padding: 1rem;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.collection-filters summary {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+/* Content */
+.collection-content {
+  flex: 4;
+}
+
+/* Category icons */
+.collection-categories {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.collection-categories .category-item {
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.collection-categories .category-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+/* Grid */
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.collection-grid__item {
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}

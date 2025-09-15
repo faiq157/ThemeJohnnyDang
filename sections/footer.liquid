@@ -1,0 +1,389 @@
+{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .footer {
+    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer {
+      margin-top: {{ section.settings.margin_top }}px;
+    }
+
+    .section-{{ section.id }}-padding {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+{%- endstyle -%}
+
+<footer class="footer section-{{ section.id }}-padding">
+  <!-- Newsletter Signup Section -->
+  <div class="footer__newsletter-section">
+    <div class="page-width">
+      <div class="footer__newsletter-content">
+
+        <div class="footer__newsletter-text">
+          <h2 class="footer__newsletter-heading">STAY IN THE KNOW</h2>
+          <p class="footer__newsletter-description">Sign up for updates on new arrivals, sale previews & birthday surprises.</p>
+        </div>
+        
+        <div class="footer__newsletter-form">
+          {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter-form' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="footer__newsletter-input-group">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                class="footer__newsletter-input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                placeholder="Enter your email address"
+                required
+              >
+              <button type="submit" class="footer__newsletter-button" name="commit" id="Subscribe" aria-label="Subscribe">
+                SUBSCRIBE
+              </button>
+            </div>
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Content -->
+  <div class="footer__main-content">
+    <div class="page-width">
+      <div class="footer__grid">
+        <!-- Column 1: Company Info -->
+        <div class="footer__column footer__column--company">
+          <div class="footer__logo">
+            <img src="{{ 'footerlogo.png' | asset_url }}" alt="Johnny Dang & Co" class="footer__logo-image">
+          </div>
+          <p class="footer__company-description">
+            Johnny Dang, the king of bling straight outta Houston, is known for custom pieces, high-end watches, and those iced-out grillz. Want to flex like the stars? This is where you start!
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer__column footer__column--links">
+          <h2 class="footer__column-heading">Quick Links</h2>
+          <ul class="footer__links-list">
+            <li><a href="{{ routes.collections_url }}" class="footer__link">Collection</a></li>
+            <li><a href="/pages/custom" class="footer__link">Custom</a></li>
+            <li><a href="{{ routes.collections_url }}/flash-deals" class="footer__link">Flash Deals</a></li>
+            <li><a href="{{ routes.collections_url }}/best-sellers" class="footer__link">Best Sellers</a></li>
+            <li><a href="/pages/appointment" class="footer__link">Book An Appointment</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Support -->
+        <div class="footer__column footer__column--support">
+          <h3 class="footer__column-heading">Support</h3>
+          <ul class="footer__links-list">
+            <li><a href="/pages/refund-policy" class="footer__link">Refund Policy</a></li>
+            <li><a href="/pages/terms-conditions" class="footer__link">Terms & Conditions</a></li>
+            <li><a href="/pages/cancellation-returns" class="footer__link">Cancellation & Returns</a></li>
+            <li><a href="/pages/price-match" class="footer__link">Price Match Guarantee</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Customer Care -->
+        <div class="footer__column footer__column--care">
+          <h3 class="footer__column-heading">Customer Care</h3>
+          <div class="footer__care-info">
+           <div>
+            <p class="footer__hours">Monday to Saturday: 10:00AM - 7:00PM</p>
+            <p class="footer__hours">Sunday: Closed</p>
+           </div>
+            <p class="footer__contact">contact@johnnydang.shop</p>
+          <div>
+            <p class="footer__address">6224 Richmond Ave</p>
+            <p class="footer__address">Houston, TX United States</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section: Social & Copyright -->
+  <div class="footer__bottom">
+    <div class="page-width">
+      <div class="footer__bottom-content">
+        <div class="footer__social">
+          <h2 class="footer__social-heading">GET SOCIAL</h2>
+          <div class="footer__social-icons">
+            <a href="{{ settings.social_facebook_link }}" class="footer__social-icon" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5 10.6367H12.375L13.125 7.63672H10.5V6.13672C10.5 5.36422 10.5 4.63672 12 4.63672H13.125V2.11672C12.8805 2.08447 11.9572 2.01172 10.9822 2.01172C8.946 2.01172 7.5 3.25447 7.5 5.53672V7.63672H5.25V10.6367H7.5V17.0117H10.5V10.6367Z" fill="#FF6200"/>
+              </svg>
+            </a>
+            <a href="{{ settings.social_instagram_link }}" class="footer__social-icon" aria-label="Instagram">
+              <svg width="14" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="{{ settings.social_youtube_link }}" class="footer__social-icon" aria-label="YouTube">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <a href="{{ settings.social_tiktok_link }}" class="footer__social-icon" aria-label="TikTok">
+              <svg  viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_432_2826)">
+                  <path d="M15.5079 3.24446C15.4235 3.18774 15.3392 3.18775 15.2548 3.2161C14.5517 3.52804 13.8204 3.30118 13.3985 2.73401C13.2017 2.47879 13.0892 2.13849 13.0892 1.82655C13.0892 1.74148 13.061 1.68476 13.0048 1.62804C12.9485 1.57133 12.8923 1.54297 12.8079 1.54297H9.93916C9.77041 1.54297 9.65791 1.6564 9.65791 1.82655V11.8937C9.65791 11.9221 9.65791 11.9221 9.65791 11.9504C9.60166 12.4609 9.20791 12.8295 8.70166 12.8295C8.16728 12.8295 7.71729 12.3758 7.71729 11.837C7.71729 11.3266 8.08291 10.9295 8.58916 10.8728C8.72978 10.8445 8.84229 10.731 8.84229 10.5892V7.29969C8.84229 7.12954 8.72978 7.0161 8.56104 7.0161C8.56104 7.0161 8.53291 7.0161 8.50479 7.0161C5.91728 7.12954 3.92041 9.22804 3.92041 11.837C3.92041 14.5027 6.05791 16.6579 8.70166 16.6579C11.1767 16.6579 13.2579 14.7295 13.4548 12.2624C13.4829 12.234 13.4829 12.1773 13.4829 12.1489V6.67581C14.1017 6.8176 14.7485 6.87431 15.4235 6.76088C15.5642 6.73252 15.6485 6.61909 15.6485 6.4773V3.47133C15.6485 3.38625 15.5923 3.30118 15.5079 3.24446ZM15.086 6.25043C14.4392 6.30715 13.8485 6.25043 13.2579 6.05192C13.1735 6.02357 13.0892 6.05192 13.0048 6.08028C12.9204 6.137 12.8923 6.22207 12.8923 6.30715V12.0355C12.8923 12.0639 12.8923 12.0922 12.8642 12.1206C12.7235 14.3325 10.8673 16.0907 8.67354 16.0907C6.33916 16.0907 4.45479 14.1907 4.45479 11.837C4.45479 9.62506 6.08604 7.81013 8.25166 7.61163V10.3624C7.60479 10.5609 7.12666 11.1564 7.12666 11.837C7.12666 12.6877 7.82979 13.3967 8.67354 13.3967C9.43291 13.3967 10.0798 12.8295 10.1923 12.0922C10.2204 12.0639 10.2204 12.0071 10.2204 11.9788V2.11013H12.5548C12.611 2.47879 12.7517 2.79073 12.9485 3.07431C13.4267 3.72655 14.2704 4.06685 15.086 3.86834V6.25043Z" fill="#FF6200"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_432_2826">
+                    <rect width="18" height="19" fill="white" transform="translate(0.77002 0.0117188)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__copyright">
+          <p>Copyright © 2025 All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.footer.blocks.link_list.settings.heading.default",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label"
+        }
+      ]
+    },
+    {
+      "type": "brand_information",
+      "name": "t:sections.footer.blocks.brand_information.name",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": true,
+          "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
+          "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.footer.blocks.text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.footer.blocks.text.settings.heading.default",
+          "label": "t:sections.footer.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "subtext",
+          "default": "t:sections.footer.blocks.text.settings.subtext.default",
+          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 550,
+          "step": 5,
+          "unit": "px",
+          "label": "Width",
+          "default": 100
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__1.content",
+      "info": "t:sections.footer.settings.header__1.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.newsletter_enable.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "newsletter_heading",
+      "default": "t:sections.footer.settings.newsletter_heading.default",
+      "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__9.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_follow_on_shop",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_follow_on_shop.label",
+      "info": "t:sections.footer.settings.enable_follow_on_shop.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": true,
+      "label": "t:sections.footer.settings.show_social.label",
+      "info": "t:sections.footer.settings.show_social.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_country_selector.label",
+      "info": "t:sections.footer.settings.enable_country_selector.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_language_selector.label",
+      "info": "t:sections.footer.settings.enable_language_selector.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_enable.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy",
+      "default": true,
+      "label": "t:sections.footer.settings.show_policy.label",
+      "info": "t:sections.footer.settings.show_policy.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.footer.settings.margin_top.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "text"
+      }
+    ]
+  }
+}
+{% endschema %}

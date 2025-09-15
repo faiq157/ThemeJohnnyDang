@@ -1,0 +1,213 @@
+{{ 'jd-product-page.css' | asset_url | stylesheet_tag }}
+
+<product-info
+  id="JDProduct-{{ section.id }}"
+  class="jd-product-page addpadding"
+  data-section="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-update-url="true"
+  data-url="{{ product.url }}"
+>
+  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+  <div class="jd-product-container">
+    <!-- Product Image Section -->
+    <div class="jd-product-image-section">
+      {% if product.featured_media %}
+        <div class="jd-product-image-wrapper">
+          <img 
+            src="{{ product.featured_media | image_url: width: 800 }}"
+            alt="{{ product.featured_media.alt | escape }}"
+            class="jd-product-image"
+            loading="lazy"
+            width="800"
+            height="600"
+          >
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Product Details Section -->
+    <div class="jd-product-details-section">
+      <div class="jd-product-info">
+        <!-- Product Title -->
+        <h1 class="jd-product-title">{{ product.title | escape }}</h1>
+        
+        <!-- Rating & Reviews -->
+        <div class="jd-product-rating">
+          <div class="jd-stars">
+            <span class="jd-star filled">★</span>
+            <span class="jd-star filled">★</span>
+            <span class="jd-star filled">★</span>
+            <span class="jd-star filled">★</span>
+            <span class="jd-star">★</span>
+          </div>
+          <span class="jd-rating-text">4.2</span>
+          <span class="jd-reviews-count">178 REVIEWS</span>
+        </div>
+        <hr class="jd-divider">
+
+        <!-- Price -->
+        <div class="jd-product-price">
+          <span class="jd-price">{{ product.price | money_with_currency }}</span>
+        </div>
+        <hr class="jd-divider">
+
+        <!-- Gold Color Selection -->
+        <div class="jd-color-selection">
+          <h3 class="jd-section-title">GOLD COLOR</h3>
+          <div class="jd-color-swatches">
+            <div class="jd-color-swatch jd-color-swatch--yellow active" data-color="yellow"></div>
+            <div class="jd-color-swatch jd-color-swatch--rose" data-color="rose"></div>
+            <div class="jd-color-swatch jd-color-swatch--white" data-color="white"></div>
+          </div>
+        </div>
+
+        <!-- Size Selection -->
+        <div class="jd-size-selection">
+          <div class="jd-size-header">
+            <h3 class="jd-section-title">SELECT SIZE</h3>
+            <span class="jd-size-arrow">▲</span>
+          </div>
+          <div class="jd-size-grid">
+            <button class="jd-size-btn" data-size="4">4</button>
+            <button class="jd-size-btn" data-size="5">5</button>
+            <button class="jd-size-btn" data-size="6">6</button>
+            <button class="jd-size-btn" data-size="7">7</button>
+            <button class="jd-size-btn" data-size="8">8</button>
+            <button class="jd-size-btn" data-size="9">9</button>
+            <button class="jd-size-btn" data-size="10">10</button>
+            <button class="jd-size-btn" data-size="11">11</button>
+          </div>
+          <div class="jd-size-grid jd-size-grid-second">
+            <button class="jd-size-btn active" data-size="12">12</button>
+          </div>
+          <a href="#" class="jd-size-guide">Size Guide</a>
+        </div>
+
+        <!-- Availability -->
+        <div class="jd-availability">
+          <span class="jd-availability-dot"></span>
+          <span class="jd-availability-text">IN STOCK</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="jd-action-buttons">
+          <button class="jd-add-to-bag">ADD TO BAG</button>
+          <button class="jd-add-to-wishlist">
+            <span class="jd-heart-icon">♡</span>
+            ADD TO WISHLIST
+          </button>
+        </div>
+
+        <!-- Collapsible Sections -->
+        <div class="jd-collapsible-sections">
+          <!-- Description -->
+          <div class="jd-collapsible-section">
+            <div class="jd-collapsible-header">
+              <h3 class="jd-section-title">DESCRIPTION</h3>
+              <span class="jd-collapsible-arrow">▼</span>
+            </div>
+            <div class="jd-collapsible-content active">
+              <p>Crafted in 14k gold, this men's band features a striking mix of baguette and round diamonds, with a total carat weight of 1.55-1.75 CTW, designed to make a bold statement of sophistication.</p>
+            </div>
+          </div>
+
+          <!-- Shipping & Returns -->
+          <div class="jd-collapsible-section">
+            <div class="jd-collapsible-header">
+              <h3 class="jd-section-title">SHIPPING & RETURNS</h3>
+              <span class="jd-collapsible-arrow">▼</span>
+            </div>
+            <div class="jd-collapsible-content active">
+              <ul>
+                <li>
+                  <span class="jd-icon">🚚</span>
+                  14 day return policy on all products excluding custom products
+                </li>
+                <li>
+                  <span class="jd-icon">🕐</span>
+                  Orders may require an additional 2-3 business days processing time. Custom made orders including grills can take 2-3 weeks to complete.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Warranty -->
+          <div class="jd-collapsible-section">
+            <div class="jd-collapsible-header">
+              <h3 class="jd-section-title">WARRANTY</h3>
+              <span class="jd-collapsible-arrow">▼</span>
+            </div>
+            <div class="jd-collapsible-content active">
+              <p>All products come with a thirty (30) day manufacturers warranty.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="jd-payment-methods">
+          <h3 class="jd-payment-title">CHECKOUT SAFELY USING YOUR PREFERRED PAYMENT METHOD</h3>
+          <div class="jd-payment-logos">
+            <div class="jd-payment-logo">Visa</div>
+            <div class="jd-payment-logo">Mastercard</div>
+            <div class="jd-payment-logo">American Express</div>
+            <div class="jd-payment-logo">PayPal</div>
+            <div class="jd-payment-logo">Amazon Pay</div>
+            <div class="jd-payment-logo">Apple Pay</div>
+            <div class="jd-payment-logo">Google Pay</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</product-info>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Size selection functionality
+  const sizeButtons = document.querySelectorAll('.jd-size-btn');
+  sizeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      sizeButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Color selection functionality
+  const colorSwatches = document.querySelectorAll('.jd-color-swatch');
+  colorSwatches.forEach(swatch => {
+    swatch.addEventListener('click', function() {
+      colorSwatches.forEach(s => s.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Collapsible sections functionality
+  const collapsibleHeaders = document.querySelectorAll('.jd-collapsible-header');
+  collapsibleHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const arrow = this.querySelector('.jd-collapsible-arrow');
+      
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        arrow.textContent = '▶';
+      } else {
+        content.classList.add('active');
+        arrow.textContent = '▼';
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "JD Product Page",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,115 @@
+{{ 'king-of-bling.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="king-of-bling-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="king-of-bling-content">
+      <div class="king-of-bling-image">
+        <img 
+          src="{{ 'jhonydang.jpg' | asset_url }}"
+          alt="Johnny Dang - King of Bling"
+          width="435px"
+          height="479px"
+          loading="lazy"
+          class="king-of-bling-img"
+        >
+      </div>
+      
+      <div class="king-of-bling-text">
+        {% if section.settings.heading != blank %}
+          <h2 class="king-of-bling-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        
+        {% if section.settings.description != blank %}
+          <div class="king-of-bling-description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.cta_text != blank and section.settings.cta_link != blank %}
+          <a href="{{ section.settings.cta_link }}" class="king-of-bling-cta">
+            {{ section.settings.cta_text }}
+<svg class="cta-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "King of Bling",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE KING OF BLING"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Johnny Dang, also known as the \"King of Bling,\" is a world-renowned jeweler who transformed the jewelry game with his signature custom grillz, iced-out chains, and diamond-studded masterpieces. From humble beginnings as an immigrant watch repairman, Johnny built his empire in Houston, Texas, and quickly became the go-to jeweler for the world's biggest hip-hop stars.</p><p>His designs have been worn by icons like Paul Wall, Travis Scott, Migos, Drake, Beyoncé, and countless others.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Call to action text",
+      "default": "LEARN MORE"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Call to action link"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "King of Bling"
+    }
+  ]
+}
+{% endschema %}

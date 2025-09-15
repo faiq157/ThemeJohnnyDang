@@ -1,0 +1,426 @@
+/* ========================================
+   JOHNNY DANG DARK MODE - GLOBAL OVERRIDE
+   ======================================== */
+
+/* ROOT COLOR OVERRIDES FOR DARK MODE */
+:root {
+  --color-background: 0, 0, 0;        /* #000000 - Dark background */
+  --color-foreground: 255, 255, 255;  /* #FFFFFF - White text */
+  --color-button: 255, 255, 255;         /* #FFFFFF - White buttons */
+  --color-button-label: 0, 0, 0;      /* #000000 - Dark button text */
+  --color-secondary-button-label: 255, 255, 255; /* #FFFFFF - White secondary text */
+  --color-shadow: 0, 0, 0;               /* #000000 - Black shadows */
+  --color-link: 255, 255, 255;           /* #FFFFFF - White links */
+  --color-soldout-badge: 255, 0, 0;      /* #FF0000 - Red for sold out */
+  --color-soldout-badge-label: 255, 255, 255; /* #FFFFFF - White sold out text */
+}
+
+/* OVERRIDE ANY COLOR SCHEME DEFINITIONS */
+:root, .color-scheme-1, .color-scheme-2, .color-scheme-3 {
+  --color-foreground: 255, 255, 255 ;  /* Force white foreground */
+}
+
+/* FORCE DARK MODE GLOBALLY */
+html, body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* OVERRIDE ANY LIGHT BACKGROUNDS */
+.color-background, .color-scheme-1, .color-scheme-2, .color-scheme-3 {
+  background-color: #0000 !important;
+}
+
+/* BODY AND MAIN CONTAINERS */
+body {
+  background-color: rgb(var(--color-background)) !important;
+
+}
+
+.main-content {
+  background-color: rgb(var(--color-background)) !important;
+}
+
+
+
+
+ h1, h2, h3, h4, h5, h6 {
+  color: rgb(var(--color-foreground));
+} 
+
+/* p, span, div, li {
+  color: rgb(var(--color-foreground));
+} */
+
+/* LINKS */
+/* a {
+  color: rgb(var(--color-link)) !important;
+}
+
+a:hover {
+  color: rgba(var(--color-link), 0.8) !important;
+}
+
+/* BUTTONS */
+/* .btn, .button, button {
+
+  color: rgb(var(--color-button-label)) !important;
+  border-color: rgb(var(--color-button)) !important;
+} */ 
+
+/* .btn:hover, .button:hover, button:hover {
+  /* background-color: rgba(var(--color-button), 0.9) !important; */
+  /* color: rgb(var(--color-button-label)) !important;
+}
+
+.btn--secondary, .button--secondary {
+  background-color: transparent !important;
+  color: rgb(var(--color-secondary-button-label)) !important;
+  border-color: rgb(var(--color-secondary-button-label)) !important;
+}
+
+.btn--secondary:hover, .button--secondary:hover {
+  background-color: rgba(var(--color-secondary-button-label), 0.1) !important;
+  color: rgb(var(--color-secondary-button-label)) !important;
+} */  
+
+/* FORMS AND INPUTS */
+input, textarea, select {
+  background-color: rgba(var(--color-foreground), 0.05);
+  color: rgb(var(--color-foreground)) !important;
+  border-color: rgba(var(--color-foreground), 0.2) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: rgba(var(--color-foreground), 0.1) !important;
+  border-color: rgba(var(--color-foreground), 0.5) !important;
+  outline-color: rgba(var(--color-foreground), 0.5) !important;
+}
+
+/* CARDS AND CONTAINERS */
+.card, .product-card, .collection-card, .article-card {
+  background-color: rgba(var(--color-foreground), 0.03) !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.card:hover, .product-card:hover, .collection-card:hover, .article-card:hover {
+  background-color: rgba(var(--color-foreground), 0.05) !important;
+  border-color: rgba(var(--color-foreground), 0.2) !important;
+}
+
+/* PRODUCT CARDS SPECIFIC */
+.product-card__title, .product-card__vendor, .product-card__price {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.product-card__title:hover {
+  color: rgba(var(--color-foreground), 0.8) !important;
+}
+
+/* COLLECTION CARDS */
+.collection-card__title, .collection-card__description {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* ARTICLE CARDS */
+.article-card__title, .article-card__excerpt, .article-card__date {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* SECTIONS */
+.section {
+  background-color: rgb(var(--color-background)) !important;
+}
+
+.section-header {
+  background-color: transparent !important;
+}
+
+/* FEATURED COLLECTION */
+.featured-collection {
+  background-color: rgb(var(--color-background)) !important;
+}
+
+.featured-collection .card {
+  background-color: rgba(var(--color-foreground), 0.03) !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+/* FOOTER */
+.footer {
+  background-color: rgba(var(--color-foreground), 0.05) !important;
+  border-top-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+/* .footer h2, .footer h3, .footer h4, .footer p, .footer a {
+  color: rgb(var(--color-foreground));
+} */
+
+.footer a:hover {
+  color: rgba(var(--color-foreground), 0.8) !important;
+}
+
+/* CART DRAWER */
+.cart-drawer {
+  background-color: rgb(var(--color-background)) !important;
+  border-left-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+.cart-drawer__header, .cart-drawer__footer {
+  background-color: transparent !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+.cart-drawer__title, .cart-drawer__subtotal, .cart-drawer__total {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* CART ITEMS */
+.cart-item {
+  background-color: transparent !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+.cart-item__title, .cart-item__price, .cart-item__quantity {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* SEARCH */
+.search-modal, .predictive-search {
+  background-color: rgba(var(--color-background), 0.98) !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+.search-modal__input, .predictive-search__input {
+  background-color: rgba(var(--color-foreground), 0.05) !important;
+  color: rgb(var(--color-foreground)) !important;
+  border-color: rgba(var(--color-foreground), 0.2) !important;
+}
+
+.predictive-search__item {
+  background-color: transparent !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+.predictive-search__item:hover {
+  background-color: rgba(var(--color-foreground), 0.05) !important;
+}
+
+/* HEADER TRANSPARENCY AND NAVIGATION OVERRIDES */
+.shopify-section-header, .header-wrapper, .header {
+  background: transparent;
+  backdrop-filter: blur(0px);
+  border: none !important;
+  border-bottom: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__menu, .header__menu-item, .list-menu__item {
+  background-color: transparent !important;
+}
+
+.header__menu a, .header__menu-item a, .list-menu__item a {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+.header__menu a:hover, .header__menu-item a:hover, .list-menu__item a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* ENHANCED BACKGROUND EFFECT FOR SCROLLED HEADER */
+.header-wrapper.scrolled {
+  background: rgba(0, 0, 0, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .header-wrapper.scrolled {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+}
+
+/* MAKE HEADER ALWAYS TRANSPARENT */
+.shopify-section-header-sticky .header-wrapper {
+  background: transparent !important;
+  backdrop-filter: blur(0px);
+}
+
+/* NAVIGATION ICONS */
+/* .header__icon, .header__icon--summary {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+} */
+
+.header__icon svg, .header__icon--summary svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+/* 
+/* COMPREHENSIVE WHITE TEXT FOR ALL HEADER ELEMENTS */
+/* .shopify-section-header *, 
+.header-wrapper *, 
+.header *, 
+.header a, 
+.header span, 
+.header div, 
+.header p,
+.header button,
+.header-drawer *,
+.header__heading,
+.header__menu *,
+.list-menu *,
+.site-nav *,
+.header__search *,
+.predictive-search * {
+  color: #ffffff !important;
+} */ 
+
+/* Header logo text */
+.header__heading a,
+.header__heading span {
+  color: #ffffff !important;
+}
+
+/* BADGES AND LABELS */
+.badge, .price__badge {
+  background-color: rgb(var(--color-soldout-badge)) !important;
+  color: rgb(var(--color-soldout-badge-label)) !important;
+}
+
+.price__badge--sale {
+  background-color: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+/* PRICE */
+.price {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.price--sale {
+  color: #ff0000 !important;
+}
+
+.price--compare {
+  color: rgba(var(--color-foreground), 0.6) !important;
+}
+
+/* RATING */
+.rating {
+  color: #ffd700 !important; /* Gold for stars */
+}
+
+/* LOADING SPINNER */
+.loading-spinner {
+  border-color: rgba(var(--color-foreground), 0.2) !important;
+  border-top-color: rgb(var(--color-foreground)) !important;
+}
+
+/* MODALS */
+.modal, .details-modal {
+  background-color: rgba(var(--color-background), 0.98) !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+.modal__content {
+  background-color: transparent !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* PAGINATION */
+.pagination {
+  background-color: transparent !important;
+}
+
+.pagination__item {
+  background-color: rgba(var(--color-foreground), 0.05) !important;
+  color: rgb(var(--color-foreground)) !important;
+  border-color: rgba(var(--color-foreground), 0.1) !important;
+}
+
+.pagination__item:hover, .pagination__item--current {
+  background-color: rgba(var(--color-foreground), 0.1) !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* BREADCRUMBS */
+.breadcrumb {
+  background-color: transparent !important;
+}
+
+.breadcrumb__item, .breadcrumb__link {
+  color: rgba(var(--color-foreground), 0.7) !important;
+}
+
+.breadcrumb__item--current {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* UTILITY CLASSES */
+.text-muted {
+  color: rgba(var(--color-foreground), 0.6) !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media screen and (max-width: 749px) {
+  .mobile-menu {
+    background-color: rgba(var(--color-background), 0.98) !important;
+    border-color: rgba(var(--color-foreground), 0.1) !important;
+  }
+  
+  .mobile-menu__item, .mobile-menu__link {
+    color: rgb(var(--color-foreground)) !important;
+    border-color: rgba(var(--color-foreground), 0.1) !important;
+  }
+  
+  .mobile-menu__item:hover, .mobile-menu__link:hover {
+    background-color: rgba(var(--color-foreground), 0.05) !important;
+  }
+}
+
+/* SCROLLBAR STYLING FOR DARK MODE */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--color-foreground), 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-foreground), 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--color-foreground), 0.5);
+}
+
+/* SELECTION STYLING */
+::selection {
+  background-color: rgba(var(--color-foreground), 0.2);
+  color: rgb(var(--color-foreground));
+}
+
+::-moz-selection {
+  background-color: rgba(var(--color-foreground), 0.2);
+  color: rgb(var(--color-foreground));
+}

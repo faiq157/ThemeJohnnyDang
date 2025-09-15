@@ -1,0 +1,369 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "jd_hero_carousel": {
+      "type": "jd-hero-carousel",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "STEP INTO THE SPOTLIGHT",
+            "title": "Redefining\nIced-Out\nLuxury",
+            "description": "Discover our exclusive collection of luxury jewelry that defines elegance and sophistication.",
+            "cta_text": "SHOP NOW",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "LUXURY REDEFINED",
+            "title": "Diamond\nElegance\nUnmatched",
+            "description": "Experience the pinnacle of craftsmanship with our premium diamond collection.",
+            "cta_text": "EXPLORE",
+            "cta_link": "shopify://collections/diamonds"
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "EXCLUSIVE DESIGNS",
+            "title": "Custom\nCreations\nAwaiting",
+            "description": "Let us create something extraordinary just for you with our bespoke jewelry service.",
+            "cta_text": "CUSTOMIZE",
+            "cta_link": "shopify://pages/custom"
+          }
+        },
+        "slide_4": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "PREMIUM COLLECTION",
+            "title": "Signature\nPieces\nUnveiled",
+            "description": "Discover our most exclusive and sought-after jewelry pieces designed for true connoisseurs.",
+            "cta_text": "DISCOVER",
+            "cta_link": "shopify://collections/premium"
+          }
+        },
+        "slide_5": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "LEGACY COLLECTION",
+            "title": "Timeless\nElegance\nRedefined",
+            "description": "Experience the heritage and craftsmanship that defines our legendary jewelry legacy.",
+            "cta_text": "EXPLORE",
+            "cta_link": "shopify://collections/legacy"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4",
+        "slide_5"
+      ],
+      "settings": {
+        "video_file": "shopify://files/videos/Made with Clipchamp.mp4",
+        "video_url": "",
+        "video_file_url": ""
+      }
+    },
+    "jd_bottom_nav": {
+      "type": "jd-bottom-nav",
+      "blocks": {
+        "nav_1": {
+          "type": "nav_item",
+          "settings": {
+            "text": "KING OF BLING",
+            "link": ""
+          }
+        },
+        "nav_2": {
+          "type": "nav_item",
+          "settings": {
+            "text": "GET FEATURED",
+            "link": ""
+          }
+        },
+        "nav_3": {
+          "type": "nav_item",
+          "settings": {
+            "text": "GET NOTICED",
+            "link": ""
+          }
+        },
+        "nav_4": {
+          "type": "nav_item",
+          "settings": {
+            "text": "DRIP IN DIAMONDS",
+            "link": ""
+          }
+        },
+        "nav_5": {
+          "type": "nav_item",
+          "settings": {
+            "text": "LUXURY THAT TRENDS",
+            "link": ""
+          }
+        },
+        "nav_6": {
+          "type": "nav_item",
+          "settings": {
+            "text": "GET ICED OUT",
+            "link": ""
+          }
+        },
+        "nav_7": {
+          "type": "nav_item",
+          "settings": {
+            "text": "JOIN THE FAMILY",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "nav_1",
+        "nav_2",
+        "nav_3",
+        "nav_4",
+        "nav_5",
+        "nav_6",
+        "nav_7"
+      ],
+      "settings": {}
+    },
+    "jd_promotion_cards_r4a7tW": {
+      "type": "jd-promotion-cards",
+      "blocks": {
+        "custom_card_VyfiCD": {
+          "type": "custom_card",
+          "settings": {
+            "card_image": "shopify://shop_images/braclet.png",
+            "card_subtitle": "CUSTOM BLING, CUSTOM FLEX",
+            "card_title": "Create Your Own Custom Ice\nPieces",
+            "card_link": ""
+          }
+        },
+        "celebrity_card_8Lq8Fn": {
+          "type": "celebrity_card",
+          "settings": {
+            "celebrity_title": "Celebs That",
+            "celebrity_highlight": "Choose Us",
+            "celebrity_image_1": "shopify://shop_images/celb1.jpg",
+            "celebrity_image_2": "shopify://shop_images/celeb2.png",
+            "celebrity_image_3": "shopify://shop_images/celbs3.jpg",
+            "celebrity_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_card_VyfiCD",
+        "celebrity_card_8Lq8Fn"
+      ],
+      "name": "JD Promotion Cards",
+      "settings": {
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "jd_featured_collections": {
+      "type": "jd-featured-collections",
+      "blocks": {
+        "collection_1": {
+          "type": "collection",
+          "settings": {
+            "title": "CHAINS & BRACELETS",
+            "collection": "all-collection",
+            "custom_image": "shopify://shop_images/8fcc8702fe37110ca182273a0c9560899fcfe5eb_313bda57-d3cd-48e4-841d-cae4e3b42c9b.png",
+            "link": "",
+            "show_bestseller_tag": true,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        "collection_2": {
+          "type": "collection",
+          "settings": {
+            "title": "PENDANTS",
+            "collection": "",
+            "custom_image": "shopify://shop_images/e0545e1d3264087bc8f86b26b9f429155f98cc22_627ed601-12c4-45be-b75a-d96825bc9ed0.png",
+            "link": "",
+            "show_bestseller_tag": false,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        "collection_3": {
+          "type": "collection",
+          "settings": {
+            "title": "EARRINGS",
+            "collection": "",
+            "custom_image": "shopify://shop_images/b528f0d092a8df4dff78558c83751b2a17c5e6f3_bdd15f44-8a4f-4d2e-bc0f-9f78e9c1d0fd.png",
+            "link": "",
+            "show_bestseller_tag": true,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        "collection_4": {
+          "type": "collection",
+          "settings": {
+            "title": "DIAMOND SUNGLASSES",
+            "collection": "",
+            "custom_image": "shopify://shop_images/glasses.png",
+            "link": "",
+            "show_bestseller_tag": false,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        "collection_5": {
+          "type": "collection",
+          "settings": {
+            "title": "ENGAGEMENT AND BRIDALS",
+            "collection": "",
+            "custom_image": "shopify://shop_images/54dd94f87c4a6d1f5e16aebdb098ccf4f4f81cec.png",
+            "link": "",
+            "show_bestseller_tag": true,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        "collection_6": {
+          "type": "collection",
+          "settings": {
+            "title": "LACQUERED ROSES WITH GOLD/PLATINUM TRIM",
+            "collection": "",
+            "custom_image": "shopify://shop_images/31aa7786af2b3f4ae02cb1ba3ebb36b6577e6ba7.png",
+            "link": "",
+            "show_bestseller_tag": false,
+            "bestseller_text": "BESTSELLER"
+          }
+        }
+      },
+      "block_order": [
+        "collection_1",
+        "collection_2",
+        "collection_3",
+        "collection_4",
+        "collection_5",
+        "collection_6"
+      ],
+      "settings": {
+        "title": "Johnny Dang & Co. Featured Collections",
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL COLLECTIONS",
+        "view_all_link": "/collections",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "flash_deals": {
+      "type": "flash-deals",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 4,
+        "show_badge": true,
+        "badge_text": "FLASH DEALS",
+        "title": "Flash Deals",
+        "heading_size": "h1",
+        "description": "<p>Don't miss out on these incredible deals! Limited time offers with massive discounts on premium jewelry.</p>",
+        "button_text": "Shop Now",
+        "view_all_link": "",
+        "show_countdown": true,
+        "countdown_end_date": "2024-12-31 23:59:59",
+        "background_color": "#f8f9fa",
+        "title_color": "#333333",
+        "title_size": 32,
+        "countdown_background": "#ff0000",
+        "countdown_text_color": "#ffffff",
+        "countdown_border_color": "#cc0000",
+        "columns_mobile": "2",
+        "columns_desktop": "4",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "king_of_bling": {
+      "type": "king-of-bling",
+      "settings": {
+        "heading": "THE KING OF BLING",
+        "description": "<p>Johnny Dang, also known as the \"King of Bling,\" is a world-renowned jeweler who transformed the jewelry game with his signature custom grillz, iced-out chains, and diamond-studded masterpieces. From humble beginnings as an immigrant watch repairman, Johnny built his empire in Houston, Texas, and quickly became the go-to jeweler for the world's biggest hip-hop stars.</p><p>His designs have been worn by icons like Paul Wall, Travis Scott, Migos, Drake, Beyoncé, and countless others.</p>",
+        "cta_text": "LEARN MORE",
+        "cta_link": "/pages/about-johnny-dang",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "celebrity_testimonials": {
+      "type": "celebrity-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/testo1.mp4",
+            "video_url": "",
+            "celebrity_name": "DJ KHALED",
+            "celebrity_title": "MUSICIAN",
+            "frame_color": "orange-glow"
+          }
+        },
+        "testimonial_2": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/testo2.mp4",
+            "video_url": "",
+            "celebrity_name": "RYAN KANE",
+            "celebrity_title": "PRIVATE INVESTOR, ACTOR",
+            "frame_color": "purple-glow"
+          }
+        },
+        "testimonial_3": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/testo3.mp4",
+            "video_url": "",
+            "celebrity_name": "DRAKE GRAHAM",
+            "celebrity_title": "RAPPER & SINGER",
+            "frame_color": "orange-glow"
+          }
+        },
+        "testimonial_4": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/testo4.mp4",
+            "video_url": "",
+            "celebrity_name": "PAUL WALL",
+            "celebrity_title": "RAPPER & DJ",
+            "frame_color": "purple-glow"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3",
+        "testimonial_4"
+      ],
+      "settings": {
+        "heading": "See Why the Stars Choose Johnny Dang & Co",
+        "cta_text": "VIEW ALL TESTIMONIALS",
+        "cta_link": "/pages/testimonials",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "jd_hero_carousel",
+    "jd_bottom_nav",
+    "jd_promotion_cards_r4a7tW",
+    "jd_featured_collections",
+    "flash_deals",
+    "king_of_bling",
+    "celebrity_testimonials"
+  ]
+}

@@ -1,0 +1,185 @@
+/* Safe Carousel Implementation for Johnny Dang */
+
+/* Override the banner background with carousel gradients */
+.banner {
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
+              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%) !important;
+  min-height: 100vh !important;
+  position: relative !important;
+  animation: carouselBackgrounds 25s infinite !important;
+}
+
+/* Carousel background animation with your 5 gradients */
+@keyframes carouselBackgrounds {
+  0%, 20% {
+    background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
+                linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  }
+  21%, 40% {
+    background: linear-gradient(106.46deg, #FFFFFF -7.59%, #A51AE6 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
+                linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  }
+  41%, 60% {
+    background: linear-gradient(106.46deg, #FFFFFF -7.59%, rgba(255, 98, 0, 0.33) -7.59%, rgba(153, 17, 216, 0.52) 39.3%, rgba(0, 0, 0, 0.58) 87.22%),
+                linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  }
+  61%, 80% {
+    background: linear-gradient(106.46deg, #FFFFFF -7.59%, rgba(255, 98, 0, 0.8) -7.59%, rgba(165, 26, 230, 0.32) 87.22%),
+                linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  }
+  81%, 100% {
+    background: linear-gradient(105.72deg, #000000 -2.8%, #000000 -0.97%, #B64F0E 62.7%, rgba(255, 112, 22, 0.67) 93.9%),
+                linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  }
+}
+
+/* Enhanced carousel dots */
+.carousel-dots {
+  position: absolute !important;
+  bottom: 2rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 1rem !important;
+  z-index: 10 !important;
+}
+
+.carousel-dot {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  animation: dotCycle 25s infinite !important;
+}
+
+.carousel-dot:nth-child(1) {
+  animation-delay: 0s !important;
+}
+
+.carousel-dot:nth-child(2) {
+  animation-delay: 5s !important;
+}
+
+.carousel-dot:nth-child(3) {
+  animation-delay: 10s !important;
+}
+
+.carousel-dot:nth-child(4) {
+  animation-delay: 15s !important;
+}
+
+.carousel-dot:nth-child(5) {
+  animation-delay: 20s !important;
+}
+
+@keyframes dotCycle {
+  0%, 16% {
+    background: #ffffff !important;
+    transform: scale(1.2) !important;
+  }
+  17%, 100% {
+    background: rgba(255, 255, 255, 0.5) !important;
+    transform: scale(1) !important;
+  }
+}
+
+/* Carousel content animations */
+.carousel-content {
+  animation: contentFade 25s infinite !important;
+}
+
+@keyframes contentFade {
+  0%, 16% {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  17%, 20% {
+    opacity: 0.7 !important;
+    transform: translateY(10px) !important;
+  }
+  21%, 100% {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Product image carousel */
+.carousel-product {
+  animation: productSlide 25s infinite !important;
+}
+
+@keyframes productSlide {
+  0%, 16% {
+    transform: translateX(0) scale(1) !important;
+    opacity: 1 !important;
+  }
+  17%, 20% {
+    transform: translateX(20px) scale(0.95) !important;
+    opacity: 0.8 !important;
+  }
+  21%, 100% {
+    transform: translateX(0) scale(1) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Mobile carousel adjustments */
+@media screen and (max-width: 768px) {
+  .carousel-dots {
+    bottom: 1.5rem !important;
+    gap: 0.75rem !important;
+  }
+  
+  .carousel-dot {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+
+/* Pause animation on hover */
+.banner:hover .carousel-dot {
+  animation-play-state: paused !important;
+}
+
+.banner:hover {
+  animation-play-state: paused !important;
+}
+
+/* Carousel navigation arrows (if needed) */
+.carousel-nav {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
+  color: #ffffff !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  z-index: 10 !important;
+}
+
+.carousel-nav:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-50%) scale(1.1) !important;
+}
+
+.carousel-nav--prev {
+  left: 2rem !important;
+}
+
+.carousel-nav--next {
+  right: 2rem !important;
+}
+
+/* Hide navigation on mobile */
+@media screen and (max-width: 768px) {
+  .carousel-nav {
+    display: none !important;
+  }
+}

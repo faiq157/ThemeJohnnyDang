@@ -1,0 +1,375 @@
+/* Bubble Style Filters - Override Shopify Facets */
+.bubble-filters {
+  margin-bottom: 2rem;
+}
+
+/* Hide default facet styling */
+.bubble-filters .facets__disclosure-vertical {
+  margin-bottom: 2rem;
+}
+
+.bubble-filters .facets__summary {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.bubble-filters .facets__summary::before {
+  display: none;
+}
+
+.bubble-filters .facets__summary .facets__summary-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bubble-filters .facets__display-vertical {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.bubble-filters .facets__list--vertical {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bubble-filters .facets__item {
+  position: relative;
+  list-style: none;
+}
+
+.bubble-filters .facets__label {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #f8f8f8;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  text-align: center;
+  min-width: 120px;
+  position: relative;
+  margin: 0;
+}
+
+.bubble-filters .facets__label:hover {
+  background: #fff;
+  border-color: #ffb300;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
+}
+
+.bubble-filters .facets__label.active {
+  background: #ffb300;
+  border-color: #ffb300;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 179, 0, 0.4);
+}
+
+.bubble-filters .facets__label input[type="checkbox"] {
+  display: none;
+}
+
+.bubble-filters .facet-checkbox__text {
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.bubble-filters .facet-checkbox__text-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Hide default checkboxes and icons */
+.bubble-filters .facets__label svg,
+.bubble-filters .facets__label .svg-wrapper {
+  display: none;
+}
+
+/* Price range styling */
+.bubble-filters .facets__price {
+  margin-top: 1rem;
+}
+
+.bubble-filters .facets__price .field-currency {
+  display: none;
+}
+
+.bubble-filters .facets__price .field {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.bubble-filters .facets__price .field:focus-within,
+.bubble-filters .facets__price .field.focused {
+  border-color: #ffb300;
+  box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.bubble-filters .facets__price .field__input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.bubble-filters .facets__price .field__label {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-weight: 600;
+  font-size: 12px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.bubble-filters .facets__price .field__input:focus + .field__label,
+.bubble-filters .facets__price .field__input:not(:placeholder-shown) + .field__label {
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 10px;
+  background: #f8f8f8;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+}
+
+.bubble-filters .facets__price .field__input::placeholder {
+  color: transparent;
+}
+
+.bubble-filters .facets__price .field__input:focus::placeholder {
+  color: #999;
+}
+
+/* Price range container */
+.bubble-filters .facets__price {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.bubble-filters .facets__price .field:first-child::before {
+  content: "$";
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-weight: 600;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.bubble-filters .facets__price .field:first-child .field__input {
+  padding-left: 1.5rem;
+}
+
+.bubble-filters .facets__price .field:last-child::before {
+  content: "$";
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-weight: 600;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.bubble-filters .facets__price .field:last-child .field__input {
+  padding-left: 1.5rem;
+}
+
+/* Price range separator */
+.bubble-filters .facets__price::after {
+  content: "to";
+  color: #666;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0.5rem;
+}
+
+/* Active facets styling */
+.bubble-filters .active-facets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.bubble-filters .active-facets__button {
+  background: #ffb300;
+  border: 2px solid #ffb300;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bubble-filters .active-facets__button:hover {
+  background: #e6a200;
+  border-color: #e6a200;
+  transform: translateY(-1px);
+}
+
+.bubble-filters .active-facets__button-remove {
+  background: #f8f8f8;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  color: #666;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bubble-filters .active-facets__button-remove:hover {
+  background: #fff;
+  border-color: #ffb300;
+  color: #333;
+}
+
+/* Price Range Bubbles */
+.bubble-price-range {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.bubble-price-input {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.bubble-price-input:focus-within {
+  border-color: #ffb300;
+  box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
+}
+
+.bubble-price-input input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  text-align: center;
+}
+
+.bubble-price-input .currency {
+  color: #666;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.bubble-price-separator {
+  color: #666;
+  font-weight: 600;
+  margin: 0 0.5rem;
+}
+
+.bubble-price-info {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bubble-filters .facets__list--vertical {
+    gap: 0.75rem;
+  }
+  
+  .bubble-filters .facets__label {
+    padding: 0.6rem 1.2rem;
+    font-size: 13px;
+    min-width: 100px;
+  }
+  
+  .bubble-filters .facets__price .field {
+    padding: 0.6rem 1.2rem;
+    min-width: 100px;
+  }
+  
+  .bubble-filters .facets__price {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .bubble-filters .facets__price::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bubble-filters .facets__list--vertical {
+    gap: 0.5rem;
+  }
+  
+  .bubble-filters .facets__label {
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+    min-width: 90px;
+  }
+  
+  .bubble-filters .facets__price .field {
+    padding: 0.5rem 1rem;
+    min-width: 90px;
+  }
+  
+  .bubble-filters .facets__price .field__input {
+    font-size: 13px;
+  }
+  
+  .bubble-filters .facets__price .field__label {
+    font-size: 11px;
+  }
+}

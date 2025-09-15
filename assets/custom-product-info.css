@@ -1,0 +1,110 @@
+/* Custom Product Information Section Styles */
+
+.custom-product-info {
+  background: #000000;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.product-info-section {
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-info-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.product-info-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #ff6b35;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem 0;
+}
+
+.product-info-content {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.product-info-content p {
+  margin: 0 0 1rem 0;
+}
+
+.product-info-content p:last-child {
+  margin-bottom: 0;
+}
+
+.product-info-content strong {
+  font-weight: 600;
+  color: #ff6b35;
+}
+
+.additional-specs,
+.shipping-details,
+.warranty-details,
+.payment-methods,
+.security-info {
+  margin-top: 1rem;
+}
+
+.additional-specs p,
+.shipping-details p,
+.warranty-details p,
+.payment-methods p,
+.security-info p {
+  margin: 0 0 0.5rem 0;
+}
+
+.additional-specs p:last-child,
+.shipping-details p:last-child,
+.warranty-details p:last-child,
+.payment-methods p:last-child,
+.security-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 749px) {
+  .product-info-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+  }
+  
+  .product-info-title {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 1rem;
+  }
+  
+  .product-info-content {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-info-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .product-info-title {
+    font-size: 11px;
+    line-height: 14px;
+  }
+  
+  .product-info-content {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}

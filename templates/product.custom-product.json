@@ -1,0 +1,235 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_jJVLDz": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "swatch",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "custom_liquid_BiBzGA": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product__accordion accordion\">\n              <details id=\"Details-description-{{ section.id }}\" open>\n                <summary>\n                  <div class=\"summary__title\">\n                    <h2 class=\"h4 accordion__title\">DESCRIPTION</h2>\n                    <span class=\"accordion__icon\">\n                      {{- 'icon-caret.svg' | inline_asset_content -}}\n                    </span>\n                  </div>\n                </summary>\n               <div class=\"product__description rte quick-add-hidden\" {{ block.shopify_attributes }}>\n                    {{ product.description }}\n                  </div>\n              </details>\n            </div>"
+          }
+        },
+        "custom_liquid_6hxMdp": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product__accordion accordion\">\n              <details id=\"Details-shipping-{{ section.id }}\" open>\n                <summary>\n                  <div class=\"summary__title\">\n                    <h2 class=\"h4 accordion__title\">SHIPPING & RETURNS</h2>\n                    <span class=\"accordion__icon\">\n                      {{- 'icon-caret.svg' | inline_asset_content -}}\n                    </span>\n                  </div>\n                </summary>\n                <div class=\"accordion__content\">\n                  <ul class=\"shipping-returns-list\">\n                    <li>\n                      <span class=\"icon-wrapper\">\n                        {{- 'product.svg' | inline_asset_content -}}\n                      </span>\n                      14 day return policy on all products excluding custom products\n                    </li>\n                    <li>\n                      <span class=\"icon-wrapper\">\n                        {{- 'verify.svg' | inline_asset_content -}}\n                      </span>\n                      Orders may require an additional 2-3 business days processing time. Custom made orders including grills can take 2-3 weeks to complete.\n                    </li>\n                  </ul>\n                </div>\n              </details>\n            </div>"
+          }
+        },
+        "custom_liquid_hGTwd8": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product__accordion accordion\">\n              <details id=\"Details-warranty-{{ section.id }}\" open>\n                <summary>\n                  <div class=\"summary__title\">\n                    <h2 class=\"h4 accordion__title\">WARRANTY</h2>\n                    <span class=\"accordion__icon\">\n                      {{- 'icon-caret.svg' | inline_asset_content -}}\n                    </span>\n                  </div>\n                </summary>\n                <div class=\"accordion__content\">\n                  <p>All products come with a thirty (30) day manufacturers warranty.</p>\n                </div>\n              </details>\n            </div>"
+          }
+        },
+        "custom_liquid_X8k3pR": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Service</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"service\" name=\"properties[Service]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">Option1</option>\n        <option value=\"Option2\">Option2</option>\n        <option value=\"Option3\">Option3</option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
+          }
+        },
+        "custom_liquid_Tqr6JL": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Employee</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"employee\" name=\"properties[Employee]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">Option1</option>\n        <option value=\"Option2\">Option2</option>\n        <option value=\"Option3\">Option3</option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_r7kVD9": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product__payment-methods\">\n              <h2 class=\"h4 payment-methods__title\">CHECKOUT SAFELY USING YOUR PREFERRED PAYMENT METHOD</h2>\n              {%- assign payment_logo_files = \"AmazonPay.svg,paypal.svg,bitcoin.svg,MasterCard.svg,DinersClub.svg,JCB.svg,Mestero.svg,applepay.svg,shopifypay.svg,diners.svg,Discover.svg\" | split: \",\" -%}\n              <div class=\"payment-methods__logos\">\n                {%- for file in payment_logo_files -%}\n                  <div class=\"payment-logo\">\n                    {{- file | strip | inline_asset_content -}}\n                  </div>\n                {%- endfor -%}\n              </div>\n            </div>"
+          }
+        },
+        "custom_liquid_Fgb7b7": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{{ 'product-testimonials.css' | asset_url | stylesheet_tag }}\n\n<div class=\"celebrity-testimonials-section product-testimonials\">\n    <h2 class=\"pt-title\">JOIN THE FLAWLESS FAMILIES</h2>\n  <div class=\"page-width\">\n    \n    <div class=\"pt-header\">\n      \n      <div class=\"pt-controls\">\n        <button class=\"pt-btn carousel-btn-prev\" aria-label=\"Previous testimonials\">\n          <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15 18L9 12L15 6\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        </button>\n        <button class=\"pt-btn carousel-btn-next\" aria-label=\"Next testimonials\">\n          <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9 18L15 12L9 6\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        </button>\n      </div>\n    </div>\n    <div class=\"testimonials-carousel\">\n      <div class=\"pt-viewport\">\n        <div class=\"pt-track\">\n          {% assign testimonial_count = testimonial_count | default: 4 %}\n          {% for idx in (1..testimonial_count) %}\n            <div class=\"pt-item\">\n              <div class=\"pt-circle\">\n                {% assign video_file = 'testo' | append: idx | append: '.mp4' %}\n                <video class=\"pt-video\" width=\"160\" height=\"160\" muted loop autoplay playsinline>\n                  <source src=\"{{ video_file | asset_url }}\" type=\"video/mp4\">\n                </video>\n              </div>\n            </div>\n          {% endfor %}\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<script>\n  (function(){\n    var root = document.currentScript && document.currentScript.previousElementSibling ? document.currentScript.previousElementSibling : document.querySelector('.product-testimonials');\n    if(!root) return;\n    var container = root.querySelector('.pt-viewport');\n    var track = root.querySelector('.pt-track');\n    var prev = root.querySelector('.carousel-btn-prev');\n    var next = root.querySelector('.carousel-btn-next');\n    if(!container || !track || !prev || !next) return;\n\n    function updateButtons(){\n      prev.disabled = container.scrollLeft <= 0;\n      var maxScroll = track.scrollWidth - container.clientWidth - 1;\n      next.disabled = container.scrollLeft >= maxScroll;\n    }\n\n    prev.addEventListener('click', function(){\n      container.scrollBy({ left: -container.clientWidth, behavior: 'smooth' });\n      setTimeout(updateButtons, 350);\n    });\n    next.addEventListener('click', function(){\n      container.scrollBy({ left: container.clientWidth, behavior: 'smooth' });\n      setTimeout(updateButtons, 350);\n    });\n    container.addEventListener('scroll', updateButtons, { passive: true });\n    window.addEventListener('resize', updateButtons);\n    updateButtons();\n  })();\n</script>\n\n<div class=\"pt-contact-card\">\n  <a class=\"pt-contact-item\" href=\"mailto:{{ shop.email }}\">\n    <span class=\"pt-contact-icon\" aria-hidden=\"true\">\n      \n      {{- 'EmailNewsletterIcon.svg' | inline_asset_content -}}\n    </span>\n    <span class=\"pt-contact-label\">Email Us</span>\n  </a>\n  <a class=\"pt-contact-item\" href=\"tel:{{ shop.phone | default: '' }}\">\n    <span class=\"pt-contact-icon\" aria-hidden=\"true\">\n      {{- 'PhoneInIcon.svg' | inline_asset_content -}}\n    </span>\n    <span class=\"pt-contact-label\">Call Us</span>\n  </a>\n  <a class=\"pt-contact-item\" href=\"https://wa.me/{{ shop.phone | remove: ' ' | remove: '+' }}\" target=\"_blank\" rel=\"noopener\">\n    <span class=\"pt-contact-icon\" aria-hidden=\"true\">\n      {{- 'icons8-whatsapp.svg' | inline_asset_content -}}\n    </span>\n    <span class=\"pt-contact-label\">WhatsApp Us</span>\n  </a>\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "judge_me_reviews_preview_badge_jJVLDz",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "description",
+        "share",
+        "custom_liquid_BiBzGA",
+        "custom_liquid_6hxMdp",
+        "custom_liquid_hGTwd8",
+        "custom_liquid_X8k3pR",
+        "custom_liquid_Tqr6JL",
+        "buy_buttons",
+        "custom_liquid_r7kVD9",
+        "custom_liquid_Fgb7b7"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "celebrity_testimonials_ACrP8a": {
+      "type": "celebrity-testimonials",
+      "blocks": {
+        "celebrity_testimonial_fa7UQH": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "DJ KHALED",
+            "celebrity_title": "MUSICIAN",
+            "frame_color": "orange-glow"
+          }
+        },
+        "celebrity_testimonial_JbGrr8": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "RYAN KANE",
+            "celebrity_title": "PRIVATE INVESTOR, ACTOR",
+            "frame_color": "purple-glow"
+          }
+        },
+        "celebrity_testimonial_3Vfxy3": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "DRAKE GRAHAM",
+            "celebrity_title": "RAPPER & SINGER",
+            "frame_color": "orange-glow"
+          }
+        },
+        "celebrity_testimonial_HawDfJ": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "PAUL WALL",
+            "celebrity_title": "RAPPER & DJ",
+            "frame_color": "purple-glow"
+          }
+        }
+      },
+      "block_order": [
+        "celebrity_testimonial_fa7UQH",
+        "celebrity_testimonial_JbGrr8",
+        "celebrity_testimonial_3Vfxy3",
+        "celebrity_testimonial_HawDfJ"
+      ],
+      "name": "Celebrity Testimonials",
+      "settings": {
+        "heading": "See Why the Stars Choose Johnny Dang & Co",
+        "cta_text": "VIEW ALL TESTIMONIALS",
+        "cta_link": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "17579370404c7db798": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_qfXpi4": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_qfXpi4"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "celebrity_testimonials_ACrP8a",
+    "17579370404c7db798"
+  ]
+}

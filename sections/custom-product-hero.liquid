@@ -1,0 +1,215 @@
+{{ 'custom-product-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-product-hero section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="custom-product-hero__container">
+      <div class="custom-product-hero__content">
+        <h1 class="custom-product-hero__title">
+          {% if product.title != blank %}
+            {% assign title_words = product.title | split: ' ' %}
+            {% if title_words.size >= 2 %}
+              <span class="custom-product-hero__title-line">{{ title_words[0] }}</span>
+              <span class="custom-product-hero__title-line">{{ title_words[1] }}{% if title_words.size > 2 %} {{ title_words[2] }}{% endif %}</span>
+            {% else %}
+              <span class="custom-product-hero__title-line">{{ product.title }}</span>
+            {% endif %}
+          {% else %}
+            <span class="custom-product-hero__title-line">{{ section.settings.hero_title_1 | default: 'Custom Ring' }}</span>
+            <span class="custom-product-hero__title-line">{{ section.settings.hero_title_2 | default: 'Deposit & Design' }}</span>
+          {% endif %}
+        </h1>
+        <a href="#product-form" class="custom-product-hero__cta">
+          {{ section.settings.cta_text | default: 'Get Started' }}
+          <svg class="custom-product-hero__cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1L8 15M8 15L1 8M8 15L15 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="custom-product-hero__image">
+        {% if product.featured_media %}
+          <img 
+            src="{{ product.featured_media | image_url: width: 600 }}"
+            alt="{{ product.featured_media.alt | default: product.title }}"
+            width="600"
+            height="600"
+            loading="eager"
+          >
+        {% elsif section.settings.hero_image != blank %}
+          <img 
+            src="{{ section.settings.hero_image | image_url: width: 600 }}"
+            alt="{{ section.settings.hero_image.alt | default: 'Custom Ring' }}"
+            width="600"
+            height="600"
+            loading="eager"
+          >
+        {% else %}
+          <img 
+            src="{{ 'Ring.png' | asset_url }}"
+            alt="Custom Ring"
+            width="600"
+            height="600"
+            loading="eager"
+          >
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- Custom Order Information -->
+  <div class="custom-product-hero__order-info">
+    <!-- Information Banner - Full Width -->
+  <div class="custom-product-hero__banner">
+    <div class="page-width">
+      <p>{{ section.settings.banner_text | default: 'Free Shipping On Orders Over $500 Within US. Call or Text 281248888 for Quotations and Assistance.' }}</p>
+    </div>
+  </div>
+    <div class="page-width">
+      <div class="custom-product-hero__order-content">
+        <p>{{ section.settings.order_info_1 | default: 'You must pay a $500 deposit to inquire about a custom ring.' }}</p>
+        <p>{{ section.settings.order_info_2 | default: 'You will be provided with consultation, a quote and 3D rendering for your custom design piece.' }}</p>
+        <p>{{ section.settings.order_info_3 | default: 'The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale.' }}</p>
+        <div class="custom-product-hero__highlight">
+          <p>{{ section.settings.highlight_text | default: '** All Custom Item Prices Are Deposit Only **' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const ctaButton = document.querySelector('.custom-product-hero__cta');
+  if (ctaButton && ctaButton.getAttribute('href') === '#product-form') {
+    ctaButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      const productForm = document.querySelector('.product-form, .product__info, .product__media');
+      if (productForm) {
+        productForm.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Product Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Content"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_1",
+      "label": "Hero Title Line 1 (Fallback)",
+      "default": "Custom Ring",
+      "info": "Used if product has no title"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_2",
+      "label": "Hero Title Line 2 (Fallback)",
+      "default": "Deposit & Design",
+      "info": "Used if product has no title"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image (Fallback)",
+      "info": "Used if product has no main image"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_text",
+      "label": "Information Banner Text",
+      "default": "Free Shipping On Orders Over $500 Within US. Call or Text 281248888 for Quotations and Assistance."
+    },
+    {
+      "type": "header",
+      "content": "Custom Order Information"
+    },
+    {
+      "type": "textarea",
+      "id": "order_info_1",
+      "label": "Order Information Line 1",
+      "default": "You must pay a $500 deposit to inquire about a custom ring."
+    },
+    {
+      "type": "textarea",
+      "id": "order_info_2",
+      "label": "Order Information Line 2",
+      "default": "You will be provided with consultation, a quote and 3D rendering for your custom design piece."
+    },
+    {
+      "type": "textarea",
+      "id": "order_info_3",
+      "label": "Order Information Line 3",
+      "default": "The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale."
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlight Text",
+      "default": "** All Custom Item Prices Are Deposit Only **"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product Hero"
+    }
+  ]
+}
+{% endschema %}

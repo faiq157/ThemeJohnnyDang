@@ -1,0 +1,137 @@
+/* Collections Main Layout */
+.collections-main-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+/* Left Sidebar */
+.collections-sidebar {
+  flex: 0 0 280px;
+  padding: 2rem;
+  border-radius: 12px;
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.collections-sidebar .sidebar-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.collections-sidebar .sidebar-form {
+  margin: 1.5rem 0;
+}
+
+.collections-sidebar .sidebar-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.collections-sidebar .sidebar-form input:focus {
+  outline: none;
+  border-color: #ffb300;
+}
+
+.collections-sidebar .sidebar-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+
+  margin: 1.5rem 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.collections-sidebar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.collections-sidebar__item {
+  margin-bottom: 0.5rem;
+}
+
+.collections-sidebar__item a {
+  display: block;
+  padding: 0.5rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.collections-sidebar__item a:hover {
+  color: #ffb300;
+}
+
+/* Right Content Area */
+.collections-content-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* Collections Content */
+.collections-content {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .collections-main-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .collections-sidebar {
+    flex: none;
+    position: static;
+    max-height: none;
+    order: 2;
+  }
+  
+  .collections-content-wrapper {
+    order: 1;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .collections-main-layout {
+    gap: 1rem;
+  }
+  
+  .collections-sidebar {
+    display: none;
+  }
+  
+  .collections-content {
+    padding: 1.5rem;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .collections-sidebar {
+    display: none;
+  }
+  
+  .collections-content {
+    padding: 1rem;
+  }
+  
+}

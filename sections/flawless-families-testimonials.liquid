@@ -1,0 +1,269 @@
+{{ 'product-testimonials.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="celebrity-testimonials-section product-testimonials section-{{ section.id }}-padding">
+  <h2 class="pt-title">{{ section.settings.title | default: 'JOIN THE FLAWLESS FAMILIES' }}</h2>
+  <div class="page-width">
+    
+    <div class="pt-header">
+      <div class="pt-controls">
+        <button class="pt-btn carousel-btn-prev" aria-label="Previous testimonials">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="pt-btn carousel-btn-next" aria-label="Next testimonials">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="testimonials-carousel">
+      <div class="pt-viewport">
+        <div class="pt-track">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'family_testimonial' %}
+                <div class="pt-item" {{ block.shopify_attributes }}>
+                  <div class="pt-circle">
+                    {% if block.settings.video_url != blank %}
+                      <video 
+                        class="pt-video" 
+                        width="160" 
+                        height="160" 
+                        muted 
+                        loop 
+                        autoplay 
+                        playsinline
+                        preload="metadata"
+                        data-video-url="{{ block.settings.video_url }}"
+                      >
+                        <source src="{{ block.settings.video_url }}" type="video/mp4">
+                        <source src="{{ block.settings.video_url }}" type="video/webm">
+                        Your browser does not support the video tag.
+                      </video>
+                    {% elsif block.settings.video != blank %}
+                      <video 
+                        class="pt-video" 
+                        width="160" 
+                        height="160" 
+                        muted 
+                        loop 
+                        autoplay 
+                        playsinline
+                        preload="metadata"
+                        data-video-id="{{ block.settings.video.id }}"
+                        data-video-url="{{ block.settings.video | file_url }}"
+                        data-video-asset="{{ block.settings.video | asset_url }}"
+                      >
+                        <source src="{{ block.settings.video | file_url }}" type="video/mp4">
+                        <source src="{{ block.settings.video | asset_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    {% else %}
+                      {% comment %} Only show videos - no fallback images {% endcomment %}
+                      {% assign fallback_video = 'testo' | append: forloop.index | append: '.mp4' %}
+                      <video 
+                        class="pt-video" 
+                        width="160" 
+                        height="160" 
+                        muted 
+                        loop 
+                        autoplay 
+                        playsinline
+                      >
+                        <source src="{{ fallback_video | asset_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    {% endif %}
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var root = document.currentScript && document.currentScript.previousElementSibling ? document.currentScript.previousElementSibling : document.querySelector('.product-testimonials');
+    if(!root) return;
+    var container = root.querySelector('.pt-viewport');
+    var track = root.querySelector('.pt-track');
+    var prev = root.querySelector('.carousel-btn-prev');
+    var next = root.querySelector('.carousel-btn-next');
+    if(!container || !track || !prev || !next) return;
+
+    function updateButtons(){
+      prev.disabled = container.scrollLeft <= 0;
+      var maxScroll = track.scrollWidth - container.clientWidth - 1;
+      next.disabled = container.scrollLeft >= maxScroll;
+    }
+
+    prev.addEventListener('click', function(){
+      container.scrollBy({ left: -200, behavior: 'smooth' });
+    });
+
+    next.addEventListener('click', function(){
+      container.scrollBy({ left: 200, behavior: 'smooth' });
+    });
+
+    container.addEventListener('scroll', updateButtons);
+    updateButtons();
+
+    // Handle testimonial video loading issues for both uploaded and external videos
+    const testimonialVideos = root.querySelectorAll('.pt-video');
+    
+    testimonialVideos.forEach(function(video) {
+      const videoId = video.getAttribute('data-video-id');
+      const fileUrl = video.getAttribute('data-video-url');
+      const assetUrl = video.getAttribute('data-video-asset');
+      const externalUrl = video.getAttribute('data-video-url');
+      
+      // Add error handling for video loading
+      video.addEventListener('error', function(e) {
+        console.log('Flawless Families video loading error');
+        console.log('Video ID:', videoId);
+        console.log('File URL:', fileUrl);
+        console.log('Asset URL:', assetUrl);
+        console.log('External URL:', externalUrl);
+        
+        // Try to reload the video with a different URL for uploaded videos
+        if (videoId && video.currentSrc === fileUrl && assetUrl) {
+          video.src = assetUrl;
+          video.load();
+        } else if (videoId && video.currentSrc === assetUrl && fileUrl) {
+          video.src = fileUrl;
+          video.load();
+        }
+        // For external URLs, just try to reload
+        else if (externalUrl && !videoId) {
+          video.load();
+        }
+      });
+      
+      // Add load event listener
+      video.addEventListener('loadeddata', function() {
+        console.log('Flawless Families video loaded successfully');
+      });
+      
+      // Add canplay event listener
+      video.addEventListener('canplay', function() {
+        console.log('Flawless Families video can play');
+      });
+      
+      // Force video to load
+      video.load();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Flawless Families",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "JOIN THE FLAWLESS FAMILIES"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "family_testimonial",
+      "name": "Family Testimonial",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "Enter a direct link to a video file (MP4, WebM, etc.). This will override the uploaded video if provided."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Testimonial Video",
+          "info": "Upload a video file for this testimonial. Only videos are displayed - no image fallbacks."
+        },
+        {
+          "type": "text",
+          "id": "family_name",
+          "label": "Family Name",
+          "default": "Family Member"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flawless Families",
+      "blocks": [
+        {
+          "type": "family_testimonial",
+          "settings": {
+            "family_name": "Family Member 1"
+          }
+        },
+        {
+          "type": "family_testimonial",
+          "settings": {
+            "family_name": "Family Member 2"
+          }
+        },
+        {
+          "type": "family_testimonial",
+          "settings": {
+            "family_name": "Family Member 3"
+          }
+        },
+        {
+          "type": "family_testimonial",
+          "settings": {
+            "family_name": "Family Member 4"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

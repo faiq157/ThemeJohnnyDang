@@ -1,0 +1,479 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero": {
+      "type": "page-hero",
+      "settings": {
+        "subtitle": "FROM IDEA TO ICED-OUT REALITY",
+        "title": "Terms & Conditions",
+        "description": "<p</p>",
+        "show_cta": false,
+        "cta_text": "Learn More",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "padding_top": 60,
+        "padding_bottom": 40
+      }
+    },
+    "terms_introduction": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_intro": {
+          "type": "heading",
+          "settings": {
+            "heading": "Terms of Services and Conditions of Use",
+            "heading_size": "h1"
+          }
+        },
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to Johnny Dang & Co (/www.johnnydangandco.com / www.johnnydang.shop /www. shopjohnnydang.com )and its associates provide our services to you subject to the following conditions. Please read the Terms and Conditions carefully. You agree to abide by the following terms/policies  when communicating with us, visit our online store or placing an order on our site.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_intro",
+        "text_intro"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_introduction_section": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_intro_section": {
+          "type": "heading",
+          "settings": {
+            "heading": "Introduction",
+            "heading_size": "h2"
+          }
+        },
+        "text_intro_section": {
+          "type": "text",
+          "settings": {
+            "text": "<p>By accessing or using our services, including receiving SMS and/or Email communications, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with these terms, please do not engage with our services. <br/> <br/> When you visit Johnny Dang & Co/shopjohnnydang.com or send e-mails to us, you are communicating with us electronically. You consent to receive communications from us electronically. We will communicate with you by e-mail or by posting notices on this site. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing. <br/> <br/>By providing your consent to receive SMS and/or Email communications, you acknowledge and agree to receive text messages and/or Email from Johnny Dang & Co at the phone number and/or Email address you provide. Information obtained as part of the SMS/Email consent process will not be shared with third parties.<br/><br/>  If you have consented to receive text messages and/or Email, you may receive SMS and/or Email communications related to the following . <br/> <br/> Customers and Guests: Updates regarding your orders, deliveries, or other relevant information.<br/> Job Applicants: Information about your application status, on boarding materials, or other employment-related updates. Message and data rates may apply. Your mobile service provider will charge you standard messaging rates.You can opt-out of receiving SMS messages at any time by texting STOP to the number from which you received the message.For assistance, text HELP or visit our Privacy Policy Page and Terms of Service.<br/><br/>  We respect your privacy and will only use the information you provide to communicate with you via SMS as outlined above. Your personal data will not be shared with third parties unless required by law or as necessary to deliver the requested service .Please review our Privacy Notice, which also governs your visit to our website, to understand our practices. <br/><br/> We reserve the right to update or modify these Terms and Conditions at any time. Any changes will be posted on this page with an updated revision date. By continuing to engage with our services, you agree to be bound by any changes to these terms. <br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_intro_section",
+        "text_intro_section"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_copyright": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_copyright": {
+          "type": "heading",
+          "settings": {
+            "heading": "Copyright",
+            "heading_size": "h2"
+          }
+        },
+        "text_copyright": {
+          "type": "text",
+          "settings": {
+            "text": "<p>All content included on this site, such as text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, is the property of Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com or its content suppliers and protected by international copyright laws. The compilation of all content on this site is the exclusive property of Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com, with copyright authorship for this collection by Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com, and protected by international copyright laws.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_copyright",
+        "text_copyright"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_trademark": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_trademark": {
+          "type": "heading",
+          "settings": {
+            "heading": "Trademark",
+            "heading_size": "h2"
+          }
+        },
+        "text_trademark": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Johnny Dang & Co-johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop.com trademarks and logo may not be used in connection with any product or service that is not produced or distributed by Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com, in any manner that is likely to cause confusion among customers, or in any manner that disparages or discredits Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com. All other trademarks not owned by Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop or its subsidiaries that appear on this site are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/johnnydand.shop or its subsidiaries</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_trademark",
+        "text_trademark"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_license": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_license": {
+          "type": "heading",
+          "settings": {
+            "heading": "License and Site Access",
+            "heading_size": "h2"
+          }
+        },
+        "text_license": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop grants you a limited license to access and make personal use of this site and not to download (other than page caching) or modify it, or any portion of it, except with express written consent of Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com. This license does not include any resale or commercial use of this site or its contents: any collection and use of any product listings, descriptions, or prices: any derivative use of this site or its contents: any downloading or copying of account information for the benefit of another merchant: or any use of data mining, robots, or similar data gathering and extraction tools. This site or any portion of this site may not be reproduced, duplicated, copied, sold, resold, visited, or otherwise exploited for any commercial purpose without express written consent of Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com. You may not frame or utilize framing techniques to enclose any trademark, logo, or other proprietary information (including images, text, page layout, or form) of Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop and our associates without express written consent. You may not use any meta tags or any other hidden text utilizing Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop name or trademarks without the express written consent of Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com. Any unauthorized use terminates the permission or license granted by Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com. You are granted a limited, revocable, and nonexclusive right to create a hyperlink to the home page of Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop so long as the link does not portray Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com, its associates, or their products or services in a false, misleading, derogatory, or otherwise offensive matter. You may not use any Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop logo or other proprietary graphic or trademark as part of the link without express written permission.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_license",
+        "text_license"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_membership": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_membership": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Membership Account",
+            "heading_size": "h2"
+          }
+        },
+        "text_membership": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you use this site, you are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer, and you agree to accept responsibility for all activities that occur under your account or password. If you are under 18, you may use our website only with involvement of a parent or guardian. Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop and its associates reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders in their sole discretion.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_membership",
+        "text_membership"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_reviews": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_reviews": {
+          "type": "heading",
+          "settings": {
+            "heading": "Reviews, Comments, Email and Other Content",
+            "heading_size": "h2"
+          }
+        },
+        "text_reviews": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Visitors may post reviews, comments, and other content: and submit suggestions, ideas, comments, questions, or other information, so long as the content is not illegal, obscene, threatening, defamatory, invasive of privacy, infringing of intellectual property rights, or otherwise injurious to third parties or objectionable and does not consist of or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings, or any form of spam You may not use a false e-mail address, impersonate any person or entity, or otherwise mislead as to the origin of a card or other content. Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop reserves the right (but not the obligation) to remove or edit such content, but does not regularly review posted content. If you do post content or submit material, and unless we indicate otherwise, you grant Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop and its associates a nonexclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content throughout the world in any media. You grant Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop and its associates and sublicensees the right to use the name that you submit in connection with such content, if they choose. You represent and warrant that you own or otherwise control all of the rights to the content that you post: that the content is accurate: that use of the content you supply does not violate this policy and will not cause injury to any person or entity: and that you will indemnify Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop or its associates for all claims resulting from content you supply. Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop has the right but not the obligation to monitor and edit or remove any activity or content. Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop takes no responsibility and assumes no liability for any content posted by you or any third party.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_reviews",
+        "text_reviews"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_law": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_law": {
+          "type": "heading",
+          "settings": {
+            "heading": "Applicable Law",
+            "heading_size": "h2"
+          }
+        },
+        "text_law": {
+          "type": "text",
+          "settings": {
+            "text": "<p>By visiting Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop .com, you agree that the laws of the state of Texas, United States of America, without regard to principles of conflict of laws, will govern these Conditions of Use and any dispute of any sort that might arise between you and Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop or its associates.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_law",
+        "text_law"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_disclaimer": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_disclaimer": {
+          "type": "heading",
+          "settings": {
+            "heading": "Disclaimer",
+            "heading_size": "h2"
+          }
+        },
+        "text_disclaimer": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Any dispute relating in any way to your visit to Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop or to products you purchase through Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop shall be submitted to confidential arbitration in Texas, United States of America, except that, to the extent you have in any manner violated or threatened to violate Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop intellectual property rights, Johnny Dang & Co- johnnydangandco.com/shopjohnnydang.com/ Johnnydang.shop may seek injunctive or other appropriate relief in any state or federal court in the state of Texas, United States of America, and you consent to exclusive jurisdiction and venue in such courts. Arbitration under this agreement shall be conducted under the rules then prevailing of the American Arbitration Association. The arbitrators award shall be binding and may be entered as a judgment in any court of competent jurisdiction. To the fullest extent permitted by applicable law, no arbitration under this Agreement shall be joined to an arbitration involving any other party subject to this Agreement, whether through class arbitration proceedings or otherwise.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_disclaimer",
+        "text_disclaimer"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_site_policies": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_site_policies": {
+          "type": "heading",
+          "settings": {
+            "heading": "Site Policies, Modification, and Severability",
+            "heading_size": "h2"
+          }
+        },
+        "text_site_policies": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We reserve the right to make changes to our site, policies, and these Terms of Service at any time. If any of these conditions shall be deemed invalid, void, or for any reason unenforceable, that condition shall be deemed severable and shall not affect the validity and enforceability of any remaining condition.</p><p>These Terms of Service constitute the entire agreement between you and us and govern your use of the Service, superseding any prior agreements between you and us. You also may be subject to additional terms and conditions that may apply when you use affiliate services, third-party content or third-party software.</p><p>We reserve the right to modify or discontinue the Service (or any part thereof) temporarily or permanently, with or without notice, and we shall not be liable to you or to any third party for any modification, price change, suspension or discontinuance of the Service.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_site_policies",
+        "text_site_policies"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_product_description": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_product_description": {
+          "type": "heading",
+          "settings": {
+            "heading": "Product Description",
+            "heading_size": "h2"
+          }
+        },
+        "text_product_description": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Johnny Dang & Co/shopjohnnydang.com and its associates attempt to be as accurate as possible. However, Johnny Dang & Co/shopjohnnydang.com does not warrant that product descriptions or other content of this site is accurate, complete, reliable, current, or error-free. If a product offered by Johnny Dang & Co/shopjohnnydang.com itself is not as described, your sole remedy is to return it in unused condition.DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY THIS SITE IS PROVIDED BY Johnny Dang & Co/shopjohnnydang.com ON AN &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; BASIS. Johnny Dang & Co/shopjohnnydang.com MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THIS SITE OR THE INFORMATION, CONTENT, MATERIALS, OR PRODUCTS INCLUDED ON THIS SITE. YOU EXPRESSLY AGREE THAT YOUR USE OF THIS SITE IS AT YOUR SOLE RISK. TO THE FULL EXTENT PERMISSIBLE BY APPLICABLE LAW, Johnny Dang & Co/shopjohnnydang.com DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. Johnny Dang & Co/shopjohnnydang.com DOES NOT WARRANT THAT THIS SITE, ITS SERVERS, OR E-MAIL SENT FROM Johnny Dang & Co/shopjohnnydang.com ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. Johnny Dang & Co/shopjohnnydang.com WILL NOT BE LIABLE FOR ANY DAMAGES OF ANY KIND ARISING FROM THE USE OF THIS SITE, INCLUDING, BUT NOT LIMITED TO DIRECT, INDIRECT, INCIDENTAL, PUNITIVE, AND CONSEQUENTIAL DAMAGES. CERTAIN STATE LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS, EXCLUSIONS, OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MIGHT HAVE ADDITIONAL RIGHTS.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_product_description",
+        "text_product_description"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_order_policies": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_order_policies": {
+          "type": "heading",
+          "settings": {
+            "heading": "Online Order Policies; Warranty Info and Returns/Cancellation",
+            "heading_size": "h2"
+          }
+        },
+        "text_order_policies": {
+          "type": "text",
+          "settings": {
+            "text": "<p><ul><li>Payments made with Bitcoin are not eligible for refunds.</li><li>We offer a 14-day return policy on all products excluding custom products.</li><li>Please do not order without careful consideration, as labor cost and/or restocking fee will be charged.</li><li>Keep in mind that our products are handmade and take days, and at times weeks, to finish.</li></ul><p>If you are under 18 years of age, permission from parents or guardians is required before ordering grills/dental caps.</p><ul><li>It is a good idea to consult with your dentist for a recommendation before placing an order for dental grills and caps.</li><li>It is recommended that you have the condition of your teeth checked by a dentist before ordering dental caps.</li><li>Cleaning dental caps after each use is recommended.</li><li>Gold caps can rarely change color due to body acid, body temperature, and will tarnish (if less than 18k) when exposed to smoking and drinking.</li><li>All orders shipped out to our customers will return back to us if no one is available to accept the package (signature required) or no one picks up the package from the shipping company's local station. We are not responsible for products not collected within this time period.</li><li>We will charge re-delivery charges and processing fees if we need to re-ship a package.</li><li>All of our products are precision made to the highest standard. We accept no responsibility for damage after collection.</li><li>All personal and business checks take approximately 10-15 days of processing time.</li><li>All domestic orders paid by Credit/Debit Card through PayPal can only be shipped to a PayPal confirmed/verified address.</li><li>Use Check, Money Order, Wire Transfer, Bank Deposit, Western Union, or any other form of payment that does not involve credit/debit cards should you require your order shipped to a third party or an unverified address.</li></ul><p>Order processing time is between 24-48 hours excluding Saturday and Sunday. International shipping costs vary by destination. International customers are requested to contact us for exact shipping cost.</p><p>Prices may change at any time without notice. All promotional prices or discounts are only valid during the promotion period. Absolutely no refund or exchange on ANY custom-made products including grillz. We always try to make sure dental molds are accurately done before starting the manufacturing process. Slight fitting issues can be adjusted using adjustment instructions available here. Grillz, like most other custom orders, cannot be returned for a refund. However, we will redo/adjust/refit the grillz using new molds if the original mold is identified as the issue.</p><p>In-stock products can be returned for full credit (excluding shipping) or a refund (subject to 15% restocking fee).</p><p>Cancellation of deposit towards custom order design and consultation will incur either a $200 design fee (if design is completed) or 20% cancellation fee (if cancelled before a design was done).</p>"
+}
+        }
+      },
+      "block_order": [
+        "heading_order_policies",
+        "text_order_policies"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_shipping": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_shipping": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shipping",
+            "heading_size": "h2"
+          }
+        },
+        "text_shipping": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Shipping options:</p><ul> <li>Flat Rate (5-7 business days): $9.99-19.99</li> <li>Expedited Shipping (3-4 business days)</li> <li>Canada & Outside US Rate (3-4 business days): $49.99</li></ul><p>Call to upgrade to the following:</p><ul><li>Standard Overnight Rate: $29.99-54.99</li> <li>2 Business Day Economy: $24.99-39.99</li></ul><p>Please call or email us after placing your order if you need to upgrade to Overnight or 2 Business Day shipping service.</p><p><strong>PLEASE NOTE:</strong> Orders may require an additional 2-3 business days processing time. Custom-made orders, including grills, can take 2-3 weeks to complete. ALL GRILLS REQUIRE DENTAL MOLD or IMPRESSION.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_shipping",
+        "text_shipping"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "terms_questions": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_questions": {
+          "type": "heading",
+          "settings": {
+            "heading": "Questions",
+            "heading_size": "h2"
+          }
+        },
+        "text_questions": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Questions regarding our Conditions of Usage, Privacy Policy, or other policy related material can be directed to our support staff by clicking on the Contact Us link on the side menu. Or you can email us at: admin@johnnydang.shop .</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_questions",
+        "text_questions"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "terms",
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "page_hero",
+    "terms_introduction",
+    "terms_introduction_section",
+    "terms_copyright",
+    "terms_trademark",
+    "terms_license",
+    "terms_membership",
+    "terms_reviews",
+    "terms_law",
+    "terms_disclaimer",
+    "terms_site_policies",
+    "terms_product_description",
+    "terms_order_policies",
+    "terms_shipping",
+    "terms_questions"
+  ]
+}

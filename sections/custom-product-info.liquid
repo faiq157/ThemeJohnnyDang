@@ -1,0 +1,335 @@
+{{ 'custom-product-info.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-product-info section-{{ section.id }}-padding">
+  <div class="page-width">
+    
+    <!-- Product Description -->
+    {% if section.settings.show_description and section.settings.product_description != blank %}
+      <div class="product-info-section">
+        <h2 class="product-info-title">DESCRIPTION</h2>
+        <div class="product-info-content">
+          {{ section.settings.product_description }}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Product Information -->
+    {% if section.settings.show_product_info %}
+      <div class="product-info-section">
+        <h2 class="product-info-title">PRODUCT INFORMATION</h2>
+        <div class="product-info-content">
+          {% if section.settings.metal_type != blank %}
+            <p><strong>Metal:</strong> {{ section.settings.metal_type }}</p>
+          {% endif %}
+          {% if section.settings.material != blank %}
+            <p><strong>Material:</strong> {{ section.settings.material }}</p>
+          {% endif %}
+          {% if section.settings.finish != blank %}
+            <p><strong>Finish:</strong> {{ section.settings.finish }}</p>
+          {% endif %}
+          {% if section.settings.dimensions != blank %}
+            <p><strong>Dimensions:</strong> {{ section.settings.dimensions }}</p>
+          {% endif %}
+          {% if section.settings.weight != blank %}
+            <p><strong>Weight:</strong> {{ section.settings.weight }}</p>
+          {% endif %}
+          {% if section.settings.clasp_type != blank %}
+            <p><strong>Clasp:</strong> {{ section.settings.clasp_type }}</p>
+          {% endif %}
+          {% if section.settings.additional_specs != blank %}
+            <div class="additional-specs">
+              {{ section.settings.additional_specs }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Shipping & Returns -->
+    {% if section.settings.show_shipping_returns %}
+      <div class="product-info-section">
+        <h2 class="product-info-title">SHIPPING & RETURNS</h2>
+        <div class="product-info-content">
+          {% if section.settings.return_policy != blank %}
+            <p>{{ section.settings.return_policy }}</p>
+          {% endif %}
+          {% if section.settings.processing_time != blank %}
+            <p>{{ section.settings.processing_time }}</p>
+          {% endif %}
+          {% if section.settings.custom_orders_info != blank %}
+            <p>{{ section.settings.custom_orders_info }}</p>
+          {% endif %}
+          {% if section.settings.shipping_info != blank %}
+            <div class="shipping-details">
+              {{ section.settings.shipping_info }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Warranty -->
+    {% if section.settings.show_warranty %}
+      <div class="product-info-section">
+        <h2 class="product-info-title">WARRANTY</h2>
+        <div class="product-info-content">
+          {% if section.settings.warranty_info != blank %}
+            <p>{{ section.settings.warranty_info }}</p>
+          {% endif %}
+          {% if section.settings.warranty_details != blank %}
+            <div class="warranty-details">
+              {{ section.settings.warranty_details }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Payment Methods -->
+    {% if section.settings.show_payment_info %}
+      <div class="product-info-section">
+        <h2 class="product-info-title">CHECKOUT SAFELY USING YOUR PREFERRED PAYMENT METHOD</h2>
+        <div class="product-info-content">
+          {% if section.settings.payment_methods != blank %}
+            <div class="payment-methods">
+              {{ section.settings.payment_methods }}
+            </div>
+          {% endif %}
+          {% if section.settings.security_info != blank %}
+            <div class="security-info">
+              {{ section.settings.security_info }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Flawless Families Section -->
+    {% if section.settings.show_flawless_families %}
+      <div class="product-info-section">
+        <h2 class="product-info-title">JOIN THE FLAWLESS FAMILIES</h2>
+        <div class="product-info-content">
+          {% if section.settings.flawless_families_text != blank %}
+            <p>{{ section.settings.flawless_families_text }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Information",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show Description",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "product_description",
+      "label": "Product Description",
+      "default": "14kt Gold 26 inches Yellow Finish 11.13mm Polished New Semi-Solid Miami Cuban Chain with Box Clasp"
+    },
+    {
+      "type": "header",
+      "content": "Product Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_info",
+      "label": "Show Product Information",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "metal_type",
+      "label": "Metal Type",
+      "default": "Gold"
+    },
+    {
+      "type": "text",
+      "id": "material",
+      "label": "Material",
+      "default": "14kt Gold"
+    },
+    {
+      "type": "text",
+      "id": "finish",
+      "label": "Finish",
+      "default": "Yellow Finish"
+    },
+    {
+      "type": "text",
+      "id": "dimensions",
+      "label": "Dimensions",
+      "default": "26 inches, 11.13mm"
+    },
+    {
+      "type": "text",
+      "id": "weight",
+      "label": "Weight",
+      "info": "Optional - leave blank to hide"
+    },
+    {
+      "type": "text",
+      "id": "clasp_type",
+      "label": "Clasp Type",
+      "default": "Box Clasp"
+    },
+    {
+      "type": "richtext",
+      "id": "additional_specs",
+      "label": "Additional Specifications",
+      "info": "Optional - leave blank to hide"
+    },
+    {
+      "type": "header",
+      "content": "Shipping & Returns"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_returns",
+      "label": "Show Shipping & Returns",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "return_policy",
+      "label": "Return Policy",
+      "default": "14 day return policy on all products excluding custom products"
+    },
+    {
+      "type": "text",
+      "id": "processing_time",
+      "label": "Processing Time",
+      "default": "Orders may require an additional 2-3 business days processing time. Custom made orders including grills can take 2-3 weeks to complete."
+    },
+    {
+      "type": "text",
+      "id": "custom_orders_info",
+      "label": "Custom Orders Info",
+      "info": "Optional - leave blank to hide"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_info",
+      "label": "Additional Shipping Information",
+      "info": "Optional - leave blank to hide"
+    },
+    {
+      "type": "header",
+      "content": "Warranty"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_warranty",
+      "label": "Show Warranty",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "warranty_info",
+      "label": "Warranty Information",
+      "default": "All products come with a thirty (30) day manufacturers warranty."
+    },
+    {
+      "type": "richtext",
+      "id": "warranty_details",
+      "label": "Warranty Details",
+      "info": "Optional - leave blank to hide"
+    },
+    {
+      "type": "header",
+      "content": "Payment Methods"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_info",
+      "label": "Show Payment Information",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "payment_methods",
+      "label": "Payment Methods",
+      "info": "Describe accepted payment methods"
+    },
+    {
+      "type": "richtext",
+      "id": "security_info",
+      "label": "Security Information",
+      "info": "Optional - leave blank to hide"
+    },
+    {
+      "type": "header",
+      "content": "Flawless Families"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_flawless_families",
+      "label": "Show Flawless Families Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "flawless_families_text",
+      "label": "Flawless Families Text",
+      "info": "Optional - leave blank to hide"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Information"
+    }
+  ]
+}
+{% endschema %}

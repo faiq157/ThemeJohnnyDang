@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "blocks": {
+        "category_URpqhw": {
+          "type": "category",
+          "settings": {
+            "collection": "all-collection",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_URpqhw"
+      ],
+      "settings": {
+        "hero_subtitle": "the collection trusted by icons",
+        "hero_title": "Shop All Collection",
+        "hero_description": "<p>Explore our curated collection of premium jewelry and accessories.</p>",
+        "show_hero_cta": true,
+        "hero_cta_text": "Shop Now",
+        "hero_cta_link": "",
+        "show_hero_image": true,
+        "hero_image_width": 400,
+        "hero_image_height": 400,
+        "bubbles_heading": "Shop by category",
+        "title": "Collections",
+        "sort": "alphabetical",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "columns_mobile": "2"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

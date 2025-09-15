@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "page_hero_VAJkfe": {
+      "type": "page-hero",
+      "name": "Page Hero",
+      "settings": {
+        "subtitle": "UNLOCK YOUR STYLE",
+        "title": "Testimonials",
+        "description": "",
+        "show_cta": false,
+        "cta_text": "Learn More",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "testimonial_gallery_BE6TGB": {
+      "type": "testimonial-gallery",
+      "blocks": {
+        "gallery_item_aeNURT": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/testo3.mp4",
+            "caption": ""
+          }
+        },
+        "gallery_item_fFdaHk": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/testo4.mp4",
+            "caption": ""
+          }
+        },
+        "gallery_item_3KY8kg": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/testo1.mp4",
+            "caption": ""
+          }
+        },
+        "gallery_item_QBLc3A": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/testo2.mp4",
+            "caption": ""
+          }
+        },
+        "gallery_item_7K38hQ": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/testo1.mp4",
+            "caption": ""
+          }
+        },
+        "gallery_item_bERcFW": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/testo4.mp4",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "gallery_item_aeNURT",
+        "gallery_item_fFdaHk",
+        "gallery_item_3KY8kg",
+        "gallery_item_QBLc3A",
+        "gallery_item_7K38hQ",
+        "gallery_item_bERcFW"
+      ],
+      "name": "Testimonial Gallery",
+      "settings": {
+        "title": "See Why the Stars Choose Johnny Dang & Co",
+        "description": "Hear it from the real ones who trust us to elevate their style and make a statement. From custom grills to timeless jewelry, see why the legends choose Johnny Dang & Co. to bring their vision to life.",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_hero_VAJkfe",
+    "testimonial_gallery_BE6TGB"
+  ]
+}

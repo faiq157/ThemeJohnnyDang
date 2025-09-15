@@ -1,0 +1,461 @@
+{{ 'custom-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+{{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+{{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-product section-{{ section.id }}-padding">
+  <div class="page-width">
+    
+    <!-- Hero Section -->
+    <div class="custom-product__hero">
+      <div class="custom-product__hero-content">
+        <h1 class="custom-product__title">
+          {% if product.title != blank %}
+            {% assign title_words = product.title | split: ' ' %}
+            {% if title_words.size >= 2 %}
+              <span class="custom-product__title-line">{{ title_words[0] }}</span>
+              <span class="custom-product__title-line">{{ title_words[1] }}{% if title_words.size > 2 %} {{ title_words[2] }}{% endif %}</span>
+            {% else %}
+              <span class="custom-product__title-line">{{ product.title }}</span>
+            {% endif %}
+          {% else %}
+            <span class="custom-product__title-line">{{ section.settings.hero_title_1 | default: 'Custom Ring' }}</span>
+            <span class="custom-product__title-line">{{ section.settings.hero_title_2 | default: 'Deposit & Design' }}</span>
+          {% endif %}
+        </h1>
+        <a href="#custom-form" class="custom-product__cta">
+          {{ section.settings.cta_text | default: 'Get Started' }}
+          <svg class="custom-product__cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1L8 15M8 15L1 8M8 15L15 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="custom-product__hero-image">
+        {% if product.featured_media %}
+          <img 
+            src="{{ product.featured_media | image_url: width: 600 }}"
+            alt="{{ product.featured_media.alt | default: product.title }}"
+            width="600"
+            height="600"
+            loading="eager"
+          >
+        {% elsif section.settings.hero_image != blank %}
+          <img 
+            src="{{ section.settings.hero_image | image_url: width: 600 }}"
+            alt="{{ section.settings.hero_image.alt | default: 'Custom Ring' }}"
+            width="600"
+            height="600"
+            loading="eager"
+          >
+        {% else %}
+          <img 
+            src="{{ 'Ring.png' | asset_url }}"
+            alt="Custom Ring"
+            width="600"
+            height="600"
+            loading="eager"
+          >
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Information Banner -->
+    {% if section.settings.info_banner_text != blank %}
+      <div class="custom-product__banner">
+        <p>{{ section.settings.info_banner_text }}</p>
+      </div>
+    {% endif %}
+
+    <!-- Product Details Section -->
+    <div class="custom-product__details">
+      <div class="custom-product__gallery">
+         <div class="custom-product__main-image" id="main-product-image">
+           {% if product.featured_media %}
+             <img 
+               src="{{ product.featured_media | image_url: width: 500 }}"
+               alt="{{ product.featured_media.alt | default: product.title }}"
+               width="500"
+               height="500"
+               loading="lazy"
+               class="main-image"
+               data-media-id="{{ product.featured_media.id }}"
+             >
+           {% else %}
+             <img 
+               src="{{ 'Ring.png' | asset_url }}"
+               alt="{{ product.title }}"
+               width="500"
+               height="500"
+               loading="lazy"
+               class="main-image"
+               data-full-image="{{ 'Ring.png' | asset_url }}"
+             >
+           {% endif %}
+         </div>
+        
+         <div class="custom-product__thumbnails">
+           {% if product.media.size > 1 %}
+             {% for media in product.media limit: 6 %}
+               <div class="custom-product__thumbnail {% if forloop.first %}active{% endif %}" data-media-id="{{ media.id }}">
+                 <img 
+                   src="{{ media | image_url: width: 100 }}"
+                   alt="{{ media.alt | default: product.title }}"
+                   width="100"
+                   height="100"
+                   loading="lazy"
+                   class="thumbnail-image"
+                   data-full-image="{{ media | image_url: width: 500 }}"
+                 >
+               </div>
+             {% endfor %}
+           {% else %}
+             <!-- Fallback thumbnails when product has no multiple images -->
+             <div class="custom-product__thumbnail active">
+               <img 
+                 src="{{ 'Ring.png' | asset_url }}"
+                 alt="{{ product.title }}"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 class="thumbnail-image"
+                 data-full-image="{{ 'Ring.png' | asset_url }}"
+               >
+             </div>
+             <div class="custom-product__thumbnail">
+               <img 
+                 src="{{ 'ring1.png' | asset_url }}"
+                 alt="{{ product.title }}"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 class="thumbnail-image"
+                 data-full-image="{{ 'ring1.png' | asset_url }}"
+               >
+             </div>
+             <div class="custom-product__thumbnail">
+               <img 
+                 src="{{ 'ring2.png' | asset_url }}"
+                 alt="{{ product.title }}"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 class="thumbnail-image"
+                 data-full-image="{{ 'ring2.png' | asset_url }}"
+               >
+             </div>
+             <div class="custom-product__thumbnail">
+               <img 
+                 src="{{ 'ChainsBracelets.png' | asset_url }}"
+                 alt="{{ product.title }}"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 class="thumbnail-image"
+                 data-full-image="{{ 'ChainsBracelets.png' | asset_url }}"
+               >
+             </div>
+             <div class="custom-product__thumbnail">
+               <img 
+                 src="{{ 'Earrings.png' | asset_url }}"
+                 alt="{{ product.title }}"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 class="thumbnail-image"
+                 data-full-image="{{ 'Earrings.png' | asset_url }}"
+               >
+             </div>
+             <div class="custom-product__thumbnail">
+               <img 
+                 src="{{ 'Pendants.png' | asset_url }}"
+                 alt="{{ product.title }}"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 class="thumbnail-image"
+                 data-full-image="{{ 'Pendants.png' | asset_url }}"
+               >
+             </div>
+           {% endif %}
+         </div>
+      </div>
+
+      <div class="custom-product__form" id="custom-form">
+        <div class="custom-product__form-header">
+          <div class="custom-product__price">
+            <span class="price">{{ product.price | money }}</span>
+          </div>
+          
+          {% if section.settings.show_rating %}
+            <div class="custom-product__rating">
+              <div class="stars">
+                {% for i in (1..5) %}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 1L10.5 5.5L16 6.5L12 10L13 16L8 13L3 16L4 10L0 6.5L5.5 5.5L8 1Z" fill="#FFD700"/>
+                  </svg>
+                {% endfor %}
+              </div>
+              <span class="rating-text">{{ section.settings.rating_value | default: '4.2' }} {{ section.settings.review_count | default: '1 REVIEW' }}</span>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Custom Form -->
+        <form class="custom-product__form-content" action="/cart/add" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          
+          <!-- Product Variant Picker -->
+          {% unless product.has_only_default_variant %}
+            {% render 'product-variant-picker', product: product, block: section.blocks.first, product_form_id: 'custom-product-form' %}
+          {% endunless %}
+
+          <!-- Quantity -->
+          <div class="custom-product__quantity">
+            <label for="quantity">Quantity:</label>
+            <div class="quantity-selector">
+              <button type="button" class="quantity-btn quantity-minus">-</button>
+              <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input">
+              <button type="button" class="quantity-btn quantity-plus">+</button>
+            </div>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button type="submit" class="custom-product__add-to-cart">
+            {{ section.settings.add_to_cart_text | default: 'Add to Cart' }}
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Custom Order Information -->
+    {% if section.settings.show_custom_info %}
+      <div class="custom-product__info">
+        <div class="custom-product__info-content">
+          <h3>{{ section.settings.custom_info_title | default: 'Custom Order Information' }}</h3>
+          <div class="custom-product__info-text">
+            {{ section.settings.custom_info_text }}
+          </div>
+          {% if section.settings.highlight_text != blank %}
+            <div class="custom-product__highlight">
+              {{ section.settings.highlight_text }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script src="{{ 'custom-product.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Custom Product",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_1",
+      "label": "Hero Title Line 1",
+      "default": "Custom Ring"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_2",
+      "label": "Hero Title Line 2",
+      "default": "Deposit & Design"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image (Fallback)",
+      "info": "This image will be used if the product has no main image"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "header",
+      "content": "Information Banner"
+    },
+    {
+      "type": "textarea",
+      "id": "info_banner_text",
+      "label": "Banner Text",
+      "default": "Free Shipping On Orders Over $500 Within US. Call or Text 281248888 for Quotations and Assistance."
+    },
+    {
+      "type": "header",
+      "content": "Product Form"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show Rating",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_value",
+      "label": "Rating Value",
+      "default": "4.2"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review Count",
+      "default": "1 REVIEW"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_guide",
+      "label": "Show Size Guide Link",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "size_guide_url",
+      "label": "Size Guide URL"
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Add to Cart Button Text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "header",
+      "content": "Custom Order Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_custom_info",
+      "label": "Show Custom Order Information",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "custom_info_title",
+      "label": "Information Title",
+      "default": "Custom Order Information"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_info_text",
+      "label": "Information Text",
+      "default": "<p>You must pay a $500 deposit to inquire about a custom ring.</p><p>You will be provided with consultation, a quote and 3D rendering for your custom design piece.</p><p>The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale.</p>"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlight Text",
+      "default": "**All Custom Item Prices Are Deposit Only**"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "variant_picker",
+      "name": "Variant Picker",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "Dropdown"
+            },
+            {
+              "value": "button",
+              "label": "Button"
+            },
+            {
+              "value": "swatch",
+              "label": "Swatch"
+            }
+          ],
+          "default": "swatch",
+          "label": "Picker Type"
+        },
+        {
+          "id": "swatch_shape",
+          "label": "Swatch Shape",
+          "type": "select",
+          "options": [
+            {
+              "value": "circle",
+              "label": "Circle"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "default": "circle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product",
+      "blocks": [
+        {
+          "type": "variant_picker"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

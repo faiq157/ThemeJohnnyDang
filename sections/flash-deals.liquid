@@ -1,0 +1,613 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'flash-deals.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .flash-deals-section {
+    background: #000000;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+  }
+
+  .flash-deals-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .flash-deals-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .flash-deals-title {
+    color: #ffffff;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .view-all-deals {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ff6600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .view-all-deals:hover {
+    color: #ff8800;
+  }
+
+
+  .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    background: {{ section.settings.countdown_background }};
+    color: {{ section.settings.countdown_text_color }};
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 2px solid {{ section.settings.countdown_border_color }};
+  }
+
+  .countdown-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  .flash-deals-badge {
+    background: linear-gradient(45deg, #ff0000, #ff6600);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .flash-deals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .flash-deals-product {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+
+  .flash-deals-product:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .discount-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color:  #ff6600;
+    padding: 0.4rem 0.8rem;
+    z-index: 2;
+    font-family: Playfair Display;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 20px;
+    line-height: 16.58px;
+    letter-spacing: 0.13px;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+
+  .flash-deals-product-image-container {
+    position: relative;
+  }
+
+  .flash-deals-product-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .flash-deals-product-info {
+    padding: 1rem 0;
+  }
+
+  .flash-deals-product-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  .flash-deals-price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+
+  .original-price {
+    text-decoration: line-through;
+    color: #666666;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .sale-price {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .flash-deals-button {
+    display: none;
+  }
+
+  .no-sale-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: #ffffff;
+    background: #1a1a1a;
+    border: 1px solid #333;
+  }
+
+  .no-sale-products p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .flash-deals-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .countdown-timer {
+      gap: 0.5rem;
+    }
+    
+    .countdown-item {
+      min-width: 60px;
+      padding: 0.8rem 1rem;
+    }
+    
+    .countdown-number {
+      font-size: 1.5rem;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  comment
+    Flash deals section variables
+  endcomment
+-%}
+
+<div class="flash-deals-section section-{{ section.id }}-padding">
+  <div class="page-width flash-deals-content">
+    {%- if section.settings.title != blank -%}
+      <div class="flash-deals-header">
+        
+        <h2 class="flash-deals-title {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+        <a href="{{ section.settings.view_all_link | default: '/collections' }}" class="view-all-deals">
+            All Deals
+            <svg class="cta-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.collection != blank -%}
+      <div class="flash-deals-grid">
+        {%- assign sale_products_count = 0 -%}
+        {%- for product in section.settings.collection.products -%}
+          {%- if product.compare_at_price > product.price -%}
+            {%- if sale_products_count < section.settings.products_to_show -%}
+              <a href="{{ product.url }}" class="flash-deals-product">
+                {%- assign discount_percentage = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price -%}
+                <div class="discount-label">{{ discount_percentage }}% OFF</div>
+                
+                <div class="flash-deals-product-image-container">
+                  {%- if product.featured_media -%}
+                    <img src="{{ product.featured_media | image_url: width: 300 }}" 
+                         alt="{{ product.featured_media.alt | escape }}" 
+                         class="flash-deals-product-image"
+                         width="300"
+                         height="220"
+                         loading="lazy">
+                  {%- endif -%}
+                </div>
+                
+                <div class="flash-deals-product-info">
+                  <h3 class="flash-deals-product-title">{{ product.title }}</h3>
+                  
+                  <div class="flash-deals-price">
+                    <span class="original-price">{{ product.compare_at_price | money }}</span>
+                    <span class="sale-price">{{ product.price | money }}</span>
+                  </div>
+                </div>
+              </a>
+              {%- assign sale_products_count = sale_products_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        
+        {%- if sale_products_count == 0 -%}
+          <div class="no-sale-products">
+            <p>No sale products found in this collection. Please add products with compare_at_price set to see them here.</p>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- else -%}
+      <div class="flash-deals-grid">
+        {%- for i in (1..4) -%}
+          <a href="#" class="flash-deals-product">
+            <div class="discount-label">50% OFF</div>
+            <div class="flash-deals-product-image-container">
+              <div class="flash-deals-product-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; min-height: 200px;">
+                Product Image
+              </div>
+            </div>
+            <div class="flash-deals-product-info">
+              <h3 class="flash-deals-product-title">Sample Product {{ i }}</h3>
+              <div class="flash-deals-price">
+                <span class="original-price">$100.00</span>
+                <span class="sale-price">$50.00</span>
+              </div>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if section.settings.show_countdown -%}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function updateCountdown(endDate, sectionId) {
+    const now = new Date().getTime();
+    const distance = endDate - now;
+
+    if (distance < 0) {
+      document.getElementById('countdown-' + sectionId).innerHTML = '<div class="countdown-item"><span class="countdown-number">EXPIRED</span></div>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days-' + sectionId).innerHTML = days.toString().padStart(2, '0');
+    document.getElementById('hours-' + sectionId).innerHTML = hours.toString().padStart(2, '0');
+    document.getElementById('minutes-' + sectionId).innerHTML = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds-' + sectionId).innerHTML = seconds.toString().padStart(2, '0');
+  }
+
+  const endDate = new Date('{{ section.settings.countdown_end_date }}').getTime();
+  updateCountdown(endDate, '{{ section.id }}');
+  setInterval(function() {
+    updateCountdown(endDate, '{{ section.id }}');
+  }, 1000);
+});
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Flash Deals",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection Settings"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Select the collection to display as flash deals"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Number of products to show"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "default": true,
+      "label": "Show flash deals badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "FLASH DEALS",
+      "label": "Badge text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Flash Deals",
+      "label": "Section title"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        },
+        {
+          "value": "hxl",
+          "label": "Extra Large"
+        },
+        {
+          "value": "hxxl",
+          "label": "XX Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "info": "Optional description text below the title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "default": "Shop Now",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all deals link",
+      "info": "Link for the 'All Deals' button in the header"
+    },
+    {
+      "type": "header",
+      "content": "Countdown Timer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "default": true,
+      "label": "Show countdown timer"
+    },
+    {
+      "type": "text",
+      "id": "countdown_end_date",
+      "label": "Countdown end date",
+      "info": "Format: YYYY-MM-DD HH:MM:SS (e.g., 2024-12-31 23:59:59)",
+      "default": "2024-12-31 23:59:59"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8f9fa"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Title font size",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "countdown_background",
+      "label": "Countdown background",
+      "default": "#ff0000"
+    },
+    {
+      "type": "color",
+      "id": "countdown_text_color",
+      "label": "Countdown text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "countdown_border_color",
+      "label": "Countdown border color",
+      "default": "#cc0000"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "2",
+      "label": "Mobile columns"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "4",
+      "label": "Desktop columns"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flash Deals",
+      "settings": {
+        "title": "Flash Deals",
+        "badge_text": "FLASH DEALS",
+        "button_text": "Shop Now",
+        "show_countdown": true,
+        "countdown_end_date": "2024-12-31 23:59:59",
+        "products_to_show": 4
+      }
+    }
+  ]
+}
+{% endschema %}

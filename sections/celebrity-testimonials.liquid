@@ -1,0 +1,303 @@
+{{ 'celebrity-testimonials.css' | asset_url | stylesheet_tag }}
+{{ 'celebrity-testimonials.js' | asset_url | script_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="celebrity-testimonials-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="testimonials-header">
+      {% if section.settings.heading != blank %}
+        <h2 class="testimonials-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      
+      {% if section.settings.cta_text != blank and section.settings.cta_link != blank %}
+        <a href="{{ section.settings.cta_link }}" class="testimonials-cta">
+          {{ section.settings.cta_text }}
+          <svg class="cta-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="testimonials-carousel">
+      <button class="carousel-btn carousel-btn-prev" aria-label="Previous testimonials">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="testimonials-container">
+        <div class="testimonials-track">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'celebrity_testimonial' %}
+                <div class="testimonial-item" {{ block.shopify_attributes }}>
+                  <div class="testimonial-image-wrapper {{ block.settings.frame_color }}">
+                    {% if block.settings.video_url != blank %}
+                      <video 
+                        class="testimonial-video"
+                        width="260"
+                        height="260"
+                        muted
+                        loop
+                        autoplay
+                        playsinline
+                        data-video-url="{{ block.settings.video_url }}"
+                      >
+                        <source src="{{ block.settings.video_url }}" type="video/mp4">
+                        <source src="{{ block.settings.video_url }}" type="video/webm">
+                        Your browser does not support the video tag.
+                      </video>
+                    {% elsif block.settings.video != blank %}
+                      <video 
+                        class="testimonial-video"
+                        width="260"
+                        height="260"
+                        muted
+                        loop
+                        autoplay
+                        playsinline
+                        data-video-url="{{ block.settings.video.sources[1].url }}"
+                      >
+                        <source src="{{ block.settings.video.sources[1].url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    {% elsif block.settings.image != blank %}
+                      <img 
+                        class="testimonial-image"
+                        src="{{ block.settings.image | image_url: width: 260 }}"
+                        alt="{{ block.settings.celebrity_name | escape }}"
+                        width="260"
+                        height="260"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      {% assign fallback_video = 'testo' | append: forloop.index | append: '.mp4' %}
+                      <video 
+                        class="testimonial-video"
+                        width="260"
+                        height="260"
+                        muted
+                        loop
+                        autoplay
+                        playsinline
+                      >
+                        <source src="{{ fallback_video | asset_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    {% endif %}
+                  </div>
+                  
+                  <div class="testimonial-info">
+                    {% if block.settings.celebrity_name != blank %}
+                      <h3 class="celebrity-name">{{ block.settings.celebrity_name }}</h3>
+                    {% endif %}
+                    
+                    {% if block.settings.celebrity_title != blank %}
+                      <p class="celebrity-title">{{ block.settings.celebrity_title }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <button class="carousel-btn carousel-btn-next" aria-label="Next testimonials">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle testimonial video loading issues
+  const testimonialVideos = document.querySelectorAll('.testimonial-video[data-video-url]');
+  
+  testimonialVideos.forEach(function(video) {
+    const fileUrl = video.getAttribute('data-video-url');
+    
+    // Add error handling for video loading
+    video.addEventListener('error', function(e) {
+      console.log('Video loading error for URL:', fileUrl);
+      console.log('Video element:', video);
+      
+      // Try to reload the video
+      video.load();
+    });
+    
+    // Add load event listener
+    video.addEventListener('loadeddata', function() {
+      console.log('Video loaded successfully:', fileUrl);
+    });
+    
+    // Add canplay event listener
+    video.addEventListener('canplay', function() {
+      console.log('Video can play:', fileUrl);
+    });
+    
+    // Force video to load
+    video.load();
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Celebrity Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See Why the Stars Choose Johnny Dang & Co"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Call to action text",
+      "default": "VIEW ALL TESTIMONIALS"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Call to action link"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "celebrity_testimonial",
+      "name": "Celebrity Testimonial",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Testimonial Video",
+          "info": "Upload a video file for this testimonial. If no video is uploaded, the image will be used as fallback."
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "Enter a direct link to a video file (MP4, WebM, etc.). This will override the uploaded video if provided."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Celebrity Image (Fallback)",
+          "info": "This image will be used if no video is uploaded"
+        },
+        {
+          "type": "text",
+          "id": "celebrity_name",
+          "label": "Celebrity Name",
+          "default": "CELEBRITY NAME"
+        },
+        {
+          "type": "text",
+          "id": "celebrity_title",
+          "label": "Celebrity Title",
+          "default": "OCCUPATION"
+        },
+        {
+          "type": "select",
+          "id": "frame_color",
+          "label": "Frame Color",
+          "options": [
+            {
+              "value": "orange-glow",
+              "label": "Orange Glow"
+            },
+            {
+              "value": "purple-glow",
+              "label": "Purple Glow"
+            }
+          ],
+          "default": "orange-glow"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Celebrity Testimonials",
+      "blocks": [
+        {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "celebrity_name": "DJ KHALED",
+            "celebrity_title": "MUSICIAN",
+            "frame_color": "orange-glow"
+          }
+        },
+        {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "celebrity_name": "RYAN KANE",
+            "celebrity_title": "PRIVATE INVESTOR, ACTOR",
+            "frame_color": "purple-glow"
+          }
+        },
+        {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "celebrity_name": "DRAKE GRAHAM",
+            "celebrity_title": "RAPPER & SINGER",
+            "frame_color": "orange-glow"
+          }
+        },
+        {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "celebrity_name": "PAUL WALL",
+            "celebrity_title": "RAPPER & DJ",
+            "frame_color": "purple-glow"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

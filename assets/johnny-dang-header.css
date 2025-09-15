@@ -1,0 +1,382 @@
+/* ========================================
+   JOHNNY DANG OPTIMIZED HEADER STYLES
+   ======================================== */
+
+.jd-header-wrapper {
+  background: transparent !important;
+  border: none;
+  border-bottom: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Black background for all pages except home page */
+.jd-header-wrapper:not(.home-page) {
+  background: #000000 !important;
+  position: relative;
+}
+
+/* Ensure collections page has black header background */
+.jd-header-wrapper.collections-page {
+  background: #000000 !important;
+  position: relative;
+}
+
+.jd-header-wrapper.scrolled {
+  background: rgba(0, 0, 0, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .jd-header-wrapper.scrolled {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+}
+
+.jd-header {
+  background: transparent;
+  color: #ffffff !important;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Ensure ALL header text is white */
+.jd-header *, 
+.jd-header a, 
+.jd-header span, 
+.jd-header div, 
+.jd-header p,
+.jd-header button {
+  color: #ffffff !important;
+}
+
+.jd-header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.jd-header__logo img {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.jd-header__logo-text {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.jd-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.jd-header__nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.jd-header__nav-item {
+  position: relative;
+}
+
+.jd-header__nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.jd-header__nav-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.jd-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.jd-header__icon {
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.jd-header__icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.jd-header__icon svg {
+  fill: #ffffff;
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.jd-header__mobile-toggle {
+  display: none;
+  color: #ffffff;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Mobile Navigation */
+.jd-header__mobile-nav {
+  display: none;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.jd-header__mobile-nav.active {
+  transform: translateY(0);
+}
+
+.jd-header__mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jd-header__mobile-nav-item {
+  margin-bottom: 1rem;
+}
+
+.jd-header__mobile-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: block;
+  padding: 1rem 0;
+
+}
+
+/* Cart Count */
+.jd-header__cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff6200;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .jd-header__nav {
+    display: none;
+  }
+  
+  .jd-header__mobile-toggle {
+    display: block;
+  }
+  
+  .jd-header__mobile-nav {
+    display: block;
+  }
+  
+  .jd-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .jd-header__actions {
+    gap: 0.5rem;
+  }
+  
+  .jd-header__icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Focus States for Accessibility */
+.jd-header__nav-link:focus,
+.jd-header__icon:focus,
+.jd-header__mobile-nav-link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jd-header__nav-item {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ========================================
+   LOCALIZATION DROPDOWN STYLING
+   ======================================== */
+
+/* Dropdown button styling */
+.disclosure__button.localization-form__select {
+  color: #ffffff !important;
+  margin: 5px;
+  padding: 0.8rem 1.2rem !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.disclosure__button.localization-form__select:focus {
+  background: #000000 !important;
+  color: #ffffff !important;
+  outline: 2px solid rgba(255, 255, 255, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* Dropdown list styling */
+.disclosure__list-wrapper {
+  background: #000000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.disclosure__list {
+  background: #000000 !important;
+}
+
+/* Dropdown items styling */
+.disclosure__link {
+  color: #ffffff !important;
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.disclosure__link:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.disclosure__link:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+/* Caret icon styling */
+.disclosure__button.localization-form__select .icon-caret {
+  fill: #ffffff !important;
+  margin-left: 8px !important;
+  margin-right: 4px !important;
+  width: 15px !important;
+  height: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Text content spacing */
+.disclosure__button.localization-form__select > span {
+  margin-right: 16px !important;
+  white-space: nowrap !important;
+}
+
+/* Country filter styling */
+.country-filter {
+  background: #000000 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.country-filter__input {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 6px !important;
+}
+
+.country-filter__input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.country-filter__input:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  outline: none !important;
+}
+
+/* Popular countries section */
+.popular-countries {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Mobile overlay */
+.country-selector__overlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Close button */
+.country-selector__close-button {
+  color: #ffffff !important;
+}
+
+.country-selector__close-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}

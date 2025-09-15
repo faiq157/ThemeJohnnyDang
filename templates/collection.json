@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "page_hero_FT67UY": {
+      "type": "page-hero",
+      "name": "Page Hero",
+      "settings": {
+        "subtitle": "UNLOCK YOUR STYLE",
+        "title": "Sub Categories",
+        "description": "<p>Discover our story and the passion behind Johnny Dang & Co.</p>",
+        "show_cta": false,
+        "cta_text": "Learn More",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "bubbles": {
+      "type": "collection-bubbles",
+      "blocks": {
+        "category_3jdyef": {
+          "type": "category",
+          "settings": {
+            "collection": "all-collection",
+            "title": ""
+          }
+        },
+        "category_Mr8RPB": {
+          "type": "category",
+          "settings": {
+            "collection": "flower-pendants",
+            "title": ""
+          }
+        },
+        "category_fFwT8d": {
+          "type": "category",
+          "settings": {
+            "collection": "custom-design",
+            "title": ""
+          }
+        },
+        "category_rpVXA6": {
+          "type": "category",
+          "settings": {
+            "collection": "all-collection",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_3jdyef",
+        "category_Mr8RPB",
+        "category_fFwT8d",
+        "category_rpVXA6"
+      ],
+      "settings": {
+        "heading": "Shop by category"
+      }
+    },
+    "main-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 20,
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main-banner",
+    "page_hero_FT67UY",
+    "bubbles",
+    "main-grid"
+  ]
+}

@@ -1,0 +1,53 @@
+<!-- Sidebar Filters -->
+<aside class="collections-sidebar">
+  <h3 class="sidebar-title">Filter By</h3>
+
+  {% if collection.filters.size > 0 %}
+    <form id="CollectionFiltersForm" class="sidebar-form">
+      {% for filter in collection.filters %}
+        <div class="filter-group">
+          <h4 class="filter-title">{{ filter.label }}</h4>
+
+          {% if filter.type == "price_range" %}
+            <div class="price-range">
+              <label>
+                From
+                <input type="number"
+                       name="{{ filter.min_value.param_name }}"
+                       value="{{ filter.min_value.value | default: '' }}"
+                       min="0"
+                       step="1">
+              </label>
+              <label>
+                To
+                <input type="number"
+                       name="{{ filter.max_value.param_name }}"
+                       value="{{ filter.max_value.value | default: '' }}"
+                       min="0"
+                       step="1">
+              </label>
+              <button type="submit" class="btn-apply">Apply</button>
+            </div>
+          {% else %}
+            <ul class="filter-options">
+              {% for value in filter.values %}
+                <li>
+                  <label>
+                    <input type="checkbox"
+                           name="{{ filter.param_name }}"
+                           value="{{ value.value }}"
+                           {% if value.active %}checked{% endif %}
+                           onchange="this.form.submit()">
+                    {{ value.label }} ({{ value.count }})
+                  </label>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </form>
+  {% else %}
+    <p>No filters available</p>
+  {% endif %}
+</aside>

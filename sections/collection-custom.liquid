@@ -1,0 +1,223 @@
+{% schema %}
+{
+  "name": "Custom Collection Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Collection Page"
+    }
+  ]
+}
+{% endschema %}
+
+<!-- Hero -->
+<section class="collection-hero">
+  <div class="collection-hero__content">
+    <p class="collection-hero__subtitle">The Collection Trusted By Icons</p>
+    <h1 class="collection-hero__title">{{ collection.title }}</h1>
+  </div>
+</section>
+
+<!-- Category bubbles -->
+<div class="collection-bubbles">
+  {% assign featured_collections = collections | slice: 0, 5 %}
+  {% for col in featured_collections %}
+    <a href="{{ col.url }}" class="collection-bubble">
+      <div class="collection-bubble__image">
+        <img src="{{ col.featured_image | img_url: '200x200' }}" alt="{{ col.title }}">
+      </div>
+      <span>{{ col.title }}</span>
+    </a>
+  {% endfor %}
+</div>
+
+<!-- Layout -->
+<div class="collection-layout">
+  <!-- Sidebar filters -->
+  <aside class="collection-sidebar">
+    <h3>Filter:</h3>
+    {% render 'facets', results: collection %}
+  </aside>
+
+  <!-- Product grid -->
+  <div class="collection-products">
+    <div class="collection-grid">
+      {% for product in collection.products %}
+        <div class="collection-card">
+          <a href="{{ product.url }}">
+            <img 
+              src="{{ product.featured_image | img_url: '600x600' }}" 
+              alt="{{ product.title }}" 
+              class="collection-card__image"
+            >
+            <h3 class="collection-card__title">{{ product.title }}</h3>
+            <p class="collection-card__price">{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% paginate collection.products by 12 %}
+      <div class="collection-pagination">
+        {{ paginate | default_pagination }}
+      </div>
+    {% endpaginate %}
+  </div>
+</div>
+
+
+<style>
+/* Hero */
+.collection-hero {
+  background: linear-gradient(135deg, #6a11cb, #000000);
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+.collection-hero__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.collection-hero__title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+/* Bubbles */
+.collection-bubbles {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+}
+.collection-bubble {
+  text-align: center;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+}
+.collection-bubble__image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
+  margin: 0 auto 0.5rem;
+}
+.collection-bubble__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layout */
+.collection-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+.collection-sidebar {
+  background: #111;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Grid */
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.collection-card {
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.collection-card:hover {
+  transform: scale(1.03);
+}
+.collection-card__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.collection-card__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0.5rem 0;
+}
+.collection-card__price {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+/* Pagination */
+.collection-pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+.collection-pagination a {
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+}
+.collection-pagination .current {
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .collection-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .collection-card__price {
+    font-size: 12px;
+  }
+  
+  .collection-card__title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-card__price {
+    font-size: 11px;
+  }
+  
+  .collection-card__title {
+    font-size: 13px;
+  }
+  
+  .collection-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .collection-card__price {
+    font-size: 10px;
+  }
+  
+  .collection-card__title {
+    font-size: 12px;
+  }
+}
+</style>

@@ -1,0 +1,353 @@
+{{ 'jd-product-grid.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign collection = collections[section.settings.collection]
+  assign products_per_page = section.settings.products_per_page | default: 16
+  assign columns_desktop = section.settings.columns_desktop | default: 4
+  assign columns_mobile = section.settings.columns_mobile | default: 2
+-%}
+
+<section class="jd-product-grid section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <div class="jd-product-grid__header">
+        <h2 class="jd-product-grid__title">{{ section.settings.title }}</h2>
+      </div>
+    {% endif %}
+
+    {% if section.settings.enable_filtering or section.settings.enable_sorting %}
+      <div class="jd-product-grid__filters">
+        {% if section.settings.enable_filtering %}
+          <div class="jd-product-grid__filter-group">
+            <label for="filter-select" class="jd-product-grid__filter-label">Filter by:</label>
+            <select id="filter-select" class="jd-product-grid__filter-select">
+              <option value="">All Products</option>
+              <option value="available">Available</option>
+              <option value="on-sale">On Sale</option>
+              <option value="new">New Arrivals</option>
+            </select>
+          </div>
+        {% endif %}
+
+        {% if section.settings.enable_sorting %}
+          <div class="jd-product-grid__sort-group">
+            <label for="sort-select" class="jd-product-grid__sort-label">Sort by:</label>
+            <select id="sort-select" class="jd-product-grid__sort-select">
+              <option value="manual">Featured</option>
+              <option value="best-selling">Best Selling</option>
+              <option value="title-ascending">A-Z</option>
+              <option value="title-descending">Z-A</option>
+              <option value="price-ascending">Price: Low to High</option>
+              <option value="price-descending">Price: High to Low</option>
+              <option value="created-ascending">Oldest to Newest</option>
+              <option value="created-descending">Newest to Oldest</option>
+            </select>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="jd-product-grid__container">
+      <div class="jd-product-grid__grid jd-product-grid__grid--desktop-{{ columns_desktop }} jd-product-grid__grid--mobile-{{ columns_mobile }}">
+        {% for product in collection.products limit: products_per_page %}
+          <div class="jd-product-grid__item">
+            <div class="jd-product-grid__product">
+              <div class="jd-product-grid__image-wrapper">
+                <a href="{{ product.url }}" class="jd-product-grid__image-link">
+                  {% if product.featured_image %}
+                    <img 
+                      class="jd-product-grid__image"
+                      src="{{ product.featured_image | image_url: width: 400 }}"
+                      alt="{{ product.featured_image.alt | default: product.title }}"
+                      width="400"
+                      height="400"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    <div class="jd-product-grid__placeholder">
+                      <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+                        <rect width="200" height="200" fill="#f3f3f3"/>
+                        <path d="M100 60L140 100L100 140L60 100L100 60Z" fill="#ddd"/>
+                      </svg>
+                    </div>
+                  {% endif %}
+                  
+                  {% if product.compare_at_price > product.price %}
+                    <span class="jd-product-grid__badge jd-product-grid__badge--sale">Sale</span>
+                  {% endif %}
+                  
+                  {% if product.available == false %}
+                    <span class="jd-product-grid__badge jd-product-grid__badge--sold-out">Sold Out</span>
+                  {% endif %}
+                </a>
+                
+                {% if section.settings.quick_add != 'none' and product.available %}
+                  <div class="jd-product-grid__quick-add">
+                    <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                      <button type="submit" class="jd-product-grid__quick-add-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M8 1V15M1 8H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Quick Add
+                      </button>
+                    </form>
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="jd-product-grid__content">
+                {% if section.settings.show_vendor and product.vendor %}
+                  <p class="jd-product-grid__vendor">{{ product.vendor }}</p>
+                {% endif %}
+                
+                <h3 class="jd-product-grid__product-title">
+                  <a href="{{ product.url }}">{{ product.title }}</a>
+                </h3>
+                
+                {% if section.settings.show_rating and product.metafields.reviews.rating.value %}
+                  <div class="jd-product-grid__rating">
+                    <div class="jd-product-grid__stars">
+                      {% assign rating = product.metafields.reviews.rating.value %}
+                      {% for i in (1..5) %}
+                        {% if i <= rating %}
+                          <span class="jd-product-grid__star jd-product-grid__star--filled">★</span>
+                        {% else %}
+                          <span class="jd-product-grid__star">★</span>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                    <span class="jd-product-grid__rating-count">({{ product.metafields.reviews.rating_count }})</span>
+                  </div>
+                {% endif %}
+                
+                <div class="jd-product-grid__price">
+                  {% if product.compare_at_price > product.price %}
+                    <span class="jd-product-grid__price-compare">{{ product.compare_at_price | money }}</span>
+                    <span class="jd-product-grid__price-sale">{{ product.price | money }}</span>
+                  {% else %}
+                    <span class="jd-product-grid__price-regular">{{ product.price | money }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      
+      {% if collection.products.size > products_per_page %}
+        <div class="jd-product-grid__pagination">
+          <button class="jd-product-grid__load-more" data-page="2">
+            Load More Products
+          </button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterSelect = document.getElementById('filter-select');
+    if (filterSelect) {
+      filterSelect.addEventListener('change', function() {
+        // Implement filtering logic here
+        console.log('Filter changed to:', this.value);
+      });
+    }
+
+    // Sort functionality
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+      sortSelect.addEventListener('change', function() {
+        // Implement sorting logic here
+        console.log('Sort changed to:', this.value);
+      });
+    }
+
+    // Load more functionality
+    const loadMoreBtn = document.querySelector('.jd-product-grid__load-more');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        // Implement load more logic here
+        console.log('Load more clicked');
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "JD Product Grid",
+  "tag": "section",
+  "class": "jd-product-grid-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "All Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 4,
+      "max": 24,
+      "step": 4,
+      "label": "Products per page",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show rating",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "label": "Quick add",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "bulk",
+          "label": "Bulk"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "label": "Enable filtering",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "label": "Filter type",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        }
+      ],
+      "default": "horizontal"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "label": "Enable sorting",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "JD Product Grid",
+      "settings": {
+        "title": "All Products",
+        "products_per_page": 16,
+        "columns_desktop": "4",
+        "columns_mobile": "2"
+      }
+    }
+  ]
+}
+{% endschema %}

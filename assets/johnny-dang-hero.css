@@ -1,0 +1,932 @@
+/* ========================================
+   JOHNNY DANG OPTIMIZED HERO CAROUSEL
+   ======================================== */
+
+.jd-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: background 1.5s ease-in-out;
+  --hero-text-color: #ffffff;
+  --hero-accent-color: #ffffff;
+  --hero-dot-color: #ffffff;
+  --hero-dot-inactive: rgba(255, 255, 255, 0.3);
+}
+
+.jd-hero::before {
+  content: '';
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 30%;
+  height: calc(100% - 80px);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 2px, transparent 2px);
+  background-size: 80px 80px;
+  background-position: -2px -2px, -2px -2px;
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.jd-hero::after {
+  content: '';
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 80px);
+  background: 
+    radial-gradient(ellipse 50% 40% at 15% 25%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 15% 75%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 85% 50%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 30%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Default background with animation */
+.jd-hero {
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
+              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+/* Background variations for different slides with smooth animations */
+.jd-hero[data-slide="0"] {
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
+              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease-in-out infinite;
+  --hero-text-color: #FFFFFF;
+  --hero-accent-color: #FFFFFF;
+  --hero-dot-color: #FF6200;
+}
+
+.jd-hero[data-slide="1"] {
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #A51AE6 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
+              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background-size: 400% 400%;
+  animation: gradientPulse 10s ease-in-out infinite;
+  --hero-text-color: #F6E8FF;
+  --hero-accent-color: #FFFFFF;
+  --hero-dot-color: #A51AE6;
+}
+
+.jd-hero[data-slide="2"] {
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, rgba(255, 98, 0, 0.33) -7.59%, rgba(153, 17, 216, 0.52) 39.3%, rgba(0, 0, 0, 0.58) 87.22%),
+              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease-in-out infinite;
+  --hero-text-color: #FFEDE0;
+  --hero-accent-color: #FFFFFF;
+  --hero-dot-color: #9911D8;
+}
+
+.jd-hero[data-slide="3"] {
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, rgba(255, 98, 0, 0.8) -7.59%, rgba(165, 26, 230, 0.32) 87.22%),
+              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background-size: 400% 400%;
+  animation: gradientWave 9s ease-in-out infinite;
+  --hero-text-color: #FFF6E6;
+  --hero-accent-color: #FFFFFF;
+  --hero-dot-color: #FF7016;
+}
+
+.jd-hero[data-slide="4"] {
+  background: linear-gradient(105.72deg, #000000 -2.8%, #000000 -0.97%, #B64F0E 62.7%, rgba(255, 112, 22, 0.67) 93.9%),
+              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background-size: 400% 400%;
+  animation: gradientSpiral 11s ease-in-out infinite;
+  --hero-text-color: #FFE8CC;
+  --hero-accent-color: #FFFFFF;
+  --hero-dot-color: #B64F0E;
+}
+
+.jd-hero__container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 677px;
+  max-width: 1400.15px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 80px; /* Account for transparent header height */
+  display: flex;
+  justify-content: center;
+}
+
+/* Remove any section-level margins and position at top */
+.shopify-section[id*="jd-hero"], 
+.shopify-section .jd-hero,
+section.jd-hero,
+.shopify-section[id*="hero"],
+.shopify-section[id*="carousel"],
+.shopify-section[id*="banner"] {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  position: relative;
+  top: 0;
+}
+
+/* Also remove any global section spacing for hero sections */
+.shopify-section--hero,
+.shopify-section--banner,
+.shopify-section--carousel {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  position: relative;
+  top: 0;
+}
+
+/* Ensure the first section (hero) starts at the very top */
+.shopify-section:first-child,
+.main-content > .shopify-section:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Remove any body/html margins that could cause dark background */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure main content starts at top */
+.main-content, main, #MainContent {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.jd-hero__slide {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 0;
+  pointer-events: none;
+}
+
+/* Hide all non-active slides completely */
+.jd-hero__slide:not(.active) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.jd-hero__slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.jd-hero__slide.prev {
+  transform: translateX(-50px);
+  opacity: 0;
+}
+
+.jd-hero__content {
+  text-align: left;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  
+}
+/* .jd-hero__subtitle {
+  color: var(--hero-text-color);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0%; */
+  /* text-transform: uppercase; */
+  /* font-family: DM sans-serif; */
+/* } */
+
+.jd-hero__subtitle {
+  position: relative;
+  top:40px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;   /* Light */
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: 0;  /* or normal */
+  text-transform: uppercase;
+}
+
+
+
+.jd-hero__title {
+  color: var(--hero-text-color);
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  font-weight: 700;
+  line-height: 1.0;
+
+  font-family: serif;
+}
+
+.jd-hero__title-line {
+  display: block;
+}
+
+
+.jd-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--hero-accent-color);
+  margin-top: 1rem;
+  padding: 1.4rem 3rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+
+
+.jd-hero__cta:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateX(5px);
+}
+
+/* Ensure CTA button is always clickable */
+.jd-hero__cta,
+.jd-hero__cta * {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10000 !important;
+}
+
+.jd-hero__cta:hover::after {
+  transform: translateX(5px);
+}
+
+.jd-hero__media {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.jd-hero__image {
+  width: 553px;
+  height: 426px;
+  object-fit: cover;
+  object-position: left;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5));
+  animation: float 6s ease-in-out infinite;
+  /* margin: 0 auto; */
+  display: block;
+  position: relative;
+  z-index: 6;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.jd-hero__image:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 50px 100px rgba(0, 0, 0, 0.6)) brightness(1.1);
+}
+
+.jd-hero__controls {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 4;
+}
+
+.jd-hero__dot {
+  width: 40px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--hero-dot-inactive, rgba(255, 255, 255, 0.3));
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: none;
+  padding: 0;
+  position: relative;
+  margin: 0 4px;
+}
+
+.jd-hero__dot.active {
+  background: var(--hero-dot-color, #ffffff) !important;
+  width: 60px;
+  box-shadow: 0 0 15px var(--hero-dot-color, rgba(255, 255, 255, 0.4));
+}
+
+.jd-hero__dot:hover {
+  background: var(--hero-dot-color, rgba(255, 255, 255, 0.6));
+  width: 50px;
+}
+
+/* Dot color previews based on slide backgrounds */
+.jd-hero__dot[data-slide="0"] {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.jd-hero__dot[data-slide="1"] {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.jd-hero__dot[data-slide="2"] {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.jd-hero__dot[data-slide="3"] {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.jd-hero__dot[data-slide="4"] {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.jd-hero__dot.active[data-slide="0"],
+.jd-hero__dot.active[data-slide="1"],
+.jd-hero__dot.active[data-slide="2"],
+.jd-hero__dot.active[data-slide="3"],
+.jd-hero__dot.active[data-slide="4"] {
+  background: var(--hero-dot-color, #ffffff);
+  box-shadow: 0 0 15px var(--hero-dot-color, rgba(255, 255, 255, 0.4));
+}
+
+.jd-hero__video-preview {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  width: 230px;
+  height: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  margin: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 4;
+}
+
+.jd-hero__video-preview:hover {
+  transform: scale(1.05);
+}
+
+.jd-hero__video-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jd-hero__video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.jd-hero__video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.jd-hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  opacity: 1;
+}
+
+/* Precise desktop layout for jd-hero__video (as requested) */
+@media screen and (min-width: 1025px) {
+  .jd-hero .jd-hero__video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+    opacity: 1;
+    border-radius: 10px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
+
+.jd-hero__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.jd-hero__play-btn:hover {
+  background: #ffffff;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Smooth Gradient Animations */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  33% {
+    background-position: 100% 50%;
+  }
+  66% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes gradientWave {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes gradientSpiral {
+  0% {
+    background-position: 50% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 50%;
+  }
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .jd-hero {
+    min-height: 100vh;
+  }
+  
+  .jd-hero__container {
+    padding: 0 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .jd-hero__slide {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  
+  .jd-hero__content {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 100px;
+  }
+  
+  .jd-hero__title {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .jd-hero__subtitle {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 1.5rem;
+    top: 0;
+  }
+  
+  .jd-hero__cta {
+    padding: 1rem 2rem;
+    font-size: 14px;
+    margin-top: 1.5rem;
+  }
+  
+  .jd-hero__image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+  
+  .jd-hero__media {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .jd-hero__video-preview {
+    width: 150px;
+    height: 100px;
+    bottom: 1rem;
+    right: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .jd-hero__controls {
+    display: none !important;
+  }
+  
+  .jd-hero__dot {
+    width: 30px;
+    height: 4px;
+  }
+  
+  .jd-hero__dot.active {
+    width: 40px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .jd-hero {
+    min-height: 100vh;
+  }
+  
+  .jd-hero__container {
+    padding: 0 1.5rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .jd-hero__slide {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  
+  .jd-hero__content {
+    padding: 2.5rem 2rem;
+    margin: 1.5rem 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .jd-hero__title {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+  
+  .jd-hero__subtitle {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 2rem;
+    top: 0;
+  }
+  
+  .jd-hero__cta {
+    padding: 1.2rem 2.5rem;
+    font-size: 16px;
+    margin-top: 2rem;
+  }
+  
+  .jd-hero__image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+  
+  .jd-hero__media {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .jd-hero__video-preview {
+    width: 180px;
+    height: 120px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    margin: 0.5rem;
+  }
+  
+  .jd-hero__controls {
+    display: none !important;
+  }
+}
+
+/* Tablet styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .jd-hero__slide {
+    gap: 2rem;
+  }
+  
+  .jd-hero__title {
+    font-size: clamp(4rem, 6vw, 6rem);
+  }
+  
+  .jd-hero__subtitle {
+    font-size: 1.3rem;
+  }
+  
+
+  
+  .jd-hero__cta {
+    padding: 1.3rem 2.8rem;
+    font-size: 1.1rem;
+  }
+  
+  .jd-hero__image {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .jd-hero__slide {
+    transition: opacity 0.3s ease;
+  }
+  
+  .jd-hero__image {
+    animation: none;
+  }
+  
+  .jd-hero,
+  .jd-hero[data-slide="0"],
+  .jd-hero[data-slide="1"],
+  .jd-hero[data-slide="2"],
+  .jd-hero[data-slide="3"],
+  .jd-hero[data-slide="4"] {
+    animation: none;
+    transition: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states */
+.jd-hero__dot:focus,
+.jd-hero__cta:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   CAROUSEL OVERLAY
+   ======================================== */
+
+.jd-hero__overlay {
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.3); /* semi-transparent black */
+    filter: blur(8px);              /* blur effect */
+    position: relative;
+  }
+  
+
+
+/* ========================================
+   MARQUEE SECTION (Beneath Carousel)
+   ======================================== */
+
+.jd-marquee {
+  background: hsla(0, 0%, 0%, 1);
+  padding: 1rem 0;
+  position: relative;
+  top: -10px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,   /* deep black at bottom */
+    rgba(0, 0, 0, 0.7) 30%,  /* slightly lighter black */
+    rgba(0, 0, 0, 1) 60%     /* solid black towards top */
+  );
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
+}
+
+/* Top blur overlay that softly blends into the carousel background */
+.jd-marquee::before {
+  content: '';
+  position: absolute;
+  top: -24px; /* pull over the carousel by ~24px */
+  left: 0;
+  right: 0;
+  height: 48px; /* blur band height */
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  z-index: 1;
+}
+
+.jd-marquee__container {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.jd-marquee__content {
+  display: flex;
+  animation: scroll-marquee 30s linear infinite;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2; /* above the blur overlay */
+}
+
+.jd-marquee__item {
+  flex-shrink: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;     /* vertical center */
+  justify-content: center;
+}
+
+  /* .jd-marquee__text {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+  } */
+
+  .jd-marquee__text {
+    color: rgba(255, 255, 255, 1);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;   
+    font-size: 20px;    
+    line-height: 22px;  
+    letter-spacing: 0;  
+
+    text-transform: uppercase;        /* remove extra spacing */
+  }
+  
+
+
+/* Scrolling animation */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.jd-marquee:hover .jd-marquee__content {
+  animation-play-state: paused;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 480px) {
+  .jd-marquee {
+    padding: 0.5rem 0;
+  }
+  
+  .jd-marquee__text {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .jd-marquee__content {
+    gap: 1.5rem;
+    animation-duration: 20s;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .jd-marquee {
+    padding: 0.75rem 0;
+  }
+  
+  .jd-marquee__text {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  
+  .jd-marquee__content {
+    gap: 2rem;
+    animation-duration: 25s;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .jd-marquee__content {
+    animation: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}

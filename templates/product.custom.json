@@ -1,0 +1,199 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_hero": {
+      "type": "custom-product-hero",
+      "settings": {
+        "hero_title_1": "Custom Ring",
+        "hero_title_2": "Deposit & Design",
+        "cta_text": "Get Started",
+        "banner_text": "Free Shipping On Orders Over $500 Within US. Call or Text 281248888 for Quotations and Assistance.",
+        "order_info_1": "You must pay a $500 deposit to inquire about a custom ring.",
+        "order_info_2": "You will be provided with consultation, a quote and 3D rendering for your custom design piece.",
+        "order_info_3": "The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale.",
+        "highlight_text": "** All Custom Item Prices Are Deposit Only **",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title_WcDaqL": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_PJ8fxR": {
+          "type": "price",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_hpd8Fg": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "variant_picker_JYk6bE": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "custom_liquid_9zajff": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>.file-upload-container {display: flex;align-items: center;}.file-name {margin-left: 10px;font-style: italic;}</style>\n<div class=\"product-form__input\">\n  <label class=\"form__label\">Sample product image:</label>\n  <div class=\"file-upload-container\">\n    <input id=\"file-sample-product-image:\" form=\"{{ 'product-form-' | append: section.id }}\" \n    name=\"properties[Sample product image:]\"  style=\"display: none;\" type=\"file\"  />\n    <button id=\"button-sample-product-image:\" class=\"button\">Upload File</button>\n    <p id=\"fileName-sample-product-image:\" class=\"file-name\">No file chosen</p>\n    </div>\n    <p id=\"errorMessage\" class=\"error-message\" style=\"display: none;margin-top:0;color:red\">Please upload your file(s).</p>\n</div>\n<script>\ndocument.getElementById('file-sample-product-image:').addEventListener('change', function(event) {\n      const files = event.target.files;\n      let fileName;\n      if (files.length === 0) {fileName = 'No file chosen';} \n      else if (files.length === 1) {fileName = files[0].name;document.getElementById('errorMessage').style.display = 'none'; } \n      else {fileName = files.length + ' files';document.getElementById('errorMessage').style.display = 'none';}\n      document.getElementById('fileName-sample-product-image:').textContent = fileName;\n  });\n  document.getElementById('button-sample-product-image:').addEventListener('click', function() {\n    document.getElementById('file-sample-product-image:').click();\n  });\n</script>"
+          }
+        },
+        "custom_liquid_LBGQ66": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product__accordion accordion\">\n              <details id=\"Details-description-{{ section.id }}\" open>\n                <summary>\n                  <div class=\"summary__title\">\n                    <h2 class=\"h4 accordion__title\">DESCRIPTION</h2>\n                    <span class=\"accordion__icon\">\n                      {{- 'icon-caret.svg' | inline_asset_content -}}\n                    </span>\n                  </div>\n                </summary>\n               <div class=\"product__description rte quick-add-hidden\" {{ block.shopify_attributes }}>\n                    {{ product.description }}\n                  </div>\n              </details>\n            </div>"
+          }
+        },
+        "custom_liquid_AkzUFn": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product__accordion accordion\">\n              <details id=\"Details-shipping-{{ section.id }}\" open>\n                <summary>\n                  <div class=\"summary__title\">\n                    <h2 class=\"h4 accordion__title\">SHIPPING & RETURNS</h2>\n                    <span class=\"accordion__icon\">\n                      {{- 'icon-caret.svg' | inline_asset_content -}}\n                    </span>\n                  </div>\n                </summary>\n                <div class=\"accordion__content\">\n                  <ul class=\"shipping-returns-list\">\n                    <li>\n                      <span class=\"icon-wrapper\">\n                        {{- 'product.svg' | inline_asset_content -}}\n                      </span>\n                      14 day return policy on all products excluding custom products\n                    </li>\n                    <li>\n                      <span class=\"icon-wrapper\">\n                        {{- 'verify.svg' | inline_asset_content -}}\n                      </span>\n                      Orders may require an additional 2-3 business days processing time. Custom made orders including grills can take 2-3 weeks to complete.\n                    </li>\n                  </ul>\n                </div>\n              </details>\n            </div>"
+          }
+        },
+        "custom_liquid_MhiVGf": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product__accordion accordion\">\n              <details id=\"Details-warranty-{{ section.id }}\" open>\n                <summary>\n                  <div class=\"summary__title\">\n                    <h2 class=\"h4 accordion__title\">WARRANTY</h2>\n                    <span class=\"accordion__icon\">\n                      {{- 'icon-caret.svg' | inline_asset_content -}}\n                    </span>\n                  </div>\n                </summary>\n                <div class=\"accordion__content\">\n                  <p>All products come with a thirty (30) day manufacturers warranty.</p>\n                </div>\n              </details>\n            </div>"
+          }
+        },
+        "custom_liquid_Xa6CjL": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Service</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"service\" name=\"properties[Service]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">Option1</option>\n        <option value=\"Option2\">Option2</option>\n        <option value=\"Option3\">Option3</option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
+          }
+        },
+        "custom_liquid_etk3y3": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Employee</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"employee\" name=\"properties[Employee]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">Option1</option>\n        <option value=\"Option2\">Option2</option>\n        <option value=\"Option3\">Option3</option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
+          }
+        },
+        "buy_buttons_trGEWR": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title_WcDaqL",
+        "price_PJ8fxR",
+        "judge_me_reviews_preview_badge_hpd8Fg",
+        "variant_picker_JYk6bE",
+        "custom_liquid_9zajff",
+        "custom_liquid_LBGQ66",
+        "custom_liquid_AkzUFn",
+        "custom_liquid_MhiVGf",
+        "custom_liquid_Xa6CjL",
+        "custom_liquid_etk3y3",
+        "buy_buttons_trGEWR"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "background-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "celebrity_testimonials_gWaPCq": {
+      "type": "celebrity-testimonials",
+      "blocks": {
+        "celebrity_testimonial_VxJLtk": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "DJ KHALED",
+            "celebrity_title": "MUSICIAN",
+            "frame_color": "orange-glow"
+          }
+        },
+        "celebrity_testimonial_rx6RPi": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "RYAN KANE",
+            "celebrity_title": "PRIVATE INVESTOR, ACTOR",
+            "frame_color": "purple-glow"
+          }
+        },
+        "celebrity_testimonial_kwQL8C": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "DRAKE GRAHAM",
+            "celebrity_title": "RAPPER & SINGER",
+            "frame_color": "orange-glow"
+          }
+        },
+        "celebrity_testimonial_DnqBMP": {
+          "type": "celebrity_testimonial",
+          "settings": {
+            "video_url": "",
+            "celebrity_name": "PAUL WALL",
+            "celebrity_title": "RAPPER & DJ",
+            "frame_color": "purple-glow"
+          }
+        }
+      },
+      "block_order": [
+        "celebrity_testimonial_VxJLtk",
+        "celebrity_testimonial_rx6RPi",
+        "celebrity_testimonial_kwQL8C",
+        "celebrity_testimonial_DnqBMP"
+      ],
+      "name": "Celebrity Testimonials",
+      "settings": {
+        "heading": "See Why the Stars Choose Johnny Dang & Co",
+        "cta_text": "VIEW ALL TESTIMONIALS",
+        "cta_link": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "1757936703776a9484": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_7i9dEh": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_7i9dEh"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "custom_hero",
+    "main",
+    "celebrity_testimonials_gWaPCq",
+    "1757936703776a9484"
+  ]
+}

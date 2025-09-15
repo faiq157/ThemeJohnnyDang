@@ -1,0 +1,521 @@
+/* Johnny Dang Product Page Styles - Exact Match to Screenshot */
+/* Override all conflicting styles with !important */
+
+.jd-product-page {
+  background: linear-gradient(135deg, #000000 0%, #2d1b69 30%, #8b4513 70%, #000000 100%) !important;
+  min-height: 100vh !important;
+  color: #ffffff !important;
+  font-family: 'Arial', sans-serif !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* Add padding to show header properly */
+.jd-product-page.addpadding {
+  padding-top: 120px !important; /* Adjust this value based on your header height */
+}
+
+/* Override body and html styles for this page */
+body .jd-product-page,
+html .jd-product-page {
+  background: linear-gradient(135deg, #000000 0%, #2d1b69 30%, #8b4513 70%, #000000 100%) !important;
+  color: #ffffff !important;
+}
+
+.jd-product-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 4rem !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 2rem !important;
+  min-height: calc(100vh - 120px) !important; /* Adjust for header padding */
+}
+
+/* Product Image Section */
+.jd-product-image-section {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem !important;
+  background: linear-gradient(135deg, #2d1b69 0%, #000000 50%) !important;
+  position: relative !important;
+}
+
+.jd-product-image-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 600px !important;
+  background: linear-gradient(135deg, #2d1b69 0%, #8b4513 50%, #ff8c00 100%) !important;
+  border-radius: 20px !important;
+  padding: 3rem !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden !important;
+}
+
+.jd-product-image {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 15px !important;
+  object-fit: cover !important;
+}
+
+/* Product Details Section */
+.jd-product-details-section {
+  padding: 2rem 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  background: #000000 !important;
+}
+
+.jd-product-info {
+  max-width: 500px !important;
+}
+
+/* Product Title */
+.jd-product-title {
+  font-size: 2.2rem !important;
+  font-weight: bold !important;
+  color: #333333 !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.5px !important;
+  font-family: 'Arial', sans-serif !important;
+}
+
+/* Rating & Reviews */
+.jd-product-rating {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.jd-stars {
+  display: flex !important;
+  gap: 2px !important;
+}
+
+.jd-star {
+  color: #ff8c00 !important;
+  font-size: 1.2rem !important;
+}
+
+.jd-star:not(.filled) {
+  color: #666666 !important;
+}
+
+.jd-rating-text {
+  font-weight: bold !important;
+  color: #333333 !important;
+  margin-left: 0.5rem !important;
+}
+
+.jd-reviews-count {
+  color: #666666 !important;
+  font-size: 0.9rem !important;
+  margin-left: 0.5rem !important;
+  text-decoration: underline !important;
+}
+
+/* Price */
+.jd-product-price {
+  margin-bottom: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.jd-divider {
+  border: none !important;
+  height: 1px !important;
+  background-color: #e0e0e0 !important;
+  margin: 1rem 0 !important;
+}
+
+.jd-price {
+  font-size: 2.5rem !important;
+  font-weight: bold !important;
+  color: #333333 !important;
+}
+
+/* Section Titles */
+.jd-section-title {
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  color: #333333 !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+/* Color Selection */
+.jd-color-selection {
+  margin-bottom: 2rem !important;
+}
+
+.jd-color-swatches {
+  display: flex !important;
+  gap: 1rem !important;
+}
+
+.jd-color-swatch {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border: 2px solid #ddd !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.jd-color-swatch--yellow {
+  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
+}
+
+.jd-color-swatch--rose {
+  background: linear-gradient(135deg, #e8b4b8, #f4a6a6) !important;
+}
+
+.jd-color-swatch--white {
+  background: linear-gradient(135deg, #f5f5f5, #e8e8e8) !important;
+}
+
+/* Dynamic color swatches for product options */
+.jd-color-swatch--yellow-gold {
+  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
+}
+
+.jd-color-swatch--rose-gold {
+  background: linear-gradient(135deg, #e8b4b8, #f4a6a6) !important;
+}
+
+.jd-color-swatch--white-gold {
+  background: linear-gradient(135deg, #e8e8e8, #f5f5f5) !important;
+}
+
+.jd-color-swatch--gold-yellow {
+  background: linear-gradient(135deg, #ffb181, #ffd700) !important;
+}
+
+.jd-color-swatch.active {
+  border-color: #333333 !important;
+  transform: scale(1.1) !important;
+}
+
+/* Size Selection */
+.jd-size-selection {
+  margin-bottom: 2rem !important;
+}
+
+.jd-size-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.jd-size-arrow {
+  color: #333333 !important;
+  font-size: 0.8rem !important;
+}
+
+.jd-size-grid {
+  display: grid !important;
+  grid-template-columns: repeat(8, 1fr) !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.jd-size-grid-second {
+  grid-template-columns: repeat(8, 1fr) !important;
+  justify-items: start !important;
+}
+
+.jd-size-btn {
+  padding: 0.8rem !important;
+  border: 1px solid #ddd !important;
+  background: #ffffff !important;
+  color: #333333 !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border-radius: 4px !important;
+}
+
+.jd-size-btn:hover {
+  border-color: #333333 !important;
+}
+
+.jd-size-btn.active {
+  background: #333333 !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
+}
+
+.jd-size-guide {
+  color: #666666 !important;
+  text-decoration: underline !important;
+  font-size: 0.9rem !important;
+}
+
+/* Availability */
+.jd-availability {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.jd-availability-dot {
+  width: 8px !important;
+  height: 8px !important;
+  background: #00ff00 !important;
+  border-radius: 50% !important;
+}
+
+.jd-availability-text {
+  color: #333333 !important;
+  font-weight: bold !important;
+  font-size: 0.9rem !important;
+}
+
+/* Action Buttons */
+.jd-action-buttons {
+  display: flex !important;
+  gap: 1rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.jd-add-to-bag {
+  flex: 1 !important;
+  padding: 1rem 2rem !important;
+  background: #ffffff !important;
+  color: #333333 !important;
+  border: none !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.jd-add-to-bag:hover {
+  background: #f5f5f5 !important;
+}
+
+.jd-add-to-wishlist {
+  flex: 1 !important;
+  padding: 1rem 2rem !important;
+  background: #333333 !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-size: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.jd-add-to-wishlist:hover {
+  background: #555555 !important;
+}
+
+.jd-heart-icon {
+  font-size: 1.1rem !important;
+}
+
+/* Collapsible Sections */
+.jd-collapsible-sections {
+  margin-bottom: 2rem !important;
+}
+
+.jd-collapsible-section {
+  margin-bottom: 1rem !important;
+  border-bottom: 1px solid #333333 !important;
+  padding-bottom: 1rem !important;
+}
+
+.jd-collapsible-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+  padding: 0.5rem 0 !important;
+}
+
+.jd-collapsible-arrow {
+  color: #333333 !important;
+  font-size: 0.8rem !important;
+  transition: transform 0.3s ease !important;
+}
+
+.jd-collapsible-content {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.3s ease !important;
+  color: #666666 !important;
+  line-height: 1.6 !important;
+}
+
+.jd-collapsible-content.active {
+  max-height: 200px !important;
+  padding-top: 1rem !important;
+}
+
+.jd-collapsible-content ul {
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.jd-collapsible-content li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.jd-icon {
+  font-size: 1rem !important;
+  margin-top: 0.1rem !important;
+}
+
+/* Payment Methods */
+.jd-payment-methods {
+  margin-top: 2rem !important;
+}
+
+.jd-payment-title {
+  font-size: 0.9rem !important;
+  color: #333333 !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.jd-payment-logos {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+}
+
+.jd-payment-logo {
+  padding: 0.5rem 1rem !important;
+  background: #f5f5f5 !important;
+  color: #333333 !important;
+  border-radius: 4px !important;
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+  border: 1px solid #ddd !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .jd-product-page.addpadding {
+    padding-top: 100px !important; /* Adjust for mobile header */
+  }
+  
+  .jd-product-container {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 1rem !important;
+    min-height: calc(100vh - 100px) !important;
+  }
+  
+  .jd-product-title {
+    font-size: 1.8rem !important;
+  }
+  
+  .jd-price {
+    font-size: 2rem !important;
+  }
+  
+  .jd-action-buttons {
+    flex-direction: column !important;
+  }
+  
+  .jd-size-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  
+  .jd-size-grid-second {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  
+  .jd-payment-logos {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .jd-product-page.addpadding {
+    padding-top: 80px !important; /* Adjust for small mobile header */
+  }
+  
+  .jd-product-container {
+    padding: 0.5rem !important;
+    min-height: calc(100vh - 80px) !important;
+  }
+  
+  .jd-product-image-wrapper {
+    padding: 1.5rem !important;
+  }
+  
+  .jd-product-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .jd-price {
+    font-size: 1.8rem !important;
+  }
+  
+  .jd-size-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  .jd-size-grid-second {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Override any theme styles that might interfere */
+.jd-product-page * {
+  box-sizing: border-box !important;
+}
+
+.jd-product-page h1,
+.jd-product-page h2,
+.jd-product-page h3,
+.jd-product-page h4,
+.jd-product-page h5,
+.jd-product-page h6 {
+  color: #333333 !important;
+  font-family: 'Arial', sans-serif !important;
+}
+
+.jd-product-page p,
+.jd-product-page span,
+.jd-product-page div {
+  color: inherit !important;
+}
+
+/* Ensure no theme gradients interfere */
+.jd-product-page .gradient {
+  background: none !important;
+}
+
+/* Override any color scheme classes */
+.jd-product-page.color-scheme-1,
+.jd-product-page.color-scheme-2,
+.jd-product-page.color-scheme-3 {
+  background: linear-gradient(135deg, #000000 0%, #2d1b69 30%, #8b4513 70%, #000000 100%) !important;
+  color: #ffffff !important;
+}

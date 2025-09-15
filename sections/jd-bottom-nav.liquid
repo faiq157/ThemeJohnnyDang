@@ -1,0 +1,106 @@
+{{ 'johnny-dang-bottom-nav.css' | asset_url | stylesheet_tag }}
+
+<section class="jd-bottom-nav">
+  <div class="jd-bottom-nav__container">
+    <div class="jd-bottom-nav__content">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'nav_item' %}
+            <div class="jd-bottom-nav__item" {{ block.shopify_attributes }}>
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link }}" class="jd-bottom-nav__link">
+                  {{ block.settings.text }}
+                </a>
+              {% else %}
+                <span class="jd-bottom-nav__text">{{ block.settings.text }}</span>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JD Bottom Navigation",
+  "tag": "section",
+  "class": "jd-bottom-nav-section",
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "nav_item",
+      "name": "Navigation Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "KING OF BLING"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JD Bottom Navigation",
+      "blocks": [
+        {
+          "type": "nav_item",
+          "settings": {
+            "text": "KING OF BLING",
+            "link": ""
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "text": "GET FEATURED",
+            "link": ""
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "text": "GET NOTICED",
+            "link": ""
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "text": "DRIP IN DIAMONDS",
+            "link": ""
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "text": "LUXURY THAT TRENDS",
+            "link": ""
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "text": "GET ICED OUT",
+            "link": ""
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "text": "JOIN THE FAMILY",
+            "link": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

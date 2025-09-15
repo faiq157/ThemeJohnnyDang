@@ -1,0 +1,210 @@
+/* Product Accordions Styles */
+.product__accordions {
+  margin-top: 2rem;
+}
+
+.product__accordion {
+  border-bottom: 1px solid #3F3F3F;
+  margin-bottom: 0;
+}
+
+.product__accordion:last-of-type {
+  border-bottom: none;
+}
+
+.product__accordion details {
+  border: none;
+}
+
+.product__accordion summary {
+  padding: 1.5rem 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+.product__accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.product__accordion summary::-moz-list-bullet {
+  list-style-type: none;
+}
+
+.product__accordion .summary__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.product__accordion .accordion__title {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 15.96px;
+  letter-spacing: 0.24px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.product__accordion .accordion__icon {
+  color: #EE9441;
+  transition: transform 0.3s ease;
+}
+
+.product__accordion details[open] .accordion__icon {
+  transform: rotate(180deg);
+}
+
+.product__accordion .accordion__content {
+  padding: 0 0 1.5rem 0;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Shipping & Returns List */
+.shipping-returns-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shipping-returns-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.shipping-returns-list li:last-child {
+  margin-bottom: 0;
+}
+
+.shipping-returns-list .icon-wrapper {
+  margin-right: 0.75rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+/* Payment Methods Section */
+.product__payment-methods {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+
+}
+
+.payment-methods__title {
+  color: #EE9441;
+  font-weight: 400;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 15.96px;
+  letter-spacing: 0.24px;
+  vertical-align: middle;
+  text-transform: uppercase;
+
+  
+}
+
+.payment-methods__logos {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+ 
+}
+
+.payment-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  min-width: 40px;
+  border-radius: 4px;
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.payment-logo:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.payment-logo svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Stock indicator (above Add to Bag) */
+.product__stock-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 0.75rem 0;
+}
+
+.product__stock-indicator .svg-wrapper { display: none; }
+
+.product__stock-indicator .stock-label {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+
+/* New CSS dots */
+.stock-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.stock-dot--in { background-color: #487701; }
+.stock-dot--out { background-color: #777777; }
+
+/* Responsive Design */
+@media screen and (max-width: 749px) {
+  .product__accordion .accordion__title {
+    font-size: 1rem;
+  }
+  
+  .payment-methods__title {
+    font-size: 1rem;
+  }
+  
+  .payment-methods__logos {
+    gap: 0.5rem;
+  }
+  
+  .payment-logo {
+    min-width: 35px;
+    height: 20px;
+  }
+}
+
+/* Dark theme adjustments */
+.color-scheme-1 .product__accordion {
+  border-bottom-color: #3F3F3F;
+}
+
+.color-scheme-1 .product__accordion .accordion__title,
+.color-scheme-1 .payment-methods__title {
+  color: #FF6200;
+}
+
+.color-scheme-1 .product__accordion .accordion__content,
+.color-scheme-1 .shipping-returns-list li {
+  color: #ffffff;
+}
+
+.color-scheme-1 .product__payment-methods {
+  border-top-color: #3F3F3F;
+}

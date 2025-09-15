@@ -1,0 +1,97 @@
+/* ========================================
+   JOHNNY DANG BOTTOM NAVIGATION
+   ======================================== */
+
+.jd-bottom-nav {
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: 1rem 0;
+  position: static;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: none; /* Hide the original bottom nav since it's now integrated into carousel */
+}
+
+.jd-bottom-nav__container {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.jd-bottom-nav__content {
+  display: flex;
+  animation: scroll-marquee 30s linear infinite;
+  gap: 3rem;
+  white-space: nowrap;
+}
+
+.jd-bottom-nav__item {
+  flex-shrink: 0;
+}
+
+.jd-bottom-nav__link,
+.jd-bottom-nav__text {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.jd-bottom-nav__link:hover {
+  color: #ff6200;
+  text-shadow: 0 0 10px rgba(255, 98, 0, 0.5);
+}
+
+/* Scrolling animation */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Pause animation on hover */
+.jd-bottom-nav:hover .jd-bottom-nav__content {
+  animation-play-state: paused;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .jd-bottom-nav {
+    padding: 0.75rem 0;
+  }
+  
+  .jd-bottom-nav__link,
+  .jd-bottom-nav__text {
+    font-size: 0.8rem;
+  }
+  
+  .jd-bottom-nav__content {
+    gap: 2rem;
+    animation-duration: 25s;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .jd-bottom-nav__content {
+    animation: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* Focus states */
+.jd-bottom-nav__link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}

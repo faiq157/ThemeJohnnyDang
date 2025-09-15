@@ -1,0 +1,113 @@
+/* ============================
+   Category Bubbles Styling
+   ============================ */
+   .collections-bubbles__list {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .collections-bubbles__item {
+    text-align: center;
+  }
+  
+  .collections-bubbles__img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #000;
+    transition: transform 0.3s ease;
+  }
+  
+  .collections-bubbles__img:hover {
+    transform: scale(1.1);
+  }
+  
+  .collections-bubbles__title {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  /* ============================
+     Collections List Layout + Sidebar
+     ============================ */
+  
+  
+  @media (max-width: 989px) {
+    .collections-layout {
+      grid-template-columns: 1fr;
+    }
+    .collections-sidebar {
+      position: static;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .collections-sidebar {
+    /* position: sticky; */
+    /* top: 1rem; */
+    align-self: start;
+    width: 20%;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 16px;
+    background: #fff;
+    z-index: 2;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .collections-content {
+    position: relative;
+    z-index: 0;
+  }
+
+  .collection-list {
+    position: relative;
+    z-index: 0;
+  }
+  
+  .collections-sidebar .sidebar-title {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  
+  .collections-sidebar .sidebar-subtitle {
+    margin: 16px 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .collections-sidebar .sidebar-form input[type="search"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 6px;
+  }
+  
+  .collections-sidebar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 380px;
+    overflow: auto;
+  }
+  
+  .collections-sidebar__item a {
+    display: block;
+    padding: 8px 6px;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .collections-sidebar__item a:hover {
+    text-decoration: underline;
+  }
+  

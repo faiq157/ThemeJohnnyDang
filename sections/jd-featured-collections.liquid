@@ -1,0 +1,234 @@
+{{ 'jd-featured-collections.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'jd-featured-collections.js' | asset_url }}" defer="defer"></script>
+
+<div class="jd-featured-collections">
+  <div class="jd-featured-collections__container">
+    <!-- Background Grid -->
+    <div class="jd-featured-collections__grid"></div>
+    
+    <!-- Content -->
+    <div class="jd-featured-collections__content">
+      <h2 class="jd-featured-collections__title">
+        {{ section.settings.title | default: 'Johnny Dang & Co. Featured Collections' }}
+      </h2>
+      
+      {% if section.settings.show_view_all %}
+        <a href="{{ section.settings.view_all_link | default: '/collections' }}" class="jd-featured-collections__view-all">
+          {{ section.settings.view_all_text | default: 'VIEW ALL COLLECTIONS' }}
+          <svg class="jd-featured-collections__arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M1 11L11 1M11 1H1M11 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endif %}
+      
+      <!-- Collections Grid -->
+      <div class="jd-featured-collections__grid-cards">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'collection' %}
+              <div class="jd-featured-collections__card" {{ block.shopify_attributes }}>
+                {% if block.settings.show_bestseller_tag and block.settings.bestseller_text != blank %}
+                  <div  class="jd-featured-collections__tag">
+                    {{ block.settings.bestseller_text }}
+                  </div>
+                {% endif %}
+                
+                <div class="jd-featured-collections__image-container">
+                  {% comment %} Use collection image or custom image from admin {% endcomment %}
+                  {% assign collection = collections[block.settings.collection] %}
+                  {% assign image_to_use = block.settings.custom_image %}
+                  
+                  {% if image_to_use == blank and collection != blank %}
+                    {% assign image_to_use = collection.featured_image %}
+                  {% endif %}
+                  
+                  {% if image_to_use != blank %}
+                    <img 
+                      src="{{ image_to_use | image_url: width: 400 }}"
+                      alt="{{ image_to_use.alt | default: collection.title | default: block.settings.title }}"
+                      class="jd-featured-collections__image"
+                      width="400"
+                      height="400"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {% comment %} Fallback placeholder image {% endcomment %}
+                    <div class="jd-featured-collections__image-placeholder">
+                      <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="400" fill="#f3f3f3"/>
+                        <path d="M200 150L250 200L200 250L150 200L200 150Z" fill="#ddd"/>
+                        <text x="200" y="300" text-anchor="middle" fill="#999" font-family="Arial, sans-serif" font-size="16">No Image</text>
+                      </svg>
+                    </div>
+                  {% endif %}
+                </div>
+                
+                <div class="jd-featured-collections__label">
+                  {% if block.settings.collection != blank %}
+                    {% assign collection = collections[block.settings.collection] %}
+                    {{ collection.title | default: block.settings.title }}
+                  {% else %}
+                    {{ block.settings.title }}
+                  {% endif %}
+                </div>
+                
+                {% if block.settings.collection != blank or block.settings.link != blank %}
+                  <a href="{% if block.settings.collection != blank %}{{ collections[block.settings.collection].url }}{% else %}{{ block.settings.link }}{% endif %}" class="jd-featured-collections__card-link"></a>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "JD Featured Collections",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Johnny Dang & Co. Featured Collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All Link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Text",
+      "default": "VIEW ALL COLLECTIONS"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Link",
+      "default": "/collections"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "info": "Used if no collection is selected"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image",
+          "info": "Override collection featured image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Custom Link",
+          "info": "Used if no collection is selected"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_bestseller_tag",
+          "label": "Show Bestseller Tag",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "bestseller_text",
+          "label": "Bestseller Text",
+          "default": "BESTSELLER"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JD Featured Collections",
+      "blocks": [
+        {
+          "type": "collection",
+          "settings": {
+            "title": "CHAINS & BRACELETS",
+            "show_bestseller_tag": true,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "title": "PENDANTS"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "title": "EARRINGS",
+            "show_bestseller_tag": true,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "title": "DIAMOND SUNGLASSES"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "title": "ENGAGEMENT AND BRIDALS",
+            "show_bestseller_tag": true,
+            "bestseller_text": "BESTSELLER"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "title": "LACQUERED ROSES WITH GOLD/PLATINUM TRIM"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

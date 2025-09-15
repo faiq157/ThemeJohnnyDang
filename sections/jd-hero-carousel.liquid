@@ -1,0 +1,608 @@
+{{ 'johnny-dang-hero.css' | asset_url | stylesheet_tag }}
+
+
+
+<section class="jd-hero" role="banner" aria-label="Hero carousel">
+  <div class="jd-hero__container">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'slide' %}
+          <div class="jd-hero__slide" {{ block.shopify_attributes }}>
+            <div class="jd-hero__content">
+              {% if block.settings.subtitle != blank %}
+                <p class="jd-hero__subtitle">{{ block.settings.subtitle }}</p>
+              {% endif %}
+              
+              {% if block.settings.title != blank %}
+                <h1 class="jd-hero__title">
+                  {% assign title_lines = block.settings.title | split: '\n' %}
+                  {% for line in title_lines %}
+                    <span class="jd-hero__title-line">{{ line }}</span>
+                  {% endfor %}
+                </h1>
+              {% endif %}
+              
+          
+              
+              {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
+                <a href="{{ block.settings.cta_link }}" class="jd-hero__cta">
+                  {{ block.settings.cta_text }}
+                  <svg class="jd-featured-collections__arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M1 11L11 1M11 1H1M11 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+            
+            <div class="jd-hero__media">
+              {% if block.settings.image != blank %}
+                <img 
+                  class="jd-hero__image"
+                  src="{{ block.settings.image | image_url: width: 400 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                  
+                  loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                >
+              {% else %}
+                {% comment %} Default product images for each slide {% endcomment %}
+                {% case forloop.index0 %}
+                  {% when 0 %}
+                    <img 
+                      class="jd-hero__image"
+                      src="{{ 'Ring.png' | asset_url }}"
+                      alt="Championship Ring"
+                      width="800"
+                      height="800"
+                      loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                    >
+                  {% when 1 %}
+                    <img 
+                      class="jd-hero__image"
+                      src="{{ 'ring1.png' | asset_url }}"
+                      alt="Diamond Chain Collection"
+                      width="800"
+                      height="800"
+                      loading="lazy"
+                    >
+                  {% when 2 %}
+                    <img 
+                      class="jd-hero__image"
+                      src="{{ 'glasses.png' | asset_url }}"
+                      alt="Custom Grillz Design"
+                      width="800"
+                      height="800"
+                      loading="lazy"
+                    >
+                  {% when 3 %}
+                    <img 
+                      class="jd-hero__image"
+                      src="{{ 'watch.png' | asset_url }}"
+                      alt="Luxury Timepiece"
+                      width="800"
+                      height="800"
+                      loading="lazy"
+                    >
+                  {% when 4 %}
+                    <img 
+                      class="jd-hero__image"
+                      src="{{ 'ring2.png' | asset_url }}"
+                      alt="Statement Ring"
+                      width="800"
+                      height="800"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {% comment %} <div style="width: 400px; height: 400px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.5); font-size: 1.2rem;">
+                      Product Image
+                    </div> {% endcomment %}
+                {% endcase %}
+              {% endif %}
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+
+
+  <!-- Dot Navigation -->
+  <div class="jd-hero__controls">
+    {% for block in section.blocks %}
+      {% if block.type == 'slide' %}
+        <button 
+          class="jd-hero__dot{% if forloop.first %} active{% endif %}" 
+          aria-label="Go to slide {{ forloop.index }}"
+          data-slide="{{ forloop.index0 }}"
+        ></button>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Video Preview -->
+  <div class="jd-hero__video-preview" {% if section.settings.video_url != blank %}onclick="window.open('{{ section.settings.video_url }}', '_blank')"{% endif %}>
+    <div class="jd-hero__video-placeholder">
+      {% if section.settings.video_file_url != blank %}
+        <video 
+          class="jd-hero__video"
+          muted
+          loop
+          autoplay
+          playsinline
+          data-video-url="{{ section.settings.video_file_url }}"
+        >
+          <source src="{{ section.settings.video_file_url }}" type="video/mp4">
+          <source src="{{ section.settings.video_file_url }}" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      {% elsif section.settings.video_file != blank %}
+        {{
+          section.settings.video_file
+          | video_tag:
+            image_size: '400x300',
+            autoplay: true,
+            loop: true,
+            controls: false,
+            muted: true,
+            class: 'jd-hero__video'
+        }}
+      {% elsif section.settings.video_thumbnail != blank %}
+        <img 
+          class="jd-hero__video-thumbnail"
+          src="{{ section.settings.video_thumbnail | image_url: width: 400 }}"
+          alt="Video Preview"
+          width="400"
+          height="auto"
+          loading="lazy"
+        >
+      {% else %}
+        <video 
+          class="jd-hero__video"
+          muted
+          loop
+          autoplay
+          playsinline
+        >
+          <source src="{{ 'video_thumbnail.mp4' | asset_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Carousel Overlay -->
+<div class="jd-hero__overlay"></div>
+
+
+<!-- Marquee Section -->
+<section class="jd-marquee">
+  <div class="jd-marquee__container">
+    <div class="jd-marquee__content">
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">KING OF BLING</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">GET FEATURED</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">GET NOTICED</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">DRIP IN DIAMONDS</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">LUXURY THAT TRENDS</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">GET ICED OUT</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">JOIN THE FAMILY</span>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">KING OF BLING</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">GET FEATURED</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">GET NOTICED</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">DRIP IN DIAMONDS</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">LUXURY THAT TRENDS</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">GET ICED OUT</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">.</span>
+      </div>
+      <div class="jd-marquee__item">
+        <span class="jd-marquee__text">JOIN THE FAMILY</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "JD Hero Carousel",
+  "tag": "section",
+  "class": "jd-hero-section",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Preview"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Video File",
+      "info": "Upload a video file to display in the video preview area"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_thumbnail",
+      "label": "Video Thumbnail (Fallback)",
+      "info": "This image will be used if no video is uploaded"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Link to open when video preview is clicked"
+    },
+    {
+      "type": "url",
+      "id": "video_file_url",
+      "label": "Video File URL",
+      "info": "Direct link to a video file (MP4, WebM, etc.). This will override the uploaded video if provided."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "STEP INTO THE SPOTLIGHT"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "info": "Use line breaks to separate title lines",
+          "default": "Redefining\nIced-Out\nLuxury"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Button Text",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JD Hero Carousel",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "subtitle": "STEP INTO THE SPOTLIGHT",
+            "title": "Redefining\nIced-Out\nLuxury",
+            "description": "Discover our exclusive collection of luxury jewelry that defines elegance and sophistication.",
+            "cta_text": "SHOP NOW",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "subtitle": "PREMIUM CHAINS",
+            "title": "Diamond\nChain\nCollection",
+            "description": "Elevate your style with our handcrafted diamond chains featuring premium stones.",
+            "cta_text": "EXPLORE CHAINS",
+            "cta_link": "shopify://collections/chains"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "subtitle": "CUSTOM GRILLZ",
+            "title": "Custom\nGrillz\nDesigns",
+            "description": "Get your personalized grillz made with the finest materials and craftsmanship.",
+            "cta_text": "GET CUSTOM",
+            "cta_link": "shopify://collections/grillz"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "subtitle": "LUXURY WATCHES",
+            "title": "Timepiece\nCollection",
+            "description": "Discover our exclusive range of luxury watches that blend style with precision.",
+            "cta_text": "VIEW WATCHES",
+            "cta_link": "shopify://collections/watches"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "subtitle": "STATEMENT RINGS",
+            "title": "Championship\nRings",
+            "description": "Create your legacy with our custom championship and statement rings.",
+            "cta_text": "DESIGN RING",
+            "cta_link": "shopify://collections/rings"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousel = new JDHeroCarousel('.jd-hero');
+  });
+
+  class JDHeroCarousel {
+    constructor(selector) {
+      this.carousel = document.querySelector(selector);
+      if (!this.carousel) return;
+      
+      this.slides = this.carousel.querySelectorAll('.jd-hero__slide');
+      this.dots = this.carousel.querySelectorAll('.jd-hero__dot');
+      this.video = document.querySelector('.jd-hero__video');
+      
+      this.currentSlide = 0;
+      this.isAutoPlaying = true;
+      this.autoPlayInterval = null;
+      
+      this.init();
+    }
+    
+    init() {
+      this.showSlide(0);
+      this.bindEvents();
+      this.startAutoPlay();
+      this.ensureVideoAutoplay();
+      this.handleVideoLoading();
+    }
+    
+    bindEvents() {
+      // Dot navigation
+      this.dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          this.goToSlide(index);
+        });
+      });
+      
+      
+      // Keyboard navigation
+      this.carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          this.prevSlide();
+        } else if (e.key === 'ArrowRight') {
+          this.nextSlide();
+        }
+      });
+      
+      // Pause on hover
+      this.carousel.addEventListener('mouseenter', () => {
+        this.stopAutoPlay();
+      });
+      
+      this.carousel.addEventListener('mouseleave', () => {
+        if (this.isAutoPlaying) {
+          this.startAutoPlay();
+        }
+      });
+      
+      // Touch/swipe support
+      this.addSwipeSupport();
+
+      // Fallback: start video on first interaction if blocked
+      ['click','touchstart','keydown'].forEach(evt => {
+        window.addEventListener(evt, () => this.ensureVideoAutoplay(), { once: true });
+      });
+    }
+    
+    addSwipeSupport() {
+      let startX = 0;
+      let endX = 0;
+      
+      this.carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+      
+      this.carousel.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        this.handleSwipe(startX, endX);
+      });
+    }
+    
+    handleSwipe(startX, endX) {
+      const threshold = 50;
+      const diff = startX - endX;
+      
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+          this.nextSlide();
+        } else {
+          this.prevSlide();
+        }
+      }
+    }
+    
+    showSlide(index) {
+      // Remove active class from all slides
+      this.slides.forEach((slide, i) => {
+        slide.classList.remove('active', 'prev');
+        if (i < index) {
+          slide.classList.add('prev');
+        }
+      });
+      
+      // Remove active class from all dots
+      this.dots.forEach(dot => {
+        dot.classList.remove('active');
+      });
+      
+      // Add active class to current slide and dot
+      if (this.slides[index]) {
+        this.slides[index].classList.add('active');
+      }
+      
+      if (this.dots[index]) {
+        this.dots[index].classList.add('active');
+      }
+      
+      // Update hero background based on slide index
+      this.carousel.setAttribute('data-slide', index);
+      
+      this.currentSlide = index;
+    }
+    
+    nextSlide() {
+      const next = (this.currentSlide + 1) % this.slides.length;
+      this.goToSlide(next);
+    }
+    
+    prevSlide() {
+      const prev = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+      this.goToSlide(prev);
+    }
+    
+    goToSlide(index) {
+      this.stopAutoPlay();
+      this.showSlide(index);
+      this.startAutoPlay();
+    }
+    
+    startAutoPlay() {
+      if (!this.isAutoPlaying) return;
+      
+      this.autoPlayInterval = setInterval(() => {
+        this.nextSlide();
+      }, 5000);
+    }
+    
+    stopAutoPlay() {
+      if (this.autoPlayInterval) {
+        clearInterval(this.autoPlayInterval);
+        this.autoPlayInterval = null;
+      }
+    }
+
+    ensureVideoAutoplay() {
+      if (!this.video) return;
+      try {
+        const playPromise = this.video.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise.catch(() => {
+            this.video.muted = true;
+            this.video.play().catch(() => {});
+          });
+        }
+      } catch (e) {
+        /* ignore */
+      }
+    }
+
+    // Handle video loading for external URLs
+    handleVideoLoading() {
+      const videoElements = document.querySelectorAll('.jd-hero__video[data-video-url]');
+      
+      videoElements.forEach(function(video) {
+        const fileUrl = video.getAttribute('data-video-url');
+        
+        // Add error handling for video loading
+        video.addEventListener('error', function(e) {
+          console.log('Video loading error for URL:', fileUrl);
+          console.log('Video element:', video);
+          
+          // Try to reload the video
+          video.load();
+        });
+        
+        // Add load event listener
+        video.addEventListener('loadeddata', function() {
+          console.log('Video loaded successfully:', fileUrl);
+        });
+        
+        // Add canplay event listener
+        video.addEventListener('canplay', function() {
+          console.log('Video can play:', fileUrl);
+        });
+        
+        // Force video to load
+        video.load();
+      });
+    }
+  }
+</script>

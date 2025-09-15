@@ -1,0 +1,160 @@
+/**
+ * Header Scroll Effect Styles
+ * Universal styles for header background effect on scroll
+ */
+
+/* Ensure header starts transparent and stays sticky */
+.header-wrapper,
+.jd-header-wrapper,
+.shopify-section-header,
+sticky-header,
+.section-header {
+  background: transparent !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Scrolled state styles */
+.header-wrapper.header-scrolled,
+.jd-header-wrapper.header-scrolled,
+.shopify-section-header.header-scrolled,
+sticky-header.header-scrolled,
+.section-header.header-scrolled {
+  background: rgba(0, 0, 0, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .header-wrapper.header-scrolled,
+  .jd-header-wrapper.header-scrolled,
+  .shopify-section-header.header-scrolled,
+  sticky-header.header-scrolled,
+  .section-header.header-scrolled {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+}
+
+/* Ensure header text remains visible */
+.header-wrapper.header-scrolled *,
+.jd-header-wrapper.header-scrolled *,
+.shopify-section-header.header-scrolled *,
+sticky-header.header-scrolled *,
+.section-header.header-scrolled * {
+  color: #ffffff !important;
+}
+
+/* Make sure header is positioned correctly */
+.header-wrapper,
+.jd-header-wrapper,
+.shopify-section-header,
+sticky-header,
+.section-header {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* For sticky headers - ensure they stay visible */
+sticky-header {
+  position: sticky !important;
+  top: 0 !important;
+}
+
+/* Override any hiding behavior - force header to stay at top */
+.header-wrapper.shopify-section-header-hidden,
+.jd-header-wrapper.shopify-section-header-hidden,
+.shopify-section-header.shopify-section-header-hidden,
+sticky-header.shopify-section-header-hidden,
+.section-header.shopify-section-header-hidden {
+  position: sticky !important;
+  top: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Override the specific hiding rule from base.css */
+.shopify-section-header-hidden {
+  top: 0 !important;
+}
+
+/* Ensure header is always visible */
+.header-wrapper,
+.jd-header-wrapper,
+.shopify-section-header,
+sticky-header,
+.section-header {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* ========================================
+   DROPDOWN MENU BLUR EFFECTS
+   ======================================== */
+
+/* Dropdown menu blur background */
+.header__submenu,
+.header__submenu.global-settings-popup {
+  background: rgba(0, 0, 0, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  z-index: 10000 !important;
+  position: absolute !important;
+}
+
+/* Mega menu blur background */
+.mega-menu__content {
+  background: rgba(0, 0, 0, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  z-index: 10000 !important;
+}
+
+/* Menu drawer blur background */
+.menu-drawer__submenu {
+  background: rgba(0, 0, 0, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  z-index: 10000 !important;
+}
+
+/* Ensure dropdown menu text is white */
+.header__submenu *,
+.header__submenu .header__menu-item,
+.header__submenu .list-menu__item,
+.mega-menu__content *,
+.mega-menu__content .mega-menu__link,
+.menu-drawer__submenu *,
+.menu-drawer__submenu .menu-drawer__menu-item {
+  color: #ffffff !important;
+}
+
+/* Dropdown menu hover effects */
+.header__submenu .header__menu-item:hover,
+.mega-menu__content .mega-menu__link:hover,
+.menu-drawer__submenu .menu-drawer__menu-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .header__submenu,
+  .header__submenu.global-settings-popup,
+  .mega-menu__content,
+  .menu-drawer__submenu {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+}
