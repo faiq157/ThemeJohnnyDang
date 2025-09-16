@@ -228,6 +228,7 @@ html, body {
   line-height: 22px;
   letter-spacing: 0;  /* or normal */
   text-transform: uppercase;
+  margin-left: 20px;
 }
 
 
@@ -243,6 +244,7 @@ html, body {
 
 .jd-hero__title-line {
   display: block;
+  margin-left: 20px;
 }
 
 
