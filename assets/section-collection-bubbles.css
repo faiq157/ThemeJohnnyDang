@@ -6,16 +6,19 @@
 .collections-bubbles__list {
   display: flex;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: end;
   flex-wrap: wrap;
   margin: 2rem 0;
   padding: 0;
   list-style: none;
+  padding: 0 1rem;
 }
 
 .collections-bubbles__item {
   text-align: center;
 }
+
+
 
 .collections-bubbles__img {
   width: 100px;

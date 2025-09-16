@@ -106,18 +106,14 @@
 }
 
 .facet-filters__sort {
-  background-color: #333333;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
   font-size: 1.4rem;
   height: auto;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   margin: 0;
-  padding: 0.8rem 2rem 0.8rem 1rem;
   color: #ffffff;
   position: relative;
   z-index: 101;
-  min-width: 150px;
+  min-width: 200px;
 }
 
 .facet-filters__sort + .icon-caret {

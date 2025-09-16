@@ -1,9 +1,7 @@
 {{ 'section-collection-bubbles.css' | asset_url | stylesheet_tag }}
 <!-- Category Bubbles -->
 <div class="collections-bubbles page-width">
-  {% if section.settings.heading != blank %}
-    <h2 class="collections-bubbles__heading">{{ section.settings.heading }}</h2>
-  {% endif %}
+
 
   <ul class="collections-bubbles__list">
     {% assign rendered_any = false %}

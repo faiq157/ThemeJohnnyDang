@@ -307,7 +307,7 @@ input:focus, textarea:focus, select:focus {
 
 /* PRICE */
 .price {
-  color: rgb(var(--color-foreground)) !important;
+  color: rgb(var(--color-foreground));
 }
 
 .price--sale {
