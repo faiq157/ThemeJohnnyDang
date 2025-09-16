@@ -144,15 +144,13 @@
       ],
       "settings": {
         "image": "shopify://shop_images/jhonydang.jpg",
+        "image_overlay_opacity": 30,
         "image_height": "large",
         "desktop_content_position": "middle-center",
-        "show_text_box": true,
         "desktop_content_alignment": "center",
-        "mobile_content_alignment": "center",
+        "show_text_box": true,
         "color_scheme": "background-1",
-        "image_overlay_opacity": 30,
-        "padding_top": 40,
-        "padding_bottom": 40
+        "mobile_content_alignment": "center"
       }
     }
   },

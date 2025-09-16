@@ -157,9 +157,9 @@
           "settings": {
             "celebrity_title": "Celebs That",
             "celebrity_highlight": "Choose Us",
-            "celebrity_image_1": "shopify://shop_images/celb1.jpg",
+            "celebrity_image_1": "shopify://shop_images/celb1_c2e3fe8d-ae20-4167-a1a8-eb1e23d3abed.jpg",
             "celebrity_image_2": "shopify://shop_images/celeb2.png",
-            "celebrity_image_3": "shopify://shop_images/celbs3.jpg",
+            "celebrity_image_3": "shopify://shop_images/celbs3_165cf8c1-a001-45a0-8968-26dc419df43f.jpg",
             "celebrity_link": ""
           }
         }
@@ -264,7 +264,7 @@
     "flash_deals": {
       "type": "flash-deals",
       "settings": {
-        "collection": "all",
+        "collection": "10k-fashion-pendants",
         "products_to_show": 4,
         "show_badge": true,
         "badge_text": "FLASH DEALS",
