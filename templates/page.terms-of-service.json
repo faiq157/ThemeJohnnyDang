@@ -12,9 +12,9 @@
     "page_hero": {
       "type": "page-hero",
       "settings": {
-        "subtitle": "FROM IDEA TO ICED-OUT REALITY",
+        "subtitle": "THE RULES BEHIND THE DRIP",
         "title": "Terms & Conditions",
-        "description": "<p</p>",
+        "description": "",
         "show_cta": false,
         "cta_text": "Learn More",
         "cta_link": "",
@@ -32,7 +32,8 @@
           "type": "heading",
           "settings": {
             "heading": "Terms of Services and Conditions of Use",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "heading_color": "#ff6200"
           }
         },
         "text_intro": {
@@ -63,7 +64,8 @@
           "type": "heading",
           "settings": {
             "heading": "Introduction",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_intro_section": {
@@ -94,7 +96,8 @@
           "type": "heading",
           "settings": {
             "heading": "Copyright",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_copyright": {
@@ -125,7 +128,8 @@
           "type": "heading",
           "settings": {
             "heading": "Trademark",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_trademark": {
@@ -156,7 +160,8 @@
           "type": "heading",
           "settings": {
             "heading": "License and Site Access",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_license": {
@@ -187,7 +192,8 @@
           "type": "heading",
           "settings": {
             "heading": "Your Membership Account",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_membership": {
@@ -218,7 +224,8 @@
           "type": "heading",
           "settings": {
             "heading": "Reviews, Comments, Email and Other Content",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_reviews": {
@@ -249,7 +256,8 @@
           "type": "heading",
           "settings": {
             "heading": "Applicable Law",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_law": {
@@ -280,7 +288,8 @@
           "type": "heading",
           "settings": {
             "heading": "Disclaimer",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_disclaimer": {
@@ -311,7 +320,8 @@
           "type": "heading",
           "settings": {
             "heading": "Site Policies, Modification, and Severability",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_site_policies": {
@@ -342,7 +352,8 @@
           "type": "heading",
           "settings": {
             "heading": "Product Description",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_product_description": {
@@ -373,14 +384,15 @@
           "type": "heading",
           "settings": {
             "heading": "Online Order Policies; Warranty Info and Returns/Cancellation",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_order_policies": {
           "type": "text",
           "settings": {
             "text": "<p><ul><li>Payments made with Bitcoin are not eligible for refunds.</li><li>We offer a 14-day return policy on all products excluding custom products.</li><li>Please do not order without careful consideration, as labor cost and/or restocking fee will be charged.</li><li>Keep in mind that our products are handmade and take days, and at times weeks, to finish.</li></ul><p>If you are under 18 years of age, permission from parents or guardians is required before ordering grills/dental caps.</p><ul><li>It is a good idea to consult with your dentist for a recommendation before placing an order for dental grills and caps.</li><li>It is recommended that you have the condition of your teeth checked by a dentist before ordering dental caps.</li><li>Cleaning dental caps after each use is recommended.</li><li>Gold caps can rarely change color due to body acid, body temperature, and will tarnish (if less than 18k) when exposed to smoking and drinking.</li><li>All orders shipped out to our customers will return back to us if no one is available to accept the package (signature required) or no one picks up the package from the shipping company's local station. We are not responsible for products not collected within this time period.</li><li>We will charge re-delivery charges and processing fees if we need to re-ship a package.</li><li>All of our products are precision made to the highest standard. We accept no responsibility for damage after collection.</li><li>All personal and business checks take approximately 10-15 days of processing time.</li><li>All domestic orders paid by Credit/Debit Card through PayPal can only be shipped to a PayPal confirmed/verified address.</li><li>Use Check, Money Order, Wire Transfer, Bank Deposit, Western Union, or any other form of payment that does not involve credit/debit cards should you require your order shipped to a third party or an unverified address.</li></ul><p>Order processing time is between 24-48 hours excluding Saturday and Sunday. International shipping costs vary by destination. International customers are requested to contact us for exact shipping cost.</p><p>Prices may change at any time without notice. All promotional prices or discounts are only valid during the promotion period. Absolutely no refund or exchange on ANY custom-made products including grillz. We always try to make sure dental molds are accurately done before starting the manufacturing process. Slight fitting issues can be adjusted using adjustment instructions available here. Grillz, like most other custom orders, cannot be returned for a refund. However, we will redo/adjust/refit the grillz using new molds if the original mold is identified as the issue.</p><p>In-stock products can be returned for full credit (excluding shipping) or a refund (subject to 15% restocking fee).</p><p>Cancellation of deposit towards custom order design and consultation will incur either a $200 design fee (if design is completed) or 20% cancellation fee (if cancelled before a design was done).</p>"
-}
+          }
         }
       },
       "block_order": [
@@ -404,7 +416,8 @@
           "type": "heading",
           "settings": {
             "heading": "Shipping",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_shipping": {
@@ -435,7 +448,8 @@
           "type": "heading",
           "settings": {
             "heading": "Questions",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#000000"
           }
         },
         "text_questions": {
@@ -455,6 +469,7 @@
         "color_scheme": "",
         "full_width": true,
         "section_type": "terms",
+        "padding_top": 40,
         "padding_bottom": 40
       }
     }

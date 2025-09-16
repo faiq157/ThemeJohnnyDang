@@ -33,13 +33,14 @@
           "type": "heading",
           "settings": {
             "heading": "Our Story",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "heading_color": "#ffffff"
           }
         },
         "text_FcHqAz": {
           "type": "text",
           "settings": {
-            "text": "<p>Founded in 1998, Johnny Dang & Co. is a jewelry business based in Houston, Texas. Dang has been<br/>credited with popularizing the diamond and gold mouthpieces known as grills, which have been<br/>worn by top recording hip hop artists and celebrities around the world.</p>"
+            "text": "<p>Founded in 1998, Johnny Dang & Co. is a jewelry business based in Houston, Texas. Dang has been credited with popularizing the diamond and gold mouthpieces known as grills, which have been worn by top recording hip hop artists and celebrities around the world.</p>"
           }
         }
       },
@@ -53,6 +54,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
+        "section_type": "default",
         "padding_top": 40,
         "padding_bottom": 52
       }
@@ -128,29 +130,46 @@
         "padding_bottom": 36
       }
     },
-    "image_banner_about": {
-      "type": "image-banner",
+    "rich_text_mP7VBJ": {
+      "type": "rich-text",
       "blocks": {
-        "heading_about": {
+        "heading_MBaaFB": {
           "type": "heading",
           "settings": {
             "heading": "Watch 'House of Dang' & the Story portrayed by VICE Magazine",
-            "heading_size": "h1"
+            "heading_size": "h2",
+            "heading_color": "#ffffff"
           }
         }
       },
       "block_order": [
-        "heading_about"
+        "heading_MBaaFB"
       ],
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/jhonydang.jpg",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "default",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_about": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/fd83f3db8fef87209b058cd215b9d5514abdfc9a.png",
         "image_overlay_opacity": 30,
         "image_height": "large",
+        "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "background-1",
-        "mobile_content_alignment": "center"
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
       }
     }
   },
@@ -158,6 +177,7 @@
     "page_hero_34bMd4",
     "rich_text_6mrjwL",
     "multirow_excfTU",
+    "rich_text_mP7VBJ",
     "image_banner_about"
   ]
 }

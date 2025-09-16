@@ -22,8 +22,8 @@
       "type": "page-hero",
       "name": "Page Hero",
       "settings": {
-        "subtitle": "UNLOCK YOUR STYLE",
-        "title": "Sub Categories",
+        "subtitle": "the collection trusted by icons",
+        "title": "Shop All Collection",
         "description": "<p>Discover our story and the passion behind Johnny Dang & Co.</p>",
         "show_cta": false,
         "cta_text": "Learn More",
@@ -59,10 +59,17 @@
             "title": ""
           }
         },
-        "category_rpVXA6": {
+        "category_rgxqyx": {
           "type": "category",
           "settings": {
-            "collection": "all-collection",
+            "collection": "flash-deals",
+            "title": ""
+          }
+        },
+        "category_cx9VjU": {
+          "type": "category",
+          "settings": {
+            "collection": "10k-fashion-rings",
             "title": ""
           }
         }
@@ -71,7 +78,8 @@
         "category_3jdyef",
         "category_Mr8RPB",
         "category_fFwT8d",
-        "category_rpVXA6"
+        "category_rgxqyx",
+        "category_cx9VjU"
       ],
       "settings": {
         "heading": "Shop by category"

@@ -23,7 +23,13 @@
       "settings": {
         "subtitle": "IF IT AIN’T RIGHT, BRING IT BACK",
         "title": "Cancellations & Returns",
+        "description": "<p>Discover our story and the passion behind Johnny Dang & Co.</p>",
         "show_cta": false,
+        "cta_text": "Learn More",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -35,7 +41,8 @@
           "type": "heading",
           "settings": {
             "heading": "Talk about your brand",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#ff6200"
           }
         },
         "text_zx4WML": {
@@ -55,6 +62,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
+        "section_type": "default",
         "padding_top": 40,
         "padding_bottom": 52
       }

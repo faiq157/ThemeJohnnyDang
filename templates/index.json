@@ -264,7 +264,7 @@
     "flash_deals": {
       "type": "flash-deals",
       "settings": {
-        "collection": "10k-fashion-pendants",
+        "collection": "flash-deals",
         "products_to_show": 4,
         "show_badge": true,
         "badge_text": "FLASH DEALS",
@@ -272,7 +272,7 @@
         "heading_size": "h1",
         "description": "<p>Don't miss out on these incredible deals! Limited time offers with massive discounts on premium jewelry.</p>",
         "button_text": "Shop Now",
-        "view_all_link": "",
+        "view_all_link": "shopify://collections/flash-deals",
         "show_countdown": true,
         "countdown_end_date": "2024-12-31 23:59:59",
         "background_color": "#f8f9fa",
