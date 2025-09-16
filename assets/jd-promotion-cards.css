@@ -26,7 +26,7 @@
   align-items: center;
   height: 252px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 976px;
+  width: 876px;
 }
 
 .jd-promotion-card:hover {
@@ -125,30 +125,32 @@
 /* Celebrity Endorsements Card */
 .jd-promotion-card--celebrity {
   background: 
-    radial-gradient(50% 55.25% at 27.17% 50%, rgba(75, 0, 110, 0.35) 0%, rgba(145, 0, 212, 0.35) 100%),
+    linear-gradient(135deg, rgba(75, 0, 110, 0.9) 0%, rgba(145, 0, 212, 0.8) 100%),
     url("{{ 'sparkle.gif' | asset_url }}");
-  background-size: 100% 100%, 200px 200px;
-  background-position: center, top right;
+  background-size: 100% 100%, 300px 300px;
+  background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   border: 1px solid rgba(255, 255, 255, 0.1);
   flex-direction: column;
-  width: 392px;
+  width: 492px;
   position: relative;
+  overflow: hidden;
 }
 
 .jd-promotion-card--celebrity::before {
   content: '';
   position: absolute;
-  top: 10px;
+  top: 0;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 0;
   background-image: url("lines.png");
-  background-size: cover;
+  background-size: 120% 120%;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
   pointer-events: none;
+  opacity: 0.3;
 }
 
 .jd-promotion-card__header {
@@ -158,47 +160,55 @@
 }
 
 .jd-promotion-card--celebrity .jd-promotion-card__title {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+  font-family: 'DM Sans', sans-serif; 
   margin-left: 20px;
+  margin-top: 20px;
   white-space: nowrap;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
+  position: relative;
+  z-index: 2;
 }
 
 .jd-promotion-card__highlight {
-  background: black;
+  background: rgba(0, 0, 0, 0.9);
   color: #ffffff;
   font-family: 'DM Sans', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 16.8px;
-  letter-spacing: 0.72px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
   text-align: center;
   text-transform: capitalize;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  margin-left: 0.25rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-left: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .jd-promotion-card__celebrities {
   display: flex;
   align-items: center;
-  gap: -10px;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .jd-promotion-card__celebrity {
-  width: 80px;
-  height: 80px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
-  margin-left: -30px;
+  margin-left: -40px;
   position: relative;
   z-index: 1;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .jd-promotion-card__celebrity:first-child {
@@ -210,20 +220,41 @@
   z-index: 2;
 }
 
+.jd-promotion-card__celebrity:hover {
+  transform: scale(1.05);
+  z-index: 4;
+}
+
 .jd-promotion-card__celebrity img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .jd-promotion-card__icon1 {
-  margin-left: 10px;
+  margin-left: -30px;
+  position: relative;
+  z-index: 2;
 }
 
 .jd-promotion-card__icon1 .jd-promotion-card__icon-circle {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   right: 0;
+  border: 2px dashed rgba(255, 255, 255, 0.8);
+  background: rgba(39, 38, 38, 0.55);
+  transition: all 0.3s ease;
+}
+
+.jd-promotion-card__icon1 .jd-promotion-card__icon-circle:hover {
+  border-color: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.jd-promotion-card__icon1 svg {
+  width: 40px;
+  height: 40px;
 }
 
 /* Card Link */
@@ -310,8 +341,8 @@
   }
   
   .jd-promotion-card__celebrity {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     margin-left: -15px;
   }
   

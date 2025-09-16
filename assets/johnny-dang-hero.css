@@ -259,7 +259,7 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, text-decoration 0.3s ease;
   cursor: pointer;
   position: relative;
   z-index: 10000;
@@ -269,8 +269,9 @@ html, body {
 
 
 .jd-hero__cta:hover {
-  background: #ffffff;
-  color: #000000;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
   transform: translateX(5px);
 }
 
