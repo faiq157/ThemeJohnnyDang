@@ -833,7 +833,7 @@ html, body {
 .jd-marquee__content {
   display: flex;
   animation: scroll-marquee 30s linear infinite;
-  gap: 3rem;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
@@ -869,6 +869,23 @@ html, body {
 
     text-transform: uppercase;        /* remove extra spacing */
   }
+
+  /* SVG Dot styling - clean, scalable dots */
+  .jd-marquee__dot {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 22px;
+    width: 8px;
+    opacity: 0.8;
+    color: rgba(255, 255, 255, 1);
+    flex-shrink: 0;
+  }
+  
+  .jd-marquee__dot svg {
+    width: 8px;
+    height: 8px;
+  }
   
 
 
@@ -898,8 +915,19 @@ html, body {
     line-height: 16px;
   }
   
+  .jd-marquee__dot {
+    height: 16px;
+    width: 6px;
+    opacity: 0.8;
+  }
+  
+  .jd-marquee__dot svg {
+    width: 6px;
+    height: 6px;
+  }
+  
   .jd-marquee__content {
-    gap: 1.5rem;
+    gap: 1rem;
     animation-duration: 20s;
   }
 }
@@ -914,8 +942,19 @@ html, body {
     line-height: 18px;
   }
   
+  .jd-marquee__dot {
+    height: 18px;
+    width: 7px;
+    opacity: 0.8;
+  }
+  
+  .jd-marquee__dot svg {
+    width: 7px;
+    height: 7px;
+  }
+  
   .jd-marquee__content {
-    gap: 2rem;
+    gap: 1.5rem;
     animation-duration: 25s;
   }
 }
