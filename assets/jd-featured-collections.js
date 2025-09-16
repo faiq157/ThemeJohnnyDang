@@ -16,6 +16,10 @@ function initFeaturedCollectionsEffects() {
     card.addEventListener('mouseenter', function() {
       this.style.setProperty('--lightning-intensity', '1');
       
+      // Initialize mouse position for gradient
+      this.style.setProperty('--mouse-x', '50%');
+      this.style.setProperty('--mouse-y', '50%');
+      
       // Create cursor-following light effect
       lightEffect = createCursorLightEffect(this);
       
@@ -84,6 +88,14 @@ function updateCursorLightPosition(event, card, lightEffect) {
   const x = event.clientX - rect.left;
   const y = event.clientY - rect.top;
   
+  // Update CSS custom properties for gradient positioning
+  const xPercent = (x / rect.width) * 100;
+  const yPercent = (y / rect.height) * 100;
+  
+  card.style.setProperty('--mouse-x', xPercent + '%');
+  card.style.setProperty('--mouse-y', yPercent + '%');
+  
+  // Keep the existing light effect for additional visual enhancement
   lightEffect.style.left = x + 'px';
   lightEffect.style.top = y + 'px';
   lightEffect.style.transform = 'translate(-50%, -50%)';

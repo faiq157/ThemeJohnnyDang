@@ -130,6 +130,7 @@
   z-index: 1;
 }
 
+/* Mouse-following gradient overlay */
 .jd-featured-collections__card::before {
   content: '';
   position: absolute;
@@ -137,11 +138,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at center, #6E361412 0%, transparent 70%);
+  background: radial-gradient(
+    circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 140, 0, 0.15) 0%,
+    rgba(186, 95, 36, 0.1) 30%,
+    rgba(110, 54, 20, 0.05) 60%,
+    transparent 100%
+  );
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
+  z-index: 1;
+  border-radius: 20px;
 }
+
+/* Remove the old ::before - now handled above */
 
 .jd-featured-collections__card::after {
   content: '';
@@ -150,7 +161,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, transparent, rgba(186, 95, 36, 0.2), rgba(255, 140, 0, 0.15), transparent);
+  background: linear-gradient(45deg, transparent, rgba(93, 3, 116, 0.11), rgba(255, 140, 0, 0.11), transparent);
   border-radius: 18px;
   opacity: 0;
   transition: opacity 0.4s ease;
