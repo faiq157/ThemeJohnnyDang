@@ -122,9 +122,8 @@
 
 
 .rich-text__heading  {
-  /* color: red; */
   margin-block: 28px;
-  color: #FF6200;
+
   font-family: Playfair Display;
 font-weight: 700;
 font-style: Bold;
@@ -132,17 +131,16 @@ font-size: 40px;
 line-height: 108%;
 }
 
-
-
 .rich-text__text {
-  /* color: red; */
-  font-family: Lora;
+font-family: Lora;
 font-weight: 400;
 font-style: Regular;
 font-size: 18px;
-line-height: 56px;
-letter-spacing: 0.9px;
+line-height: 23.4px;
+letter-spacing: 0.6px;
 text-align: center;
+vertical-align: middle;
+
 }
 
 .rich-text__text ol {

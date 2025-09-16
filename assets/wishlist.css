@@ -71,7 +71,7 @@
 }
 
 .header__icon--wishlist:hover {
-  color: #ff6b6b;
+  color: #fff;
   transform: scale(1.1);
 }
 
@@ -87,8 +87,8 @@
 }
 
 .header__icon--wishlist:hover .icon {
-  fill: rgba(255, 107, 107, 0.15);
-  stroke: #ff6b6b;
+  fill: rgba(255, 255, 255, 0.15);
+  stroke: #fff;
   stroke-width: 1.2;
 }
 

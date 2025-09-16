@@ -94,6 +94,16 @@
                     <span class="caption-text">{{ block.settings.caption }}</span>
                   </div>
                 {% endif %}
+                
+                <!-- Text Overlay for Hover Effect -->
+                <div class="gallery-item__overlay">
+                  {% if block.settings.customer_name != blank %}
+                    <div class="overlay-heading">{{ block.settings.customer_name }}</div>
+                  {% endif %}
+                  {% if block.settings.customer_role != blank %}
+                    <div class="overlay-subheading">{{ block.settings.customer_role }}</div>
+                  {% endif %}
+                </div>
               </div>
             </div>
         {% endcase %}
@@ -233,6 +243,13 @@ document.addEventListener('DOMContentLoaded', function() {
           "id": "customer_name",
           "label": "Customer Name",
           "default": "Customer"
+        },
+        {
+          "type": "text",
+          "id": "customer_role",
+          "label": "Customer Role/Profession",
+          "default": "MUSICIAN",
+          "info": "e.g., MUSICIAN, ACTOR, ATHLETE, etc."
         },
         {
           "type": "text",

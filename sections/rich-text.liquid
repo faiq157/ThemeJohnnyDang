@@ -26,7 +26,9 @@
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
-                  style="--animation-order: {{ forloop.index }};"
+                  style="--animation-order: {{ forloop.index }}; color: {{ block.settings.heading_color }};"
+                {% else %}
+                  style="color: {{ block.settings.heading_color }};"
                 {% endif %}
               >
                 {{ block.settings.heading }}
@@ -239,6 +241,12 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "default": "#000000"
         }
       ]
     },

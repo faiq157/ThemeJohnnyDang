@@ -127,11 +127,39 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "image_banner_about": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_about": {
+          "type": "heading",
+          "settings": {
+            "heading": "Watch 'House of Dang' & the Story portrayed by VICE Magazine",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_about"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/jhonydang.jpg",
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "color_scheme": "background-1",
+        "image_overlay_opacity": 30,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
     "page_hero_34bMd4",
     "rich_text_6mrjwL",
-    "multirow_excfTU"
+    "multirow_excfTU",
+    "image_banner_about"
   ]
 }
