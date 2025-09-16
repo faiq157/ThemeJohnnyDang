@@ -19,7 +19,14 @@
   <div class="page-width">
     <div class="testimonials-header">
       {% if section.settings.heading != blank %}
-        <h2 class="testimonials-heading">{{ section.settings.heading }}</h2>
+        <h2 class="testimonials-heading">
+          {% assign heading_parts = section.settings.heading | split: 'Johnny' %}
+          {% if heading_parts.size > 1 %}
+            {{ heading_parts[0] }}Johnny<br>{{ heading_parts[1] }}
+          {% else %}
+            {{ section.settings.heading }}
+          {% endif %}
+        </h2>
       {% endif %}
       
       {% if section.settings.cta_text != blank and section.settings.cta_link != blank %}

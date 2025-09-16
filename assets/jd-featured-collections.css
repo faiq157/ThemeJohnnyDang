@@ -60,12 +60,15 @@
 }
 
 .jd-featured-collections__title {
-  font-family: 'Playfair Display';
-  font-size: 3rem;
+  font-family: Playfair Display;
   font-weight: 500;
-  color: #ffffff;
-  margin: 0 0 2rem 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-style: Medium;
+  font-size: 40px;
+  line-height: 118%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+
 }
 
 .jd-featured-collections__view-all {
@@ -108,8 +111,12 @@
 /* Individual Card */
 .jd-featured-collections__card {
   position: relative;
-  background: rgba(110, 54, 20, 0.1);
-  border: 1px solid rgba(186, 95, 36, 0.2);
+  background: rgba(110, 54, 20, 0.15);
+  border-color: rgba(186, 95, 36, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(186, 95, 36, 0.2),
+    inset 0 1px 0 rgba(255, 140, 0, 0.1);
   border-radius: 20px;
   padding: 3rem;
   aspect-ratio: 1;
@@ -128,6 +135,7 @@
   background-position: 0 0;
   /* Ensure proper layering for cursor light effect */
   z-index: 1;
+  
 }
 
 /* Mouse-following gradient overlay */

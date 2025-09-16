@@ -1,13 +1,22 @@
 // Celebrity Testimonials Carousel Functionality
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('Celebrity Testimonials JS loaded');
   const carouselTracks = document.querySelectorAll('.testimonials-track');
+  console.log('Found carousel tracks:', carouselTracks.length);
   
-  carouselTracks.forEach(track => {
-    const prevBtn = track.closest('.testimonials-carousel').querySelector('.carousel-btn-prev');
-    const nextBtn = track.closest('.testimonials-carousel').querySelector('.carousel-btn-next');
+  carouselTracks.forEach((track, index) => {
+    console.log(`Processing track ${index}`);
+    const carousel = track.closest('.testimonials-carousel');
+    const prevBtn = carousel ? carousel.querySelector('.carousel-btn-prev') : null;
+    const nextBtn = carousel ? carousel.querySelector('.carousel-btn-next') : null;
     const items = track.querySelectorAll('.testimonial-item');
     
-    if (!prevBtn || !nextBtn || items.length === 0) return;
+    console.log('Track elements:', { prevBtn, nextBtn, items: items.length });
+    
+    if (!prevBtn || !nextBtn || items.length === 0) {
+      console.log('Missing elements, skipping track');
+      return;
+    }
     
     let currentIndex = 0;
     const itemsPerView = getItemsPerView();
