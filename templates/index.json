@@ -293,7 +293,7 @@
         "heading": "THE KING OF BLING",
         "description": "<p>Johnny Dang, also known as the \"King of Bling,\" is a world-renowned jeweler who transformed the jewelry game with his signature custom grillz, iced-out chains, and diamond-studded masterpieces. From humble beginnings as an immigrant watch repairman, Johnny built his empire in Houston, Texas, and quickly became the go-to jeweler for the world's biggest hip-hop stars.</p><p>His designs have been worn by icons like Paul Wall, Travis Scott, Migos, Drake, Beyoncé, and countless others.</p>",
         "cta_text": "LEARN MORE",
-        "cta_link": "/pages/about-johnny-dang",
+        "cta_link": "shopify://pages/about-us",
         "padding_top": 60,
         "padding_bottom": 60
       }

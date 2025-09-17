@@ -2,7 +2,7 @@
 
 .celebrity-testimonials-section {
   background: radial-gradient(ellipse at center, rgba(30, 20, 50, 0.8) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(0, 0, 0, 1) 100%);
-  min-height: 100vh;
+  
   position: relative;
   overflow: hidden;
   max-width: 100%;
@@ -266,7 +266,6 @@
   }
   
   .testimonials-header {
-    margin: 1rem 0.5rem;
     padding: 0 0.5rem;
   }
   
@@ -363,7 +362,6 @@
   }
   
   .testimonials-header {
-    margin: 1.5rem 1rem;
     padding: 0 1rem;
     width: 350px;
   }
@@ -393,7 +391,6 @@
   .testimonials-carousel {
     gap: 0.5rem;
     max-width: 100%;
-    padding: 0 1rem;
     position: relative;
     margin: 0 auto;
   }
@@ -439,7 +436,7 @@
     justify-content: flex-start;
     transition: transform 0.5s ease;
     padding: 0 0.5rem;
-    margin: 1.5rem 0 3rem 0;
+    margin: 2rem 0 3rem 0;
   }
   
   .testimonial-item {

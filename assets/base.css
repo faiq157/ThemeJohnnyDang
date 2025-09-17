@@ -696,7 +696,6 @@ summary {
 summary .icon-caret {
   position: absolute;
   height: 0.6rem;
-  right: 1.5rem;
   top: calc(50% - 0.2rem);
 }
 
@@ -1145,9 +1144,7 @@ summary::-webkit-details-marker {
     min-width: 35%;
   }
 
-  .grid--peek.slider .grid__item:first-of-type {
-    margin-left: 1.5rem;
-  }
+
 
   /* Fix to show some space at the end of our sliders in all browsers */
   .grid--peek.slider:after {

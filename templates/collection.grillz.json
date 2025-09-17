@@ -79,7 +79,7 @@
         "category_Mr8RPB": {
           "type": "category",
           "settings": {
-            "collection": "all-collection",
+            "collection": "custom-design",
             "title": ""
           }
         },
@@ -93,7 +93,7 @@
         "category_rgxqyx": {
           "type": "category",
           "settings": {
-            "collection": "all-collection",
+            "collection": "flash-deals",
             "title": ""
           }
         },
