@@ -158,6 +158,16 @@
   gap: 1.5rem;
   min-width: 200px;
 }
+@media screen and (max-width: 480px) {
+  .testimonial-item {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    min-width: 100px;
+  }
+}
 
 .testimonial-image-wrapper {
   position: relative;
@@ -182,6 +192,15 @@
 }
 
 .testimonial-image-wrapper.purple-border {
+  border: 3px solid #A51AE6;
+}
+
+/* Glow effect classes */
+.testimonial-image-wrapper.orange-glow {
+  border: 3px solid #FF6200;
+}
+
+.testimonial-image-wrapper.purple-glow {
   border: 3px solid #A51AE6;
 }
 
@@ -283,6 +302,10 @@
   
   .carousel-btn-prev {
     right:3.5rem
+  }
+
+  .carousel-btn-next{
+    right: 0.5rem;
   }
   
   .carousel-btn-next {
@@ -391,11 +414,11 @@
   }
   
   .carousel-btn-prev {
-    right: 6rem;
+    right: 10rem;
   }
   
   .carousel-btn-next {
-    right: 0.5rem;
+    right: 4rem;
   }
   
   .carousel-btn svg {

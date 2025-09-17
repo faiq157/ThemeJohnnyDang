@@ -19,6 +19,7 @@
     },
     "page_hero_VAJkfe": {
       "type": "page-hero",
+      "disabled": true,
       "name": "Page Hero",
       "settings": {
         "subtitle": "REAL STORIES, REAL ICE",
@@ -30,6 +31,36 @@
         "show_image": false,
         "hero_image_width": 600,
         "hero_image_height": 400,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "other_hero_Pe9q4b": {
+      "type": "other-hero",
+      "name": "Other Hero",
+      "settings": {
+        "subtitle": "REAL STORIES, REAL ICE",
+        "title": "Testimonials",
+        "description": "",
+        "show_cta": false,
+        "cta_text": "Explore Now",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "gradient_color_1": "#000000",
+        "gradient_color_2": "#ff6200",
+        "gradient_color_3": "#3c0b53",
+        "gradient_overlay_1": "#a51ae6",
+        "gradient_overlay_2": "#ff6200",
+        "subtitle_color": "#ffffff",
+        "title_color": "#ffffff",
+        "description_color": "#e0f0ff",
+        "cta_text_color": "#a2d2ff",
+        "cta_border_color": "#a2d2ff",
+        "cta_hover_bg_color": "#ff6200",
+        "cta_hover_text_color": "#1a1a2e",
+        "cta_hover_shadow_color": "#a2d2ff",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -118,6 +149,7 @@
   "order": [
     "main",
     "page_hero_VAJkfe",
+    "other_hero_Pe9q4b",
     "testimonial_gallery_BE6TGB"
   ]
 }

@@ -1,0 +1,215 @@
+/* Other Hero Section */
+.other-hero {
+  min-height: 557px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(106.46deg, #1a1a2e -7.59%, rgba(162, 210, 255, 0.56) -7.59%, rgba(0, 50, 100, 0.99) 87.22%),
+             linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 50, 100, 0.41) 170.9%);
+  margin-top: 110px !important;
+}
+
+.other-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(162, 210, 255, 0.02) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(162, 210, 255, 0.02) 2px, transparent 2px);
+  background-size: 80px 80px;
+  background-position: -2px -2px, -2px -2px;
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.other-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.other-hero__container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1440px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.other-hero__content {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.other-hero__subtitle {
+  font-family: DM Sans;
+  font-weight: 300;
+  font-style: Light;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #a2d2ff;
+}
+
+.other-hero__title {
+  font-family: Playfair Display;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 68px;
+  line-height: 108%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #ffffff;
+}
+
+.other-hero__description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0 0 2.5rem 0;
+  color: #e0f0ff;
+  max-width: 600px;
+  margin-left: auto;
+  display: hidden;
+  margin-right: auto;
+}
+
+.other-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #a2d2ff;
+  margin-top: 1rem;
+  padding: 1.2rem 2.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  border: 2px solid #a2d2ff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.other-hero__cta:hover {
+  background: #a2d2ff;
+  color: #1a1a2e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(162, 210, 255, 0.3);
+}
+
+.other-hero__arrow {
+  transition: transform 0.3s ease;
+}
+
+.other-hero__cta:hover .other-hero__arrow {
+  transform: translateX(3px);
+}
+
+.other-hero__image {
+  flex: 0 0 auto;
+  max-width: 400px;
+}
+
+.other-hero__img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 50, 100, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .other-hero__container {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .other-hero__image {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .other-hero {
+    min-height: 50vh;
+    margin-top: 80px !important;
+  }
+  
+  .other-hero__container {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+  
+  .other-hero__subtitle {
+    font-size: 1rem;
+  }
+  
+  .other-hero__title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  
+  .other-hero__description {
+    font-size: 1.1rem;
+  }
+  
+  .other-hero__cta {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+  }
+  
+  .other-hero__image {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .other-hero {
+    min-height: 40vh;
+  }
+  
+  .other-hero__container {
+    padding: 0 0.5rem;
+  }
+  
+  .other-hero__subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  
+  .other-hero__title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  
+  .other-hero__description {
+    font-size: 1rem;
+  }
+  
+  .other-hero__cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
