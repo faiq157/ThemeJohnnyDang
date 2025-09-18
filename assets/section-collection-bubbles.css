@@ -9,9 +9,9 @@
   justify-content: center;
   flex-wrap: wrap;
   margin: 2rem 0;
-  padding: 0 1rem;
+  padding: 0;
   list-style: none;
-  align-items: center;
+  padding: 0 1rem;
 }
 
 .collections-bubbles__item {
@@ -53,22 +53,4 @@
   font-weight: 600;
   color: #ffffff;
   text-decoration: none;
-}
-
-/* Mobile styles - justify content to start */
-@media screen and (max-width: 768px) {
-  .collections-bubbles__list {
-    justify-content: flex-start;
-    padding: 0 1rem;
-    gap: 1rem;
-  }
-}
-
-/* Small mobile styles */
-@media screen and (max-width: 480px) {
-  .collections-bubbles__list {
-    justify-content: flex-start;
-    padding: 0 0.5rem;
-    gap: 0.75rem;
-  }
 }
