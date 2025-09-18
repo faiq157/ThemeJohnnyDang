@@ -1,0 +1,105 @@
+/* Import Lora font */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+.custom-text-section {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.custom-text-section__content {
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.custom-text-section__heading {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 39px;
+  letter-spacing: 0.6px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.custom-text-section__text {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  text-align: center;
+  margin: 1rem 0 0 0;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.custom-text-section__text p {
+  margin: 0 0 1rem 0;
+}
+
+.custom-text-section__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 749px) {
+  .custom-text-section__heading {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+  }
+  
+  .custom-text-section__text {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .custom-text-section__heading {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0.55px;
+  }
+  
+  .custom-text-section__text {
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0.25px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 990px) {
+  .custom-text-section__heading {
+    font-size: 30px;
+    line-height: 39px;
+    letter-spacing: 0.6px;
+  }
+  
+  .custom-text-section__text {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.3px;
+  }
+}

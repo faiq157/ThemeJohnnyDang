@@ -50,7 +50,7 @@
     "1758134449cba4dfdb": {
       "type": "apps",
       "blocks": {
-        "tipo_appointment_booking_widget_J4w6Aw": {
+        "tipo_appointment_booking_widget_qWWzY9": {
           "type": "shopify://apps/tipo-appointment/blocks/booking-widget/efe4d483-fa62-4509-a0a7-3f363fbc9920",
           "settings": {
             "background_color": "#ffffff",
@@ -60,7 +60,7 @@
         }
       },
       "block_order": [
-        "tipo_appointment_booking_widget_J4w6Aw"
+        "tipo_appointment_booking_widget_qWWzY9"
       ],
       "settings": {
         "include_margins": true
