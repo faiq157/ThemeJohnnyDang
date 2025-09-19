@@ -17,8 +17,39 @@
         "padding_bottom": 28
       }
     },
+    "other_hero_cgA6nD": {
+      "type": "other-hero",
+      "name": "Other Hero",
+      "settings": {
+        "subtitle": "IF IT AIN’T RIGHT, BRING IT BACK",
+        "title": "Cancellations & Returns",
+        "description": "",
+        "show_cta": false,
+        "cta_text": "Explore Now",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "gradient_color_1": "#ffffff",
+        "gradient_color_2": "#c25721",
+        "gradient_color_3": "#290933",
+        "gradient_overlay_1": "#000000",
+        "gradient_overlay_2": "#003264",
+        "subtitle_color": "#ffffff",
+        "title_color": "#ffffff",
+        "description_color": "#e0f0ff",
+        "cta_text_color": "#a2d2ff",
+        "cta_border_color": "#a2d2ff",
+        "cta_hover_bg_color": "#a2d2ff",
+        "cta_hover_text_color": "#1a1a2e",
+        "cta_hover_shadow_color": "#a2d2ff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "page_hero_yRh46a": {
       "type": "page-hero",
+      "disabled": true,
       "name": "Page Hero",
       "settings": {
         "subtitle": "IF IT AIN’T RIGHT, BRING IT BACK",
@@ -70,6 +101,7 @@
   },
   "order": [
     "main",
+    "other_hero_cgA6nD",
     "page_hero_yRh46a",
     "rich_text_nh4mR9"
   ]

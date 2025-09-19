@@ -11,6 +11,7 @@
   "sections": {
     "page_hero": {
       "type": "page-hero",
+      "disabled": true,
       "settings": {
         "subtitle": "THE RULES BEHIND THE DRIP",
         "title": "Terms & Conditions",
@@ -23,6 +24,36 @@
         "hero_image_height": 400,
         "padding_top": 60,
         "padding_bottom": 40
+      }
+    },
+    "other_hero_C3RnrU": {
+      "type": "other-hero",
+      "name": "Other Hero",
+      "settings": {
+        "subtitle": "THE RULES BEHIND THE DRIP",
+        "title": "Terms & Conditions",
+        "description": "",
+        "show_cta": false,
+        "cta_text": "Explore Now",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "gradient_color_1": "#ffffff",
+        "gradient_color_2": "#c45923",
+        "gradient_color_3": "#290b33",
+        "gradient_overlay_1": "#000000",
+        "gradient_overlay_2": "#003264",
+        "subtitle_color": "#ffffff",
+        "title_color": "#ffffff",
+        "description_color": "#e0f0ff",
+        "cta_text_color": "#a2d2ff",
+        "cta_border_color": "#a2d2ff",
+        "cta_hover_bg_color": "#a2d2ff",
+        "cta_hover_text_color": "#1a1a2e",
+        "cta_hover_shadow_color": "#a2d2ff",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "terms_introduction": {
@@ -476,6 +507,7 @@
   },
   "order": [
     "page_hero",
+    "other_hero_C3RnrU",
     "terms_introduction",
     "terms_introduction_section",
     "terms_copyright",
