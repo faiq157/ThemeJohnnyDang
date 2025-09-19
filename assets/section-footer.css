@@ -18,9 +18,8 @@
   position: relative;
   height: 147px;
   display: flex;
-  align-items: center;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  justify-content: center;
+
 }
 
 .footer__newsletter-section::before {
@@ -41,10 +40,9 @@
   gap: 2rem;
   position: relative;
   z-index: 2;
-  max-width: 100%;
-  padding: 0 2rem;
+  width: 1200px;
+  padding: 0 4rem;
   box-sizing: border-box;
-  width: 100vw;
 }
 
 .footer__newsletter-text {
@@ -159,7 +157,7 @@
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
   position: relative;
-  padding-top: 6rem;
+  padding-top: 3rem;
   box-sizing: border-box;
 }
 

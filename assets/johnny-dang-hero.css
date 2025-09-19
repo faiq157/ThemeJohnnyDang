@@ -52,16 +52,16 @@
 
 /* Default background with animation */
 .jd-hero {
-  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
-              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, #FF6200 87.22%),
+              linear-gradient(108.2deg, rgba(255, 98, 0, 0) -29.77%, rgba(255, 98, 0, 0.41) 170.9%);
   background-size: 400% 400%;
   animation: gradientShift 8s ease-in-out infinite;
 }
 
 /* Background variations for different slides with smooth animations */
 .jd-hero[data-slide="0"] {
-  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
-              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.59%, #FF6200 87.22%),
+              linear-gradient(108.2deg, rgba(255, 98, 0, 0) -29.77%, rgba(255, 98, 0, 0.41) 170.9%);
   background-size: 400% 400%;
   animation: gradientShift 8s ease-in-out infinite;
   --hero-text-color: #FFFFFF;
@@ -70,8 +70,8 @@
 }
 
 .jd-hero[data-slide="1"] {
-  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #A51AE6 -7.59%, rgba(0, 0, 0, 0.99) 87.22%),
-              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #A51AE6 -7.59%, #A51AE6 87.22%),
+              linear-gradient(108.2deg, rgba(165, 26, 230, 0) -29.77%, rgba(165, 26, 230, 0.41) 170.9%);
   background-size: 400% 400%;
   animation: gradientPulse 10s ease-in-out infinite;
   --hero-text-color: #F6E8FF;
@@ -80,8 +80,8 @@
 }
 
 .jd-hero[data-slide="2"] {
-  background: linear-gradient(106.46deg, #FFFFFF -7.59%, rgba(255, 98, 0, 0.33) -7.59%, rgba(153, 17, 216, 0.52) 39.3%, rgba(0, 0, 0, 0.58) 87.22%),
-              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, rgba(255, 98, 0, 0.33) -7.59%, rgba(153, 17, 216, 0.52) 39.3%, rgba(153, 17, 216, 0.58) 87.22%),
+              linear-gradient(108.2deg, rgba(153, 17, 216, 0) -29.77%, rgba(153, 17, 216, 0.41) 170.9%);
   background-size: 400% 400%;
   animation: gradientFlow 12s ease-in-out infinite;
   --hero-text-color: #FFEDE0;
@@ -91,7 +91,7 @@
 
 .jd-hero[data-slide="3"] {
   background: linear-gradient(106.46deg, #FFFFFF -7.59%, rgba(255, 98, 0, 0.8) -7.59%, rgba(165, 26, 230, 0.32) 87.22%),
-              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+              linear-gradient(108.2deg, rgba(165, 26, 230, 0) -29.77%, rgba(165, 26, 230, 0.41) 170.9%);
   background-size: 400% 400%;
   animation: gradientWave 9s ease-in-out infinite;
   --hero-text-color: #FFF6E6;
@@ -100,8 +100,8 @@
 }
 
 .jd-hero[data-slide="4"] {
-  background: linear-gradient(105.72deg, #000000 -2.8%, #000000 -0.97%, #B64F0E 62.7%, rgba(255, 112, 22, 0.67) 93.9%),
-              linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  background: linear-gradient(105.72deg, #FFFFFF -2.8%, #B64F0E -0.97%, #B64F0E 62.7%, rgba(255, 112, 22, 0.67) 93.9%),
+              linear-gradient(108.2deg, rgba(182, 79, 14, 0) -29.77%, rgba(182, 79, 14, 0.41) 170.9%);
   background-size: 400% 400%;
   animation: gradientSpiral 11s ease-in-out infinite;
   --hero-text-color: #FFE8CC;
