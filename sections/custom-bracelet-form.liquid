@@ -157,16 +157,21 @@
         <div class="custom-bracelet-form__gallery-section">
           <h3 class="custom-bracelet-form__gallery-title">{{ section.settings.previous_work_title | default: 'PREVIOUS CUSTOM BRACELETS:' }}</h3>
           <div class="custom-bracelet-form__gallery-grid">
-            <!-- Fallback images from assets -->
-            <div class="custom-bracelet-form__gallery-item">
-              <img src="{{ 'bracelts.png' | asset_url }}" alt="Custom Diamond Bracelet 1" width="300" height="300" loading="lazy">
-            </div>
-            <div class="custom-bracelet-form__gallery-item">
-              <img src="{{ 'braclet.png' | asset_url }}" alt="Custom Diamond Bracelet 2" width="300" height="300" loading="lazy">
-            </div>
-            <div class="custom-bracelet-form__gallery-item">
-              <img src="{{ 'ChainsBracelets.png' | asset_url }}" alt="Custom Diamond Bracelet 3" width="300" height="300" loading="lazy">
-            </div>
+            {% if section.settings.gallery_image_1 != blank %}
+              <div class="custom-bracelet-form__gallery-item">
+                <img src="{{ section.settings.gallery_image_1 | image_url: width: 300 }}" alt="{{ section.settings.gallery_image_1.alt | default: 'Custom Diamond Bracelet 1' }}" width="300" height="300" loading="lazy">
+              </div>
+            {% endif %}
+            {% if section.settings.gallery_image_2 != blank %}
+              <div class="custom-bracelet-form__gallery-item">
+                <img src="{{ section.settings.gallery_image_2 | image_url: width: 300 }}" alt="{{ section.settings.gallery_image_2.alt | default: 'Custom Diamond Bracelet 2' }}" width="300" height="300" loading="lazy">
+              </div>
+            {% endif %}
+            {% if section.settings.gallery_image_3 != blank %}
+              <div class="custom-bracelet-form__gallery-item">
+                <img src="{{ section.settings.gallery_image_3 | image_url: width: 300 }}" alt="{{ section.settings.gallery_image_3.alt | default: 'Custom Diamond Bracelet 3' }}" width="300" height="300" loading="lazy">
+              </div>
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -243,6 +248,21 @@
       "id": "previous_work_title",
       "label": "Gallery Title",
       "default": "PREVIOUS CUSTOM BRACELETS:"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_1",
+      "label": "Gallery Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_2",
+      "label": "Gallery Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_3",
+      "label": "Gallery Image 3"
     },
     {
       "type": "header",
