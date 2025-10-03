@@ -1,0 +1,178 @@
+/* Custom Bracelet Hero Styles */
+.custom-bracelet-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-bracelet-hero__container {
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+  gap: 60px;
+}
+
+.custom-bracelet-hero__content {
+  flex: 1;
+  z-index: 2;
+  position: relative;
+}
+
+.custom-bracelet-hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  line-height: 1.1;
+}
+
+.custom-bracelet-hero__subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.custom-bracelet-hero__description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #c0c0c0;
+  max-width: 500px;
+}
+
+.custom-bracelet-hero__image {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.custom-bracelet-hero__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.custom-bracelet-hero__image:hover img {
+  transform: scale(1.05);
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .custom-bracelet-hero__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    min-height: 50vh;
+  }
+  
+  .custom-bracelet-hero__title {
+    font-size: 3rem;
+  }
+  
+  .custom-bracelet-hero__subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .custom-bracelet-hero__description {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .custom-bracelet-hero__container {
+    gap: 30px;
+    min-height: 40vh;
+  }
+  
+  .custom-bracelet-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .custom-bracelet-hero__subtitle {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+  
+  .custom-bracelet-hero__description {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .custom-bracelet-hero__container {
+    gap: 20px;
+    min-height: 35vh;
+  }
+  
+  .custom-bracelet-hero__title {
+    font-size: 2rem;
+  }
+  
+  .custom-bracelet-hero__subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .custom-bracelet-hero__description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Animation for content */
+.custom-bracelet-hero__content > * {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.custom-bracelet-hero__title {
+  animation-delay: 0.2s;
+}
+
+.custom-bracelet-hero__subtitle {
+  animation-delay: 0.4s;
+}
+
+.custom-bracelet-hero__description {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image animation */
+.custom-bracelet-hero__image {
+  animation: fadeInRight 1s ease forwards;
+  opacity: 0;
+  transform: translateX(50px);
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

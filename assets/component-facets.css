@@ -822,9 +822,10 @@ a.active-facets__button.focused .active-facets__button-inner {
       rgba(0, 0, 0, 0.5)
   );
   padding: 0;
-  margin: 0;
+  margin-top: 12rem;
+  margin-left: 0;
   position: relative;
-  z-index: 100;
+  z-index: 1000 !important;
   contain: layout style;
 }
 
@@ -843,7 +844,6 @@ a.active-facets__button.focused .active-facets__button-inner {
   display: flex;
   position: sticky;
   top: 0;
-  z-index: 2;
   background-color: #000000;
   margin: 0;
 }
@@ -920,11 +920,11 @@ a.active-facets__button.focused .active-facets__button-inner {
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 0.7rem;
+  top: 12rem;
   right: 1rem;
   width: 4.4rem;
   height: 4.4rem;
-  z-index: 101;
+  z-index: 1000 !important;
   opacity: 0;
   transition: opacity var(--duration-short) ease;
 }

@@ -1,0 +1,437 @@
+{{ 'custom-bracelet-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-bracelet-form section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="custom-bracelet-form__container">
+      
+
+      <!-- Main Form -->
+      <form class="custom-bracelet-form__form" action="/cart/add" method="post" enctype="multipart/form-data" id="custom-bracelet-form">
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        
+        <!-- Form Fields -->
+        <div class="custom-bracelet-form__fields">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'service_selection' %}
+                <div class="custom-bracelet-form__field" {{ block.shopify_attributes }}>
+                  <label class="custom-bracelet-form__label">{{ block.settings.title }}</label>
+                  <div class="custom-bracelet-form__select-wrapper">
+                    <select class="custom-bracelet-form__select" name="properties[Service]" required>
+                      <option value="" disabled selected>Please select</option>
+                      {% assign service_options = block.settings.service_options | split: ',' %}
+                      {% for option in service_options %}
+                        <option value="{{ option | strip }}" {% if option == block.settings.default_service %}selected{% endif %}>
+                          {{ option | strip }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                    <svg class="custom-bracelet-form__select-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                      <path d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </div>
+
+              {% when 'employee_selection' %}
+                <div class="custom-bracelet-form__field" {{ block.shopify_attributes }}>
+                  <label class="custom-bracelet-form__label">{{ block.settings.title }}</label>
+                  <div class="custom-bracelet-form__select-wrapper">
+                    <select class="custom-bracelet-form__select" name="properties[Employee]" required>
+                      <option value="" disabled selected>Please select</option>
+                      {% assign employee_options = block.settings.employee_options | split: ',' %}
+                      {% for option in employee_options %}
+                        <option value="{{ option | strip }}" {% if option == block.settings.default_employee %}selected{% endif %}>
+                          {{ option | strip }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                    <svg class="custom-bracelet-form__select-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                      <path d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </div>
+
+              {% when 'location_selection' %}
+                <div class="custom-bracelet-form__field" {{ block.shopify_attributes }}>
+                  <label class="custom-bracelet-form__label">{{ block.settings.title }}</label>
+                  <div class="custom-bracelet-form__select-wrapper">
+                    <select class="custom-bracelet-form__select" name="properties[Location]" required>
+                      <option value="" disabled selected>Please select</option>
+                      {% assign location_options = block.settings.location_options | split: ',' %}
+                      {% for option in location_options %}
+                        <option value="{{ option | strip }}" {% if option == block.settings.default_location %}selected{% endif %}>
+                          {{ option | strip }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                    <svg class="custom-bracelet-form__select-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                      <path d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </div>
+
+              {% when 'file_upload' %}
+                <div class="custom-bracelet-form__divider"></div>
+                <div class="custom-bracelet-form__field custom-bracelet-form__field--file" {{ block.shopify_attributes }}>
+                  <label class="custom-bracelet-form__label">{{ block.settings.title }}</label>
+                  <div class="custom-bracelet-form__file-upload">
+                    <input 
+                      type="file" 
+                      id="sample-product-image" 
+                      name="properties[Sample Product Image]" 
+                      class="custom-bracelet-form__file-input"
+                      accept=".jpg,.jpeg,.png,.pdf"
+                      {% if block.settings.required %}required{% endif %}
+                    >
+                    <button type="button" class="custom-bracelet-form__file-button" onclick="document.getElementById('sample-product-image').click()">
+                      Choose file
+                    </button>
+                    <span class="custom-bracelet-form__file-name">No file chosen</span>
+                  </div>
+                </div>
+ <!-- Price Display -->
+        <div class="custom-bracelet-form__price">
+          <span class="custom-bracelet-form__price-label">Price:</span>
+          <span class="custom-bracelet-form__price-amount">${{ section.settings.product_price | default: '624.99' }}</span>
+        </div>
+
+              {% when 'terms_checkbox' %}
+                <div class="custom-bracelet-form__divider"></div>
+                <div class="custom-bracelet-form__field custom-bracelet-form__field--checkbox" {{ block.shopify_attributes }}>
+                  <label class="custom-bracelet-form__checkbox-label">
+                    <input 
+                      type="checkbox" 
+                      name="properties[Terms Accepted]" 
+                      class="custom-bracelet-form__checkbox"
+                      {% if block.settings.required %}required{% endif %}
+                    >
+                    <span class="custom-bracelet-form__checkbox-text">
+                      {{ block.settings.terms_text | split: 'Terms of Service' | first }}
+                      {% if block.settings.terms_url != blank %}
+                        <a href="{{ block.settings.terms_url }}" target="_blank" class="custom-bracelet-form__terms-link">
+                          Terms of Service
+                        </a>
+                      {% else %}
+                        <span class="custom-bracelet-form__terms-link">Terms of Service</span>
+                      {% endif %}
+                    </span>
+                  </label>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+
+       
+      </form>
+
+      <!-- Custom Bracelet Information Section -->
+      <div class="custom-bracelet-form__info-section">
+        <h3 class="custom-bracelet-form__info-title">Custom Bracelet</h3>
+        <div class="custom-bracelet-form__info-content">
+          <p class="custom-bracelet-form__info-text">
+            Please select the product options listed above - a representative from Johnny Dang & Co. will give you a quote & help you customize your bracelet within 3-5 days of completing your <strong class="custom-bracelet-form__highlight">$500 deposit</strong>.
+          </p>
+          <p class="custom-bracelet-form__info-text">
+            The deposit will be applied to the final cost of the bracelet.
+          </p>
+        </div>
+      </div>
+
+      <!-- Previous Custom Bracelets Gallery -->
+      {% if section.settings.show_previous_work %}
+        <div class="custom-bracelet-form__gallery-section">
+          <h3 class="custom-bracelet-form__gallery-title">{{ section.settings.previous_work_title | default: 'PREVIOUS CUSTOM BRACELETS:' }}</h3>
+          <div class="custom-bracelet-form__gallery-grid">
+            <!-- Fallback images from assets -->
+            <div class="custom-bracelet-form__gallery-item">
+              <img src="{{ 'bracelts.png' | asset_url }}" alt="Custom Diamond Bracelet 1" width="300" height="300" loading="lazy">
+            </div>
+            <div class="custom-bracelet-form__gallery-item">
+              <img src="{{ 'braclet.png' | asset_url }}" alt="Custom Diamond Bracelet 2" width="300" height="300" loading="lazy">
+            </div>
+            <div class="custom-bracelet-form__gallery-item">
+              <img src="{{ 'ChainsBracelets.png' | asset_url }}" alt="Custom Diamond Bracelet 3" width="300" height="300" loading="lazy">
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- Terms and Conditions -->
+      {% if section.settings.terms_conditions != blank %}
+        <div class="custom-bracelet-form__terms">
+          {{ section.settings.terms_conditions }}
+        </div>
+      {% endif %}
+
+      <!-- Submit Button - Moved to Bottom -->
+      <button type="submit" form="custom-bracelet-form" class="custom-bracelet-form__submit">
+        {{ section.settings.continue_button_text | default: 'Continue' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'custom-bracelet-form.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Custom Bracelet Form",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Form Settings"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form Title",
+      "default": "Custom Bracelet"
+    },
+    {
+      "type": "textarea",
+      "id": "form_description",
+      "label": "Form Description",
+      "default": "Please select the product options listed above - a representative from Johnny Dang & Co. will give you a quote & help you customize your bracelet within 3-5 days of completing your $500 deposit."
+    },
+    {
+      "type": "text",
+      "id": "deposit_info",
+      "label": "Deposit Information",
+      "default": "The deposit will be applied to the final cost of the bracelet."
+    },
+    {
+      "type": "text",
+      "id": "product_price",
+      "label": "Product Price",
+      "default": "624.99"
+    },
+    {
+      "type": "text",
+      "id": "continue_button_text",
+      "label": "Continue Button Text",
+      "default": "Continue"
+    },
+    {
+      "type": "header",
+      "content": "Previous Work Gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_previous_work",
+      "label": "Show Previous Custom Bracelets Gallery",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "previous_work_title",
+      "label": "Gallery Title",
+      "default": "PREVIOUS CUSTOM BRACELETS:"
+    },
+    {
+      "type": "header",
+      "content": "Terms and Conditions"
+    },
+    {
+      "type": "textarea",
+      "id": "terms_conditions",
+      "label": "Terms and Conditions",
+      "default": "You must pay a $500 deposit to inquire about a custom bracelet. You will be provided with consultation, a quote and 3D rendering for your custom design piece. The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale."
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service_selection",
+      "name": "Service Selection",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Field Title",
+          "default": "Please select service"
+        },
+        {
+          "type": "textarea",
+          "id": "service_options",
+          "label": "Service Options (one per line)",
+          "default": "Custom Bracelet- Deposit and Design\nCustom Ring- Deposit and Design\nCustom Chain- Deposit and Design"
+        },
+        {
+          "type": "text",
+          "id": "default_service",
+          "label": "Default Service",
+          "default": "Custom Bracelet- Deposit and Design"
+        }
+      ]
+    },
+    {
+      "type": "employee_selection",
+      "name": "Employee Selection",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Field Title",
+          "default": "Employee"
+        },
+        {
+          "type": "textarea",
+          "id": "employee_options",
+          "label": "Employee Options (one per line)",
+          "default": "IN STORE APPOINTMENT With Tony\nONLINE CONSULTATION With Sarah\nPHONE CONSULTATION With Mike"
+        },
+        {
+          "type": "text",
+          "id": "default_employee",
+          "label": "Default Employee",
+          "default": "IN STORE APPOINTMENT With Tony"
+        }
+      ]
+    },
+    {
+      "type": "location_selection",
+      "name": "Location Selection",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Field Title",
+          "default": "Location"
+        },
+        {
+          "type": "textarea",
+          "id": "location_options",
+          "label": "Location Options (one per line)",
+          "default": "Default location\nHouston Store\nDallas Store\nOnline"
+        },
+        {
+          "type": "text",
+          "id": "default_location",
+          "label": "Default Location",
+          "default": "Default location"
+        }
+      ]
+    },
+    {
+      "type": "file_upload",
+      "name": "File Upload",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Field Title",
+          "default": "SAMPLE PRODUCT IMAGE:"
+        },
+        {
+          "type": "text",
+          "id": "allowed_file_types",
+          "label": "Allowed File Types",
+          "default": "jpg,jpeg,png,pdf"
+        },
+        {
+          "type": "text",
+          "id": "max_file_size",
+          "label": "Max File Size",
+          "default": "10MB"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "terms_checkbox",
+      "name": "Terms Checkbox",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "terms_text",
+          "label": "Terms Text",
+          "default": "I accept the Terms of Service"
+        },
+        {
+          "type": "url",
+          "id": "terms_url",
+          "label": "Terms URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Bracelet Form",
+      "blocks": [
+        {
+          "type": "service_selection"
+        },
+        {
+          "type": "employee_selection"
+        },
+        {
+          "type": "location_selection"
+        },
+        {
+          "type": "file_upload"
+        },
+        {
+          "type": "terms_checkbox"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,136 @@
+{{ 'custom-bracelet-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .custom-bracelet-hero-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: '#1a1a1a' }};
+    color: {{ section.settings.text_color | default: '#ffffff' }};
+  }
+{%- endstyle -%}
+
+<div class="custom-bracelet-hero custom-bracelet-hero-{{ section.id }} section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="custom-bracelet-hero__container">
+      <div class="custom-bracelet-hero__content">
+        <h1 class="custom-bracelet-hero__title">
+          {{ section.settings.hero_title | default: 'Custom Bracelet' }}
+        </h1>
+        {% if section.settings.hero_subtitle != blank %}
+          <h2 class="custom-bracelet-hero__subtitle">
+            {{ section.settings.hero_subtitle }}
+          </h2>
+        {% endif %}
+        {% if section.settings.hero_description != blank %}
+          <p class="custom-bracelet-hero__description">
+            {{ section.settings.hero_description }}
+          </p>
+        {% endif %}
+      </div>
+      
+      {% if section.settings.hero_image != blank %}
+        <div class="custom-bracelet-hero__image">
+          <img 
+            src="{{ section.settings.hero_image | image_url: width: 600 }}"
+            alt="{{ section.settings.hero_image.alt | default: section.settings.hero_title }}"
+            width="600"
+            height="400"
+            loading="eager"
+          >
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Bracelet Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Content"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Custom Bracelet"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Hero Subtitle",
+      "default": "Deposit and Design"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Create your perfect custom bracelet with our expert team"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Bracelet Hero"
+    }
+  ]
+}
+{% endschema %}

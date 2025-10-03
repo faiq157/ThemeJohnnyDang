@@ -47,6 +47,94 @@
         "padding_bottom": 60
       }
     },
+    "rich_text_Fc6fnd": {
+      "type": "rich-text",
+      "blocks": {
+        "text_y6nBjQ": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Ready to get drippin’? Book your spot and let’s turn your jewelry dreams into reality</h1>"
+          }
+        }
+      },
+      "block_order": [
+        "text_y6nBjQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "section_type": "default",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_bracelet_form_YUQNJ3": {
+      "type": "custom-bracelet-form",
+      "blocks": {
+        "service_selection_D8xawU": {
+          "type": "service_selection",
+          "settings": {
+            "title": "Please select service",
+            "service_options": "Custom Bracelet- Deposit and Design,\nCustom Ring- Deposit and Design,\nCustom Chain- Deposit and Design",
+            "default_service": "Custom Bracelet- Deposit and Design"
+          }
+        },
+        "employee_selection_FgUme6": {
+          "type": "employee_selection",
+          "settings": {
+            "title": "Employee",
+            "employee_options": "IN STORE APPOINTMENT With Tony,\nONLINE CONSULTATION With Sarah,\nPHONE CONSULTATION With Mike,",
+            "default_employee": "IN STORE APPOINTMENT With Tony"
+          }
+        },
+        "location_selection_G4PYiT": {
+          "type": "location_selection",
+          "settings": {
+            "title": "Location",
+            "location_options": "Default location,\nHouston Store,\nDallas Store,\nOnline",
+            "default_location": "Default location"
+          }
+        },
+        "file_upload_XYXdPC": {
+          "type": "file_upload",
+          "settings": {
+            "title": "SAMPLE PRODUCT IMAGE:",
+            "allowed_file_types": "jpg,jpeg,png,pdf",
+            "max_file_size": "10MB",
+            "required": false
+          }
+        },
+        "terms_checkbox_kNcpDM": {
+          "type": "terms_checkbox",
+          "settings": {
+            "terms_text": "I accept the Terms of Service",
+            "terms_url": "",
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "service_selection_D8xawU",
+        "employee_selection_FgUme6",
+        "location_selection_G4PYiT",
+        "file_upload_XYXdPC",
+        "terms_checkbox_kNcpDM"
+      ],
+      "name": "Custom Bracelet Form",
+      "settings": {
+        "form_title": "Custom Bracelet",
+        "form_description": "Please select the product options listed above - a representative from Johnny Dang & Co. will give you a quote & help you customize your bracelet within 3-5 days of completing your $500 deposit.",
+        "deposit_info": "The deposit will be applied to the final cost of the bracelet.",
+        "product_price": "624.99",
+        "continue_button_text": "Continue",
+        "terms_conditions": "You must pay a $500 deposit to inquire about a custom bracelet. You will be provided with consultation, a quote and 3D rendering for your custom design piece. The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale.",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "1758134449cba4dfdb": {
       "type": "apps",
       "blocks": {
@@ -62,6 +150,7 @@
       "block_order": [
         "tipo_appointment_booking_widget_qWWzY9"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
@@ -70,6 +159,8 @@
   "order": [
     "main",
     "other_hero_AVeVNC",
+    "rich_text_Fc6fnd",
+    "custom_bracelet_form_YUQNJ3",
     "1758134449cba4dfdb"
   ]
 }

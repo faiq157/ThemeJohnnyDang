@@ -1,0 +1,502 @@
+/* Custom Bracelet Form Styles */
+.custom-bracelet-form {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+}
+
+.custom-bracelet-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  pointer-events: none;
+}
+
+.custom-bracelet-form__container {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  background: black;
+  border-radius: 10px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px #FF620038;
+  
+}
+
+.custom-bracelet-form__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.custom-bracelet-form__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.custom-bracelet-form__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #e0e0e0;
+}
+
+.custom-bracelet-form__deposit-info {
+  font-size: 1rem;
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.custom-bracelet-form__form {
+  margin-bottom: 30px;
+}
+
+.custom-bracelet-form__fields {
+  margin-bottom: 30px;
+}
+
+.custom-bracelet-form__field {
+  margin-bottom: 25px;
+}
+
+.custom-bracelet-form__field--file {
+  margin-top: 30px;
+  border-bottom: 1px solid #3F3F3F;
+  border-top: 1px solid #3F3F3F;
+  padding: 20px 0;
+}
+
+.custom-bracelet-form__field--checkbox {
+  margin-top: 30px;
+}
+
+.custom-bracelet-form__label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.custom-bracelet-form__select-wrapper {
+  position: relative;
+}
+
+.custom-bracelet-form__select {
+  width: 100%;
+  padding: 15px 50px 15px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-bracelet-form__select:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+}
+
+.custom-bracelet-form__select:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.custom-bracelet-form__select option {
+  background: #2d2d2d;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.custom-bracelet-form__select-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #ffffff;
+}
+
+.custom-bracelet-form__divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  margin: 30px 0;
+}
+
+.custom-bracelet-form__file-upload {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.custom-bracelet-form__file-input {
+  display: none;
+}
+
+.custom-bracelet-form__file-button {
+  padding: 12px 24px;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.custom-bracelet-form__file-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.custom-bracelet-form__file-name {
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+.custom-bracelet-form__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.custom-bracelet-form__checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: #FF6200;
+  cursor: pointer;
+}
+
+.custom-bracelet-form__checkbox-text {
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+.custom-bracelet-form__terms-link {
+  color: #FF6200;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.custom-bracelet-form__terms-link:hover {
+  color: #4d2004;
+}
+
+.custom-bracelet-form__price {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.custom-bracelet-form__price-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.custom-bracelet-form__price-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.custom-bracelet-form__submit {
+  width: 100%;
+  padding: 18px 30px;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 40px;
+}
+
+.custom-bracelet-form__submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+}
+
+.custom-bracelet-form__submit:active {
+  transform: translateY(-1px);
+}
+
+.custom-bracelet-form__terms {
+  margin-top: 30px;
+  color: #e0e0e0;
+  font-family: DM Sans;
+font-weight: 700;
+font-style: Bold;
+font-size: 16px;
+line-height: 22.4px;
+letter-spacing: 0.3px;
+vertical-align: middle;
+
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .custom-bracelet-form__container {
+    margin: 20px;
+    padding: 30px 20px;
+  }
+  
+  .custom-bracelet-form__title {
+    font-size: 2rem;
+  }
+  
+  .custom-bracelet-form__description {
+    font-size: 1rem;
+  }
+  
+  .custom-bracelet-form__file-upload {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .custom-bracelet-form__price {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .custom-bracelet-form__container {
+    margin: 10px;
+    padding: 20px 15px;
+  }
+  
+  .custom-bracelet-form__title {
+    font-size: 1.8rem;
+  }
+  
+  .custom-bracelet-form__select {
+    padding: 12px 45px 12px 15px;
+  }
+  
+  .custom-bracelet-form__file-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .custom-bracelet-form__submit {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+  }
+  
+
+  
+  .custom-bracelet-form__info-title {
+    font-size: 1.5rem;
+  }
+  
+  .custom-bracelet-form__info-text {
+    font-size: 1rem;
+  }
+  
+  .custom-bracelet-form__gallery-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .custom-bracelet-form__gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  .custom-bracelet-form__gallery-item img {
+    height: 200px;
+    object-fit: contain;
+  }
+  
+  .custom-bracelet-form__submit {
+    margin-top: 30px;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .custom-bracelet-form__gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .custom-bracelet-form__gallery-item img {
+    height: 180px;
+    object-fit: contain;
+  }
+}
+
+/* Animation for form elements */
+.custom-bracelet-form__field {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.custom-bracelet-form__field:nth-child(1) { animation-delay: 0.1s; }
+.custom-bracelet-form__field:nth-child(2) { animation-delay: 0.2s; }
+.custom-bracelet-form__field:nth-child(3) { animation-delay: 0.3s; }
+.custom-bracelet-form__field:nth-child(4) { animation-delay: 0.4s; }
+.custom-bracelet-form__field:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.custom-bracelet-form__info-title {
+    font-family: Playfair Display;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 27px;
+    line-height: 60px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    
+}
+
+
+
+.custom-bracelet-form__info-text {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 22.4px;
+    letter-spacing: 0.3px;
+    vertical-align: middle;
+    
+}
+
+.custom-bracelet-form__highlight {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Previous Custom Bracelets Gallery */
+.custom-bracelet-form__gallery-section {
+  margin-top: 40px;
+}
+
+.custom-bracelet-form__gallery-title {
+
+  margin-bottom: 30px;
+  color: #ffffff;
+
+  font-family: DM Sans;
+font-weight: 700;
+font-style: Bold;
+font-size: 16px;
+
+line-height: 22.4px;
+letter-spacing: 0.3px;
+vertical-align: middle;
+
+}
+
+.custom-bracelet-form__gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.custom-bracelet-form__gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+ 
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-bracelet-form__gallery-item:hover {
+  transform: translateY(-5px);
+
+}
+
+.custom-bracelet-form__gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.custom-bracelet-form__gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay effect for gallery items */
+.custom-bracelet-form__gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  border-radius: 15px;
+}
+
+.custom-bracelet-form__gallery-item:hover::before {
+  opacity: 1;
+}
+
+/* Loading state for submit button */
+.custom-bracelet-form__submit.loading {
+  position: relative;
+  color: transparent;
+}
+
+.custom-bracelet-form__submit.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1a1a1a;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

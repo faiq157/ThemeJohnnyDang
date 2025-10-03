@@ -507,11 +507,13 @@ font-size: 14px;
 @media screen and (max-width: 480px) {
   .footer__newsletter-section {
     padding: 1.5rem 0;
+   
   }
   
   .footer__newsletter-content {
     padding: 0 1rem;
     gap: 1.5rem;
+    width: 410px;
   }
   
   .footer__newsletter-heading {

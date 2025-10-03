@@ -1,0 +1,150 @@
+{{ 'custom-bracelet-gallery.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% if section.settings.show_gallery %}
+  <div class="custom-bracelet-gallery section-{{ section.id }}-padding">
+    <div class="page-width">
+      {% if section.settings.gallery_title != blank %}
+        <h2 class="custom-bracelet-gallery__title">
+          {{ section.settings.gallery_title }}
+        </h2>
+      {% endif %}
+      
+      <div class="custom-bracelet-gallery__grid">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'bracelet_image' %}
+              <div class="custom-bracelet-gallery__item" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  <div class="custom-bracelet-gallery__image-wrapper">
+                    <img 
+                      src="{{ block.settings.image | image_url: width: 300 }}"
+                      alt="{{ block.settings.alt_text | default: 'Custom Bracelet' }}"
+                      width="300"
+                      height="300"
+                      loading="lazy"
+                      class="custom-bracelet-gallery__image"
+                    >
+                  </div>
+                {% else %}
+                  <!-- Fallback images -->
+                  {% assign fallback_images = 'bracelts.png,braclet.png,ChainsBracelets.png' | split: ',' %}
+                  {% assign fallback_index = forloop.index0 %}
+                  {% if fallback_index < fallback_images.size %}
+                    <div class="custom-bracelet-gallery__image-wrapper">
+                      <img 
+                        src="{{ fallback_images[fallback_index] | asset_url }}"
+                        alt="Custom Bracelet {{ forloop.index }}"
+                        width="300"
+                        height="300"
+                        loading="lazy"
+                        class="custom-bracelet-gallery__image"
+                      >
+                    </div>
+                  {% endif %}
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Custom Bracelet Gallery",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Gallery Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gallery",
+      "label": "Show Gallery",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "gallery_title",
+      "label": "Gallery Title",
+      "default": "PREVIOUS CUSTOM BRACELETS:"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bracelet_image",
+      "name": "Bracelet Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bracelet Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "default": "Custom Bracelet"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Bracelet Gallery",
+      "blocks": [
+        {
+          "type": "bracelet_image"
+        },
+        {
+          "type": "bracelet_image"
+        },
+        {
+          "type": "bracelet_image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

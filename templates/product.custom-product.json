@@ -9,6 +9,126 @@
  */
 {
   "sections": {
+    "jd_hero_carousel_HxL3VL": {
+      "type": "jd-hero-carousel",
+      "blocks": {
+        "slide_TtQVym": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "Deposit and Design",
+            "title": "Custom Ring",
+            "description": "",
+            "cta_text": "Get Started",
+            "cta_link": "shopify://collections/all",
+            "image": "shopify://shop_images/Untitled_design_1_1.png"
+          }
+        },
+        "slide_qjtGWD": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "subtitle": "LUXURY REDEFINED",
+            "title": "Diamond\nElegance\nUnmatched",
+            "description": "Experience the pinnacle of craftsmanship with our premium diamond collection.",
+            "cta_text": "EXPLORE",
+            "cta_link": "shopify://collections/diamonds"
+          }
+        },
+        "slide_Li8bGd": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "subtitle": "EXCLUSIVE DESIGNS",
+            "title": "Custom\nCreations\nAwaiting",
+            "description": "Let us create something extraordinary just for you with our bespoke jewelry service.",
+            "cta_text": "CUSTOMIZE",
+            "cta_link": "shopify://pages/custom"
+          }
+        },
+        "slide_erBWkh": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "subtitle": "PREMIUM COLLECTION",
+            "title": "Signature\nPieces\nUnveiled",
+            "description": "Discover our most exclusive and sought-after jewelry pieces designed for true connoisseurs.",
+            "cta_text": "DISCOVER",
+            "cta_link": "shopify://collections/premium"
+          }
+        },
+        "slide_3Cmkw6": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "subtitle": "LEGACY COLLECTION",
+            "title": "Timeless\nElegance\nRedefined",
+            "description": "Experience the heritage and craftsmanship that defines our legendary jewelry legacy.",
+            "cta_text": "EXPLORE",
+            "cta_link": "shopify://collections/legacy"
+          }
+        }
+      },
+      "block_order": [
+        "slide_TtQVym",
+        "slide_qjtGWD",
+        "slide_Li8bGd",
+        "slide_erBWkh",
+        "slide_3Cmkw6"
+      ],
+      "disabled": true,
+      "settings": {
+        "video_url": "",
+        "video_file_url": ""
+      }
+    },
+    "rich_text_LywACY": {
+      "type": "rich-text",
+      "blocks": {
+        "text_WHiH9c": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free Shipping On Orders Over $500 Within US. Call or Text 281248888 for Quotations and Assistance.</p>"
+          }
+        },
+        "text_W4eBTd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You must pay a $500 deposit to inquire about a custom ring. You will be provided with consultation, a quote and 3D rendering for your custom design piece. The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_WHiH9c",
+        "text_W4eBTd"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "section_type": "default",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_product_hero_yFf39C": {
+      "type": "custom-product-hero",
+      "name": "Custom Product Hero",
+      "settings": {
+        "hero_title_1": "Custom Ring",
+        "hero_title_2": "Deposit & Design",
+        "cta_text": "Get Started",
+        "banner_text": "Free Shipping On Orders Over $500 Within US. Call or Text 281248888 for Quotations and Assistance.",
+        "order_info_1": "You must pay a $500 deposit to inquire about a custom ring.",
+        "order_info_2": "You will be provided with consultation, a quote and 3D rendering for your custom design piece.",
+        "order_info_3": "The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale.",
+        "highlight_text": "** All Custom Item Prices Are Deposit Only **",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -21,14 +141,15 @@
         },
         "title": {
           "type": "title",
-          "settings": {}
-        },
-        "judge_me_reviews_preview_badge_jJVLDz": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {}
         },
         "price": {
           "type": "price",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_jJVLDz": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
         "variant_picker": {
@@ -41,6 +162,12 @@
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
+        },
+        "custom_liquid_jEqjB9": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>.file-upload-container {display: flex;align-items: center;}.file-name {margin-left: 10px;font-style: italic;}</style>\n<div class=\"product-form__input\">\n  <label class=\"form__label\">Sample product image:</label>\n  <div class=\"file-upload-container\">\n    <input id=\"file-sample-product-image:\" form=\"{{ 'product-form-' | append: section.id }}\" \n    name=\"properties[Sample product image:]\"  style=\"display: none;\" type=\"file\"  />\n    <button id=\"button-sample-product-image:\" class=\"button\">Upload File</button>\n    <p id=\"fileName-sample-product-image:\" class=\"file-name\">No file chosen</p>\n    </div>\n    <p id=\"errorMessage\" class=\"error-message\" style=\"display: none;margin-top:0;color:red\">Please upload your file(s).</p>\n</div>\n<script>\ndocument.getElementById('file-sample-product-image:').addEventListener('change', function(event) {\n      const files = event.target.files;\n      let fileName;\n      if (files.length === 0) {fileName = 'No file chosen';} \n      else if (files.length === 1) {fileName = files[0].name;document.getElementById('errorMessage').style.display = 'none'; } \n      else {fileName = files.length + ' files';document.getElementById('errorMessage').style.display = 'none';}\n      document.getElementById('fileName-sample-product-image:').textContent = fileName;\n  });\n  document.getElementById('button-sample-product-image:').addEventListener('click', function() {\n    document.getElementById('file-sample-product-image:').click();\n  });\n</script>"
+          }
         },
         "description": {
           "type": "description",
@@ -106,10 +233,11 @@
       "block_order": [
         "vendor",
         "title",
-        "judge_me_reviews_preview_badge_jJVLDz",
         "price",
+        "judge_me_reviews_preview_badge_jJVLDz",
         "variant_picker",
         "quantity_selector",
+        "custom_liquid_jEqjB9",
         "description",
         "share",
         "custom_liquid_BiBzGA",
@@ -133,8 +261,26 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
       }
     },
     "celebrity_testimonials_ACrP8a": {
@@ -192,24 +338,6 @@
         "padding_bottom": 80
       }
     },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
-    },
     "17579370404c7db798": {
       "type": "apps",
       "blocks": {
@@ -221,12 +349,16 @@
       "block_order": [
         "judge_me_reviews_preview_badge_qfXpi4"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
     }
   },
   "order": [
+    "jd_hero_carousel_HxL3VL",
+    "rich_text_LywACY",
+    "custom_product_hero_yFf39C",
     "main",
     "related-products",
     "celebrity_testimonials_ACrP8a",

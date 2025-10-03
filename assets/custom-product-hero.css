@@ -1,7 +1,9 @@
 /* Custom Product Hero Section Styles */
 
 .custom-product-hero {
-  background: linear-gradient(180deg, #ff6b35 0%, #000000 100%);
+  background: linear-gradient(106.46deg, #FFFFFF -7.59%, #FF6200 -7.58%, rgba(0, 0, 0, 0.99) 73.59%),
+  linear-gradient(108.2deg, rgba(0, 0, 0, 0) -29.77%, rgba(0, 0, 0, 0.41) 170.9%);
+  
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -58,14 +60,12 @@
 .custom-product-hero__cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  gap: 1rem;
   color: #ffffff;
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
@@ -73,14 +73,16 @@
 }
 
 .custom-product-hero__cta:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  text-decoration: underline;
   transform: translateY(-2px);
   color: #ffffff;
 }
 
 .custom-product-hero__cta-arrow {
   transition: transform 0.3s ease;
+  border: 1px solid #ffffff;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 50%;
 }
 
 .custom-product-hero__cta:hover .custom-product-hero__cta-arrow {
