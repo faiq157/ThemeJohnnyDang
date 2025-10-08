@@ -2622,6 +2622,16 @@ input[type='checkbox'] {
   .header__search {
     display: none !important;
   }
+
+  /* Make logo smaller on mobile */
+  .header__heading-logo {
+    max-width: 90px !important;
+    height: auto !important;
+  }
+
+  .header__heading-logo-wrapper {
+    max-width: 90px !important;
+  }
 }
 
 /* Mobile search bar in drawer menu */
@@ -2648,7 +2658,7 @@ input[type='checkbox'] {
 
 .menu-drawer__search-input {
   width: 100%;
-  padding: 1.2rem 1.5rem 1.2rem 4.5rem;
+  padding: 1.2rem 1.5rem 1.2rem 5rem;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   color: #333333;
