@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "other_hero_iEVtAW": {
+      "type": "other-hero",
+      "name": "Other Hero",
+      "settings": {
+        "subtitle": "the collection trusted by icons",
+        "title": "Flash Deals",
+        "description": "",
+        "show_cta": false,
+        "cta_text": "Explore Now",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "gradient_color_1": "#ffffff",
+        "gradient_color_2": "#b041a7",
+        "gradient_color_3": "#000000",
+        "gradient_overlay_1": "#000000",
+        "gradient_overlay_2": "#003264",
+        "subtitle_color": "#ffffff",
+        "title_color": "#ffffff",
+        "description_color": "#e0f0ff",
+        "cta_text_color": "#a2d2ff",
+        "cta_border_color": "#a2d2ff",
+        "cta_hover_bg_color": "#a2d2ff",
+        "cta_hover_text_color": "#1a1a2e",
+        "cta_hover_shadow_color": "#a2d2ff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "page_hero_FT67UY": {
+      "type": "page-hero",
+      "disabled": true,
+      "name": "Page Hero",
+      "settings": {
+        "subtitle": "the collection trusted by icons",
+        "title": "Shop All Collections",
+        "description": "<p>Discover our story and the passion behind Johnny Dang & Co.</p>",
+        "show_cta": false,
+        "cta_text": "Learn More",
+        "cta_link": "",
+        "show_image": false,
+        "hero_image_width": 600,
+        "hero_image_height": 400,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "bubbles": {
+      "type": "collection-bubbles",
+      "blocks": {
+        "category_3jdyef": {
+          "type": "category",
+          "settings": {
+            "collection": "all-collection",
+            "title": ""
+          }
+        },
+        "category_Mr8RPB": {
+          "type": "category",
+          "settings": {
+            "collection": "flower-pendants",
+            "title": ""
+          }
+        },
+        "category_fFwT8d": {
+          "type": "category",
+          "settings": {
+            "collection": "custom-design",
+            "title": ""
+          }
+        },
+        "category_rgxqyx": {
+          "type": "category",
+          "settings": {
+            "collection": "flash-deals",
+            "title": ""
+          }
+        },
+        "category_cx9VjU": {
+          "type": "category",
+          "settings": {
+            "collection": "10k-fashion-rings",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_3jdyef",
+        "category_Mr8RPB",
+        "category_fFwT8d",
+        "category_rgxqyx",
+        "category_cx9VjU"
+      ],
+      "settings": {
+        "heading": "Shop by category"
+      }
+    },
+    "main-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 20,
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main-banner",
+    "other_hero_iEVtAW",
+    "page_hero_FT67UY",
+    "bubbles",
+    "main-grid"
+  ]
+}

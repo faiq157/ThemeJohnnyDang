@@ -62,9 +62,9 @@
         "heading_intro": {
           "type": "heading",
           "settings": {
-            "heading": "Terms of Services and Conditions of Use",
-            "heading_size": "h1",
-            "heading_color": "#ff6200"
+            "heading": "TERMS OF SERVICES & CONDITIONS OF USE",
+            "heading_size": "h2",
+            "heading_color": "#fd6506"
           }
         },
         "text_intro": {

@@ -457,6 +457,9 @@ table:not([class]) {
   font-size: 1.4rem;
   border-style: hidden;
   box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   /* draws the table border  */
 }
 
@@ -464,6 +467,9 @@ table:not([class]) td,
 table:not([class]) th {
   padding: 1em;
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 0;
 }
 
 @media screen and (max-width: 749px) {
@@ -3765,4 +3771,44 @@ details-disclosure > details {
     transform: rotate(-90deg);
     width: calc(16.8% - .8rem); /* decrease percentage and it will increase items */
   }
+}
+
+/* Service dropdown styling - black background with white text */
+#service.select__select,
+select[name="properties[Service]"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+#service.select__select option,
+select[name="properties[Service]"] option {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  padding: 10px;
+}
+
+#service.select__select option:hover,
+select[name="properties[Service]"] option:hover {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+/* Employee dropdown styling - black background with white text */
+#employee.select__select,
+select[name="properties[Employee]"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+#employee.select__select option,
+select[name="properties[Employee]"] option {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  padding: 10px;
+}
+
+#employee.select__select option:hover,
+select[name="properties[Employee]"] option:hover {
+  background-color: #333333 !important;
+  color: #ffffff !important;
 }

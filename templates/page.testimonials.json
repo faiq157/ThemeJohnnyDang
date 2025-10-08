@@ -73,8 +73,8 @@
           "settings": {
             "video": "shopify://files/videos/testo3.mp4",
             "video_url": "",
-            "customer_name": "Customer",
-            "customer_role": "MUSICIAN",
+            "customer_name": "DRAKE GRAHAM",
+            "customer_role": "RAPPER & SINGER",
             "caption": ""
           }
         },
@@ -83,8 +83,8 @@
           "settings": {
             "video": "shopify://files/videos/testo4.mp4",
             "video_url": "",
-            "customer_name": "Customer",
-            "customer_role": "MUSICIAN",
+            "customer_name": "PAUL WALL",
+            "customer_role": "RAPPER & DJ",
             "caption": ""
           }
         },
@@ -93,7 +93,7 @@
           "settings": {
             "video": "shopify://files/videos/testo1.mp4",
             "video_url": "",
-            "customer_name": "Customer",
+            "customer_name": "DJ KHALED",
             "customer_role": "MUSICIAN",
             "caption": ""
           }
@@ -103,28 +103,28 @@
           "settings": {
             "video": "shopify://files/videos/testo2.mp4",
             "video_url": "",
-            "customer_name": "Customer",
-            "customer_role": "MUSICIAN",
+            "customer_name": "RYAN KANE",
+            "customer_role": "PRIVATE INVESTOR, ACTOR",
             "caption": ""
           }
         },
         "gallery_item_7K38hQ": {
           "type": "gallery_item",
           "settings": {
-            "video": "shopify://files/videos/testo1.mp4",
+            "video": "shopify://files/videos/WhatsApp Video 2025-10-03 at 20.56.56_84d47282.mp4",
             "video_url": "",
-            "customer_name": "Customer",
-            "customer_role": "MUSICIAN",
+            "customer_name": "Client Spotlight",
+            "customer_role": "",
             "caption": ""
           }
         },
         "gallery_item_bERcFW": {
           "type": "gallery_item",
           "settings": {
-            "video": "shopify://files/videos/testo4.mp4",
+            "video": "shopify://files/videos/WhatsApp Video 2025-10-03 at 21.27.58_039c893e.mp4",
             "video_url": "",
-            "customer_name": "Customer",
-            "customer_role": "MUSICIAN",
+            "customer_name": "Client Spotlight",
+            "customer_role": "",
             "caption": ""
           }
         }

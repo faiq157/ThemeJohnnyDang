@@ -264,7 +264,7 @@
     "flash_deals": {
       "type": "flash-deals",
       "settings": {
-        "collection": "flash-deals",
+        "collection": "home-flash-deals",
         "products_to_show": 4,
         "show_badge": true,
         "badge_text": "FLASH DEALS",

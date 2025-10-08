@@ -174,26 +174,4 @@ function initDropdownBlurEffects() {
   
   console.log('Dropdown menu blur effects initialized');
   
-  // Add test buttons for debugging (remove in production)
-  if (window.location.hostname === 'localhost' || window.location.hostname.includes('myshopify.com')) {
-    // Header effect test button
-    const headerTestButton = document.createElement('button');
-    headerTestButton.textContent = 'Test Header';
-    headerTestButton.style.cssText = 'position: fixed; top: 10px; right: 10px; z-index: 10000; background: red; color: white; border: none; padding: 10px; cursor: pointer; margin-right: 120px;';
-    headerTestButton.onclick = function() {
-      headerElement.classList.toggle('header-scrolled');
-      console.log('Header scrolled class toggled:', headerElement.classList.contains('header-scrolled'));
-    };
-    document.body.appendChild(headerTestButton);
-    
-    // Dropdown effect test button
-    const dropdownTestButton = document.createElement('button');
-    dropdownTestButton.textContent = 'Test Dropdown';
-    dropdownTestButton.style.cssText = 'position: fixed; top: 10px; right: 10px; z-index: 10000; background: blue; color: white; border: none; padding: 10px; cursor: pointer;';
-    dropdownTestButton.onclick = function() {
-      initDropdownBlurEffects();
-      console.log('Dropdown blur effects reapplied');
-    };
-    document.body.appendChild(dropdownTestButton);
-  }
 }

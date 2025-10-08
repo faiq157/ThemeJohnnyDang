@@ -130,6 +130,11 @@
         "deposit_info": "The deposit will be applied to the final cost of the bracelet.",
         "product_price": "624.99",
         "continue_button_text": "Continue",
+        "show_previous_work": true,
+        "previous_work_title": "PREVIOUS CUSTOM BRACELETS:",
+        "gallery_image_1": "shopify://shop_images/White_Gold.png",
+        "gallery_image_2": "shopify://shop_images/White_Gold_1.png",
+        "gallery_image_3": "shopify://shop_images/White_Gold_2.png",
         "terms_conditions": "You must pay a $500 deposit to inquire about a custom bracelet. You will be provided with consultation, a quote and 3D rendering for your custom design piece. The deposit is Non-Refundable if we have started production on the custom piece. Custom Pieces are Final Sale.",
         "padding_top": 40,
         "padding_bottom": 40

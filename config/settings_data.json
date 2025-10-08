@@ -142,13 +142,18 @@
     },
     "content_for_index": [],
     "blocks": {
-      "3787308784794087151": {
-        "type": "shopify://apps/tipo-appointment/blocks/app-embed/efe4d483-fa62-4509-a0a7-3f363fbc9920",
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
       },
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+      "3787308784794087151": {
+        "type": "shopify://apps/tipo-appointment/blocks/app-embed/efe4d483-fa62-4509-a0a7-3f363fbc9920",
+        "disabled": true,
+        "settings": {}
+      },
+      "7916451724185839711": {
+        "type": "shopify://apps/avis-product-options/blocks/avisplus-product-options/e076618e-4c9c-447f-ad6d-4f1577799c29",
         "disabled": false,
         "settings": {}
       }

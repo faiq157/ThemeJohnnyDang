@@ -115,6 +115,7 @@
 /* Product Page Wishlist Button */
 .product__wishlist {
   margin-top: 1.5rem;
+  width: 100%;
 }
 
 .product__wishlist .wishlist-button {
@@ -123,6 +124,35 @@
   padding: 1.2rem 2rem;
   font-size: 1.6rem;
   border-radius: 6px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  background: transparent !important;
+  border: 1px solid #FF6200 !important;
+  color: #FF6200 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.product__wishlist .wishlist-button:hover {
+  background: rgba(255, 98, 0, 0.1) !important;
+  border-color: #FF6200 !important;
+  transform: translateY(-1px) !important;
+}
+
+.product__wishlist .wishlist-button.wishlist-active {
+  background: #FF6200 !important;
+  border-color: #FF6200 !important;
+  color: #fff !important;
+}
+
+.product__wishlist .wishlist-button.wishlist-active:hover {
+  background: #FF6200 !important;
+  border-color: #FF6200 !important;
 }
 
 /* Wishlist Notification */

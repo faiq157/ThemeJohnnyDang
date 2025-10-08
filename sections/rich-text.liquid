@@ -26,9 +26,9 @@
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
-                  style="--animation-order: {{ forloop.index }}; color: {{ block.settings.heading_color }};"
+                  style="--animation-order: {{ forloop.index }}; color: {{ block.settings.heading_color }} !important;"
                 {% else %}
-                  style="color: {{ block.settings.heading_color }};"
+                  style="color: {{ block.settings.heading_color }} !important;"
                 {% endif %}
               >
                 {{ block.settings.heading }}

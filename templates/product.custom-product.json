@@ -171,6 +171,7 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {}
         },
         "share": {
@@ -200,20 +201,28 @@
         "custom_liquid_X8k3pR": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Service</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"service\" name=\"properties[Service]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">Option1</option>\n        <option value=\"Option2\">Option2</option>\n        <option value=\"Option3\">Option3</option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
+            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Service</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"service\" name=\"properties[Service]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">Custom Ring Deposit and Design </option>\n        <option value=\"Option2\">Custom Grillz Deposit and Design </option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
           }
         },
         "custom_liquid_Tqr6JL": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Employee</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"employee\" name=\"properties[Employee]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">Option1</option>\n        <option value=\"Option2\">Option2</option>\n        <option value=\"Option3\">Option3</option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
+            "custom_liquid": "<div class=\"product-form__input product-form__input--dropdown\">\n<label class=\"form__label\">Employee</label>\n<div class=\"select\">\n<select class=\"select__select\" id=\"employee\" name=\"properties[Employee]\" form=\"{{ 'product-form-' | append: section.id }}\">\n    <option value=\"\" hidden selected>Please select</option>\n        <option value=\"Option1\">IN STORE APPOINTMENT WITH TONY</option>\n        <option value=\"Option2\">Virtual / Phone Call Appointment</option>\n</select>\n<span class=\"svg-wrapper\"><svg class=\"icon icon-caret\" viewBox=\"0 0 10 6\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708\" clip-rule=\"evenodd\"></path></svg>\n</span>\n</div></div>"
           }
         },
         "buy_buttons": {
           "type": "buy_buttons",
+          "disabled": true,
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
+          }
+        },
+        "text_KjKxTX": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
           }
         },
         "custom_liquid_r7kVD9": {
@@ -246,6 +255,7 @@
         "custom_liquid_X8k3pR",
         "custom_liquid_Tqr6JL",
         "buy_buttons",
+        "text_KjKxTX",
         "custom_liquid_r7kVD9",
         "custom_liquid_Fgb7b7"
       ],
