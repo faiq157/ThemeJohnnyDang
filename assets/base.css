@@ -2617,6 +2617,115 @@ input[type='checkbox'] {
   .header--mobile-left {
     grid-template-columns: auto 2fr 1fr;
   }
+
+  /* Hide search icon on mobile */
+  .header__search {
+    display: none !important;
+  }
+}
+
+/* Mobile search bar in drawer menu */
+.menu-drawer__search-section {
+  padding: 1.5rem 2rem 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000000;
+}
+
+.menu-drawer__search-container {
+  width: 100%;
+}
+
+.menu-drawer__search-form {
+  width: 100%;
+}
+
+.menu-drawer__search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-drawer__search-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem 1.2rem 4.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  color: #333333;
+  font-size: 1.4rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.menu-drawer__search-input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+}
+
+.menu-drawer__search-input::placeholder {
+  color: #999999;
+  font-size: 1.4rem;
+}
+
+.menu-drawer__search-button {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999999;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.menu-drawer__search-button:hover {
+  color: #ff6b35;
+}
+
+.menu-drawer__search-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hide mobile search on desktop */
+@media screen and (min-width: 990px) {
+  .menu-drawer__search-section {
+    display: none;
+  }
+}
+
+/* Search results page styling */
+.template-search__header {
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.template-search__search {
+  margin-top: 1.5rem;
+}
+
+.template-search__search .search {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Mobile search results spacing */
+@media screen and (max-width: 989px) {
+  .template-search__header {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+  
+  .template-search__search {
+    margin-top: 1rem;
+  }
 }
 
 @media screen and (min-width: 990px) {
@@ -2640,6 +2749,11 @@ input[type='checkbox'] {
   .header--top-center .header__heading {
     justify-self: center;
     text-align: center;
+  }
+
+  /* Show search icon on desktop */
+  .header__search {
+    display: inline-flex !important;
   }
 }
 
