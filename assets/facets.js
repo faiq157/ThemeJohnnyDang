@@ -459,9 +459,9 @@ class CollectionFilter extends HTMLElement {
 function handleCollectionFilter(selectedRadio) {
   const collectionUrl = selectedRadio.getAttribute('data-collection-url');
   
-  // If "All Collections" is selected, redirect to main collections page
+  // If "All Collections" is selected, redirect to all products page
   if (selectedRadio.value === '') {
-    window.location.href = '/collections';
+    window.location.href = '/collections/all';
   } else if (collectionUrl) {
     // If a specific collection is selected, redirect to that collection
     window.location.href = collectionUrl;

@@ -366,7 +366,7 @@
                           value=""
                           id="collection-filter-all"
                           class="collection-filter-radio"
-                          {% unless results.handle %}checked{% endunless %}
+                          {% if results.handle == 'all' or results.handle == blank %}checked{% endif %}
                           onchange="handleCollectionFilter(this)"
                         >
                         <label for="collection-filter-all" class="facets__label facet-checkbox">
@@ -821,7 +821,7 @@
                           value=""
                           id="collection-filter-mobile-all"
                           class="mobile-facets__checkbox collection-filter-radio"
-                          {% unless results.handle %}checked{% endunless %}
+                          {% if results.handle == 'all' or results.handle == blank %}checked{% endif %}
                           onchange="handleCollectionFilter(this)"
                         >
                         <label for="collection-filter-mobile-all" class="facets__label mobile-facets__label">

@@ -57,7 +57,7 @@
                    value=""
                    class="collection-filter-radio"
                    id="collection-all"
-                   {% unless collection.handle %}checked{% endunless %}
+                   {% if collection.handle == 'all' or collection.handle == blank %}checked{% endif %}
                    onchange="handleCollectionFilter(this)">
             <label for="collection-all">All Collections</label>
           </li>
@@ -92,9 +92,9 @@
 function handleCollectionFilter(selectedRadio) {
   const collectionUrl = selectedRadio.getAttribute('data-collection-url');
   
-  // If "All Collections" is selected, redirect to main collections page
+  // If "All Collections" is selected, redirect to all products page
   if (selectedRadio.value === '') {
-    window.location.href = '/collections';
+    window.location.href = '/collections/all';
   } else if (collectionUrl) {
     // If a specific collection is selected, redirect to that collection
     window.location.href = collectionUrl;
