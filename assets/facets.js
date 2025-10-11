@@ -363,3 +363,114 @@ class FacetRemove extends HTMLElement {
 }
 
 customElements.define('facet-remove', FacetRemove);
+
+// Collection Filter Functionality
+class CollectionFilter extends HTMLElement {
+  constructor() {
+    super();
+    this.init();
+  }
+
+  init() {
+    const collectionCheckboxes = document.querySelectorAll('.collection-filter-checkbox');
+    collectionCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', this.handleCollectionChange.bind(this));
+    });
+    
+    // Handle mobile collection filter
+    const mobileCollectionCheckboxes = document.querySelectorAll('input[name="collection_filter_mobile"]');
+    mobileCollectionCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', this.handleMobileCollectionChange.bind(this));
+    });
+  }
+
+  handleCollectionChange(event) {
+    const clickedCheckbox = event.target;
+    const collectionUrl = clickedCheckbox.getAttribute('data-collection-url');
+    const allCheckboxes = document.querySelectorAll('.collection-filter-checkbox');
+    
+    // If "All Collections" is clicked, uncheck all others
+    if (clickedCheckbox.value === '') {
+      allCheckboxes.forEach(cb => {
+        if (cb !== clickedCheckbox) {
+          cb.checked = false;
+        }
+      });
+      // Redirect to main collections page
+      window.location.href = '/collections';
+    } else {
+      // If a specific collection is clicked, uncheck "All Collections"
+      const allCollectionsCheckbox = document.querySelector('.collection-filter-checkbox[value=""]');
+      if (allCollectionsCheckbox) {
+        allCollectionsCheckbox.checked = false;
+      }
+      
+      // Uncheck all other collection checkboxes
+      allCheckboxes.forEach(cb => {
+        if (cb !== clickedCheckbox && cb.value !== '') {
+          cb.checked = false;
+        }
+      });
+      
+      // Redirect to the selected collection
+      if (collectionUrl) {
+        window.location.href = collectionUrl;
+      }
+    }
+  }
+
+  handleMobileCollectionChange(event) {
+    const clickedCheckbox = event.target;
+    const collectionUrl = clickedCheckbox.getAttribute('data-collection-url');
+    const allMobileCheckboxes = document.querySelectorAll('input[name="collection_filter_mobile"]');
+    
+    // If "All Collections" is clicked, uncheck all others
+    if (clickedCheckbox.value === '') {
+      allMobileCheckboxes.forEach(cb => {
+        if (cb !== clickedCheckbox) {
+          cb.checked = false;
+        }
+      });
+      // Redirect to main collections page
+      window.location.href = '/collections';
+    } else {
+      // If a specific collection is clicked, uncheck "All Collections"
+      const allCollectionsCheckbox = document.querySelector('input[name="collection_filter_mobile"][value=""]');
+      if (allCollectionsCheckbox) {
+        allCollectionsCheckbox.checked = false;
+      }
+      
+      // Uncheck all other collection checkboxes
+      allMobileCheckboxes.forEach(cb => {
+        if (cb !== clickedCheckbox && cb.value !== '') {
+          cb.checked = false;
+        }
+      });
+      
+      // Redirect to the selected collection
+      if (collectionUrl) {
+        window.location.href = collectionUrl;
+      }
+    }
+  }
+}
+
+// Global function for collection filter navigation
+function handleCollectionFilter(selectedRadio) {
+  const collectionUrl = selectedRadio.getAttribute('data-collection-url');
+  
+  // If "All Collections" is selected, redirect to main collections page
+  if (selectedRadio.value === '') {
+    window.location.href = '/collections';
+  } else if (collectionUrl) {
+    // If a specific collection is selected, redirect to that collection
+    window.location.href = collectionUrl;
+  }
+}
+
+// Initialize collection filter when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.querySelector('.collection-filter-radio')) {
+    new CollectionFilter();
+  }
+});

@@ -332,6 +332,79 @@
                   </details>
               {% endcase %}
             {%- endfor -%}
+            
+            {% comment %} Custom Collection Filter {% endcomment %}
+            {%- if filter_type == 'vertical' -%}
+              <details
+                id="Details-collection-filter-{{ section.id }}"
+                class="facets__disclosure-vertical js-filter"
+                data-index="collection-filter"
+                open
+              >
+                <summary
+                  class="facets__summary caption-large focus-offset"
+                  aria-label="Filter by Collection"
+                >
+                  <div>
+                    <span class="facets__summary-label">
+                      Collection
+                    </span>
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </div>
+                </summary>
+                <div
+                  id="Facet-collection-filter-{{ section.id }}"
+                  class="facets__display-vertical"
+                >
+                  <fieldset class="facets-wrap facets-wrap-vertical">
+                    <legend class="visually-hidden">Filter by Collection</legend>
+                    <ul class="facets-layout facets-layout-list facets-layout-list--text facets__list--vertical list-unstyled" role="list">
+                      <li class="list-menu__item facets__item">
+                        <input
+                          type="radio"
+                          name="collection_filter"
+                          value=""
+                          id="collection-filter-all"
+                          class="collection-filter-radio"
+                          {% unless results.handle %}checked{% endunless %}
+                          onchange="handleCollectionFilter(this)"
+                        >
+                        <label for="collection-filter-all" class="facets__label facet-checkbox">
+                          <span class="facet-checkbox__text" aria-hidden="true">
+                            <span class="facet-checkbox__text-label">All Collections</span>
+                          </span>
+                        </label>
+                      </li>
+                      {%- liquid
+                        assign all_collections = collections
+                        assign sorted_collections = all_collections | sort: 'title'
+                      -%}
+                      {%- for collection_item in sorted_collections -%}
+                        {%- if collection_item.all_products_count > 0 -%}
+                          <li class="list-menu__item facets__item">
+                            <input
+                              type="radio"
+                              name="collection_filter"
+                              value="{{ collection_item.handle }}"
+                              id="collection-filter-{{ collection_item.handle }}"
+                              class="collection-filter-radio"
+                              data-collection-url="{{ collection_item.url }}"
+                              {% if results.handle == collection_item.handle %}checked{% endif %}
+                              onchange="handleCollectionFilter(this)"
+                            >
+                            <label for="collection-filter-{{ collection_item.handle }}" class="facets__label facet-checkbox">
+                              <span class="facet-checkbox__text" aria-hidden="true">
+                                <span class="facet-checkbox__text-label">{{ collection_item.title | escape }}</span> ({{ collection_item.all_products_count }})
+                              </span>
+                            </label>
+                          </li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
+                  </fieldset>
+                </div>
+              </details>
+            {%- endif -%}
           </div>
           {% comment %} Pills after filtes on filter type horizontal {% endcomment %}
           {%- if filter_type == 'horizontal' -%}
@@ -713,6 +786,87 @@
                       </details>
                   {% endcase %}
                 {%- endfor -%}
+                
+                {% comment %} Mobile Collection Filter {% endcomment %}
+                <details
+                  id="Details-Mobile-collection-filter-{{ section.id }}"
+                  class="mobile-facets__details js-filter"
+                  data-index="mobile-collection-filter"
+                >
+                  <summary class="mobile-facets__summary focus-inset">
+                    <div>
+                      <span>Collection</span>
+                      <span class="mobile-facets__arrow">
+                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      </span>
+                    </div>
+                  </summary>
+                  <div
+                    id="FacetMobile-collection-filter-{{ section.id }}"
+                    class="mobile-facets__submenu gradient"
+                  >
+                    <button
+                      class="mobile-facets__close-button link link--text focus-inset"
+                      aria-expanded="true"
+                      type="button"
+                    >
+                      {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      <span>Collection</span>
+                    </button>
+                    <ul class="facets-layout facets-layout-list facets-layout-list--text mobile-facets__list list-unstyled" role="list">
+                      <li class="mobile-facets__item list-menu__item">
+                        <input
+                          type="radio"
+                          name="collection_filter_mobile"
+                          value=""
+                          id="collection-filter-mobile-all"
+                          class="mobile-facets__checkbox collection-filter-radio"
+                          {% unless results.handle %}checked{% endunless %}
+                          onchange="handleCollectionFilter(this)"
+                        >
+                        <label for="collection-filter-mobile-all" class="facets__label mobile-facets__label">
+                          <span class="facet-checkbox__text" aria-hidden="true">
+                            <span class="facet-checkbox__text-label">All Collections</span>
+                          </span>
+                        </label>
+                      </li>
+                      {%- liquid
+                        assign all_collections = collections
+                        assign sorted_collections = all_collections | sort: 'title'
+                      -%}
+                      {%- for collection_item in sorted_collections -%}
+                        {%- if collection_item.all_products_count > 0 -%}
+                          <li class="mobile-facets__item list-menu__item">
+                            <input
+                              type="radio"
+                              name="collection_filter_mobile"
+                              value="{{ collection_item.handle }}"
+                              id="collection-filter-mobile-{{ collection_item.handle }}"
+                              class="mobile-facets__checkbox collection-filter-radio"
+                              data-collection-url="{{ collection_item.url }}"
+                              {% if results.handle == collection_item.handle %}checked{% endif %}
+                              onchange="handleCollectionFilter(this)"
+                            >
+                            <label for="collection-filter-mobile-{{ collection_item.handle }}" class="facets__label mobile-facets__label">
+                              <span class="facet-checkbox__text" aria-hidden="true">
+                                <span class="facet-checkbox__text-label">{{ collection_item.title | escape }}</span> ({{ collection_item.all_products_count }})
+                              </span>
+                            </label>
+                          </li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
+                    <div class="mobile-facets__footer gradient">
+                      <button
+                        type="button"
+                        class="button button--primary"
+                        onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
+                      >
+                        {{ 'products.facets.apply' | t }}
+                      </button>
+                    </div>
+                  </div>
+                </details>
               {%- endif -%}
 
               {%- if enable_sorting -%}
