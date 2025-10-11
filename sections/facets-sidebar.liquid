@@ -46,8 +46,58 @@
           {% endif %}
         </div>
       {% endfor %}
+      
+      <!-- Collection Filter -->
+      <div class="filter-group">
+        <h4 class="filter-title">Collection</h4>
+        <ul class="filter-options">
+          <li>
+            <input type="radio"
+                   name="collection_filter"
+                   value=""
+                   class="collection-filter-radio"
+                   id="collection-all"
+                   {% unless collection.handle %}checked{% endunless %}
+                   onchange="handleCollectionFilter(this)">
+            <label for="collection-all">All Collections</label>
+          </li>
+          {%- liquid
+            assign all_collections = collections
+            assign sorted_collections = all_collections | sort: 'title'
+          -%}
+          {%- for collection_item in sorted_collections -%}
+            {%- if collection_item.all_products_count > 0 -%}
+              <li>
+                <input type="radio"
+                       name="collection_filter"
+                       value="{{ collection_item.handle }}"
+                       class="collection-filter-radio"
+                       id="collection-{{ collection_item.handle }}"
+                       data-collection-url="{{ collection_item.url }}"
+                       {% if collection.handle == collection_item.handle %}checked{% endif %}
+                       onchange="handleCollectionFilter(this)">
+                <label for="collection-{{ collection_item.handle }}">{{ collection_item.title }} ({{ collection_item.all_products_count }})</label>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
     </form>
   {% else %}
     <p>No filters available</p>
   {% endif %}
 </aside>
+
+<script>
+function handleCollectionFilter(selectedRadio) {
+  const collectionUrl = selectedRadio.getAttribute('data-collection-url');
+  
+  // If "All Collections" is selected, redirect to main collections page
+  if (selectedRadio.value === '') {
+    window.location.href = '/collections';
+  } else if (collectionUrl) {
+    // If a specific collection is selected, redirect to that collection
+    window.location.href = collectionUrl;
+  }
+}
+</script>

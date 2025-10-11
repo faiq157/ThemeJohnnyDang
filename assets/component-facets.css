@@ -1349,3 +1349,123 @@ input.mobile-facets__checkbox {
     padding: 0 1rem 1rem;
   }
 }
+
+/* Collection Filter Styles - Custom Radio Buttons */
+.collection-filter-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.collection-filter-radio + label {
+  position: relative;
+  padding-left: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.9);
+  transition: all 0.2s ease;
+}
+
+.collection-filter-radio + label:hover {
+  color: rgba(var(--color-foreground), 1);
+}
+
+/* Custom radio button circle */
+.collection-filter-radio + label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  border: 2px solid rgba(var(--color-foreground), 0.4);
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+/* Custom radio button dot (when selected) */
+.collection-filter-radio + label::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.collection-filter-radio + label:hover::before {
+  border-color: rgba(var(--color-foreground), 0.7);
+}
+
+/* Selected state */
+.collection-filter-radio:checked + label::before {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.collection-filter-radio:checked + label::after {
+  opacity: 1;
+}
+
+.collection-filter-radio:checked + label {
+  color: rgba(var(--color-foreground), 1);
+  font-weight: 600;
+}
+
+/* Focus state for accessibility */
+.collection-filter-radio:focus + label::before {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Remove default radio button styling */
+.collection-filter-radio {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+/* Ensure collection filter dropdown is properly styled */
+#Details-collection-filter .facets__summary {
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+  margin-bottom: 0;
+}
+
+#Details-collection-filter .facets__display-vertical {
+  padding: 1.5rem 0;
+}
+
+#Details-collection-filter .facets__list--vertical {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#Details-collection-filter .facets__list--vertical::-webkit-scrollbar {
+  width: 4px;
+}
+
+#Details-collection-filter .facets__list--vertical::-webkit-scrollbar-track {
+  background: rgba(var(--color-foreground), 0.1);
+  border-radius: 2px;
+}
+
+#Details-collection-filter .facets__list--vertical::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-foreground), 0.3);
+  border-radius: 2px;
+}
+
+#Details-collection-filter .facets__list--vertical::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--color-foreground), 0.5);
+}
