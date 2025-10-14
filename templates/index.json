@@ -149,7 +149,7 @@
             "card_image": "shopify://shop_images/braclet.png",
             "card_subtitle": "CUSTOM BLING, CUSTOM FLEX",
             "card_title": "Create Your Own Custom Ice\nPieces",
-            "card_link": "shopify://products/10k-0-97-1-12ct-d-bracelet-2"
+            "card_link": "shopify://collections/custom-products"
           }
         },
         "celebrity_card_8Lq8Fn": {
@@ -181,7 +181,7 @@
           "type": "collection",
           "settings": {
             "title": "CHAINS & BRACELETS",
-            "collection": "all-collection",
+            "collection": "chains-bracelets",
             "custom_image": "shopify://shop_images/8fcc8702fe37110ca182273a0c9560899fcfe5eb_313bda57-d3cd-48e4-841d-cae4e3b42c9b.png",
             "link": "",
             "show_bestseller_tag": true,
@@ -192,9 +192,9 @@
           "type": "collection",
           "settings": {
             "title": "PENDANTS",
-            "collection": "best-sellers",
+            "collection": "",
             "custom_image": "shopify://shop_images/e0545e1d3264087bc8f86b26b9f429155f98cc22_627ed601-12c4-45be-b75a-d96825bc9ed0.png",
-            "link": "",
+            "link": "shopify://collections/all-collection",
             "show_bestseller_tag": false,
             "bestseller_text": "BESTSELLER"
           }
@@ -203,7 +203,7 @@
           "type": "collection",
           "settings": {
             "title": "EARRINGS",
-            "collection": "",
+            "collection": "10k-fashion-rings",
             "custom_image": "shopify://shop_images/b528f0d092a8df4dff78558c83751b2a17c5e6f3_bdd15f44-8a4f-4d2e-bc0f-9f78e9c1d0fd.png",
             "link": "",
             "show_bestseller_tag": true,
@@ -216,7 +216,7 @@
             "title": "DIAMOND SUNGLASSES",
             "collection": "",
             "custom_image": "shopify://shop_images/glasses.png",
-            "link": "",
+            "link": "shopify://collections/all-collection",
             "show_bestseller_tag": false,
             "bestseller_text": "BESTSELLER"
           }
@@ -227,7 +227,7 @@
             "title": "ENGAGEMENT AND BRIDALS",
             "collection": "",
             "custom_image": "shopify://shop_images/54dd94f87c4a6d1f5e16aebdb098ccf4f4f81cec.png",
-            "link": "",
+            "link": "shopify://collections/flash-deals",
             "show_bestseller_tag": true,
             "bestseller_text": "BESTSELLER"
           }
@@ -238,7 +238,7 @@
             "title": "LACQUERED ROSES WITH GOLD/PLATINUM TRIM",
             "collection": "",
             "custom_image": "shopify://shop_images/31aa7786af2b3f4ae02cb1ba3ebb36b6577e6ba7.png",
-            "link": "",
+            "link": "shopify://collections/all-collection",
             "show_bestseller_tag": false,
             "bestseller_text": "BESTSELLER"
           }

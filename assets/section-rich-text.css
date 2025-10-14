@@ -140,8 +140,7 @@ line-height: 23.4px;
 letter-spacing: 0.6px;
 text-align: center;
 vertical-align: middle;
-color: white;
-
+color: white !important;
 }
 
 .rich-text__text ol {
@@ -173,6 +172,5 @@ font-size: 14.5px;
 line-height: 22.4px;
 letter-spacing: 0.3px;
 vertical-align: middle;
-color: white !important;
 
 }
