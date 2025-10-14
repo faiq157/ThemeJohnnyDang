@@ -1,4 +1,5 @@
 {{ 'jd-promotion-cards.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'jd-promotion-cards.js' | asset_url }}" defer="defer"></script>
 
 <!-- Promotion Cards Section -->
 <section class="jd-promotion-cards">
@@ -44,7 +45,12 @@
               </div>
             </div>
             {% if block.settings.card_link != blank %}
-              <a href="{{ block.settings.card_link }}" class="jd-promotion-card__link"></a>
+              {% assign link_url = block.settings.card_link %}
+              {% unless link_url contains 'http' or link_url contains 'www' or link_url contains '.com' or link_url contains '/' %}
+                {% assign link_url = link_url | downcase | replace: ' ', '-' | replace: '.', '' | replace: ',', '' | replace: '(', '' | replace: ')', '' %}
+                {% assign link_url = '/products/' | append: link_url %}
+              {% endunless %}
+              <a href="{{ link_url }}" class="jd-promotion-card__link" data-debug="true" data-original="{{ block.settings.card_link }}" onclick="console.log('Custom card clicked, navigating to:', this.href); return true;"></a>
             {% endif %}
           </div>
 
@@ -86,7 +92,11 @@
               </div>
             </div>
             {% if block.settings.celebrity_link != blank %}
-              <a href="{{ block.settings.celebrity_link }}" class="jd-promotion-card__link"></a>
+              {% assign link_url = block.settings.celebrity_link %}
+              {% unless link_url contains 'http' or link_url contains 'www' or link_url contains '.com' or link_url contains '/' %}
+                {% assign link_url = '/products/' | append: link_url | downcase | replace: ' ', '-' %}
+              {% endunless %}
+              <a href="{{ link_url }}" class="jd-promotion-card__link" data-debug="true"></a>
             {% endif %}
           </div>
       {% endcase %}
