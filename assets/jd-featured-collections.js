@@ -43,18 +43,51 @@ function initFeaturedCollectionsEffects() {
       }
     });
     
-    // Add click effect
+    // Add click effect - but don't interfere with links
     card.addEventListener('click', function(e) {
-      if (this.querySelector('.jd-featured-collections__card-link')) {
-        return; // Let the link handle the click
+      console.log('Featured collections card clicked');
+      const link = this.querySelector('.jd-featured-collections__card-link');
+      if (link) {
+        console.log('Featured collections link found, href:', link.href);
+        
+        // If the link is empty or invalid, prevent navigation
+        if (!link.href || link.href === '#' || link.href.includes('undefined') || link.href === '') {
+          e.preventDefault();
+          console.log('Invalid featured collections link, preventing navigation');
+          return false;
+        }
+        
+        // Prevent default to handle navigation ourselves
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Force navigation
+        console.log('Navigating to featured collection:', link.href);
+        window.location.href = link.href;
+        return false;
       }
       
-      // Create ripple effect
+      console.log('No link found on featured collections card');
+      // Create ripple effect only if no link exists
       createRippleEffect(e, this);
     });
   });
   
   console.log('Featured Collections effects initialized');
+  
+  // Test function to verify cards are working
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.jd-featured-collections__card');
+    cards.forEach((card, index) => {
+      const link = card.querySelector('.jd-featured-collections__card-link');
+      if (link) {
+        const linkType = link.dataset.linkType || 'unknown';
+        console.log(`Card ${index + 1}: Link found (${linkType}): ${link.href}`);
+      } else {
+        console.log(`Card ${index + 1}: No link found`);
+      }
+    });
+  }, 1000);
 }
 
 function createCursorLightEffect(card) {

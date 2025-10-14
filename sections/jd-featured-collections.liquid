@@ -26,7 +26,7 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'collection' %}
-              <div class="jd-featured-collections__card" {{ block.shopify_attributes }}>
+              <div class="jd-featured-collections__card" {{ block.shopify_attributes }} onclick="if(this.querySelector('.jd-featured-collections__card-link')) { window.location.href = this.querySelector('.jd-featured-collections__card-link').href; }">
                 {% if block.settings.show_bestseller_tag and block.settings.bestseller_text != blank %}
                   <div  class="jd-featured-collections__tag">
                     {{ block.settings.bestseller_text }}
@@ -73,7 +73,16 @@
                 </div>
                 
                 {% if block.settings.collection != blank or block.settings.link != blank %}
-                  <a href="{% if block.settings.collection != blank %}{{ collections[block.settings.collection].url }}{% else %}{{ block.settings.link }}{% endif %}" class="jd-featured-collections__card-link"></a>
+                  {% assign card_url = '' %}
+                  {% if block.settings.collection != blank %}
+                    {% assign card_url = collections[block.settings.collection].url %}
+                  {% elsif block.settings.link != blank %}
+                    {% assign card_url = block.settings.link %}
+                    {% unless card_url contains 'http' or card_url contains 'www' or card_url contains '.com' or card_url contains '/' %}
+                      {% assign card_url = '/products/' | append: card_url | downcase | replace: ' ', '-' | replace: '.', '' | replace: ',', '' | replace: '(', '' | replace: ')', '' %}
+                    {% endunless %}
+                  {% endif %}
+                  <a href="{{ card_url }}" class="jd-featured-collections__card-link" data-debug="true" data-link-type="{% if block.settings.collection != blank %}collection{% else %}custom{% endif %}" onclick="console.log('Featured collections card clicked, navigating to:', this.href, 'Link type:', this.dataset.linkType); return true;"></a>
                 {% endif %}
               </div>
           {% endcase %}
@@ -164,7 +173,7 @@
           "type": "url",
           "id": "link",
           "label": "Custom Link",
-          "info": "Used if no collection is selected"
+          "info": "Used if no collection is selected. Can be a full URL (https://example.com), relative URL (/products/bracelet), or product handle (bracelet-name)"
         },
         {
           "type": "checkbox",

@@ -29,7 +29,7 @@
             "title": "Diamond\nElegance\nUnmatched",
             "description": "Experience the pinnacle of craftsmanship with our premium diamond collection.",
             "cta_text": "EXPLORE",
-            "cta_link": "shopify://collections/diamonds"
+            "cta_link": "shopify://collections/all"
           }
         },
         "slide_3": {
@@ -39,7 +39,7 @@
             "title": "Custom\nCreations\nAwaiting",
             "description": "Let us create something extraordinary just for you with our bespoke jewelry service.",
             "cta_text": "CUSTOMIZE",
-            "cta_link": "shopify://pages/custom"
+            "cta_link": "shopify://collections/all"
           }
         },
         "slide_4": {
@@ -49,7 +49,7 @@
             "title": "Signature\nPieces\nUnveiled",
             "description": "Discover our most exclusive and sought-after jewelry pieces designed for true connoisseurs.",
             "cta_text": "DISCOVER",
-            "cta_link": "shopify://collections/premium"
+            "cta_link": "shopify://collections/all"
           }
         },
         "slide_5": {
@@ -59,7 +59,7 @@
             "title": "Timeless\nElegance\nRedefined",
             "description": "Experience the heritage and craftsmanship that defines our legendary jewelry legacy.",
             "cta_text": "EXPLORE",
-            "cta_link": "shopify://collections/legacy"
+            "cta_link": "shopify://collections/all"
           }
         }
       },
@@ -149,7 +149,7 @@
             "card_image": "shopify://shop_images/braclet.png",
             "card_subtitle": "CUSTOM BLING, CUSTOM FLEX",
             "card_title": "Create Your Own Custom Ice\nPieces",
-            "card_link": ""
+            "card_link": "shopify://products/10k-0-97-1-12ct-d-bracelet-2"
           }
         },
         "celebrity_card_8Lq8Fn": {
@@ -192,7 +192,7 @@
           "type": "collection",
           "settings": {
             "title": "PENDANTS",
-            "collection": "",
+            "collection": "best-sellers",
             "custom_image": "shopify://shop_images/e0545e1d3264087bc8f86b26b9f429155f98cc22_627ed601-12c4-45be-b75a-d96825bc9ed0.png",
             "link": "",
             "show_bestseller_tag": false,
@@ -256,7 +256,7 @@
         "title": "Johnny Dang & Co. Featured Collections",
         "show_view_all": true,
         "view_all_text": "VIEW ALL COLLECTIONS",
-        "view_all_link": "/collections",
+        "view_all_link": "https://jhonnydang.myshopify.com/collections/all",
         "padding_top": 60,
         "padding_bottom": 60
       }
